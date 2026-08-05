@@ -1,0 +1,34 @@
+ARK II — REAL PROJECT IMAGES
+
+The website now uses live screenshot previews generated from the three
+deployed project URLs:
+
+1. https://surangagems.com
+2. https://bgs-frontend-production.up.railway.app
+3. https://nuvea-glow.netlify.app/
+
+Veylo has been completely removed because it has not been built.
+
+CURRENT PREVIEW METHOD
+The cards request 1200x900 live previews from Thum.io. This means the
+images represent the real deployed websites rather than invented mockups.
+
+RECOMMENDED BEFORE FINAL PUBLIC LAUNCH
+For the fastest and most reliable production experience, capture one
+1600x1200 screenshot of each live homepage and save them locally as:
+
+public/projects/suranga-gems-real.png
+public/projects/bgs-agristock-real.png
+public/projects/nuvea-glow-real.png
+
+Then change the three image values in src/data/projects.js to:
+
+/projects/suranga-gems-real.png
+/projects/bgs-agristock-real.png
+/projects/nuvea-glow-real.png
+
+Keep the liveUrl fields unchanged.
+
+The BGS website may display a public landing page or login screen in the
+screenshot. That is acceptable because it is the real deployed app.
+Do not expose private dashboard data or login credentials publicly.

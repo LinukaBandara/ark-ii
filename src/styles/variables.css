@@ -1,0 +1,19 @@
+:root {
+  --black: #090909;
+  --black-soft: #111111;
+  --ivory: #f1eee7;
+  --orange: #ff5a1f;
+  --grey: #929292;
+
+  --font-sans:
+    "Space Grotesk",
+    "Arial",
+    sans-serif;
+
+  --font-serif:
+    "Instrument Serif",
+    "Times New Roman",
+    serif;
+
+  --page-padding: clamp(1rem, 3vw, 3rem);
+}

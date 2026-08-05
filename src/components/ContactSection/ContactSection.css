@@ -1,0 +1,321 @@
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+  color: var(--ivory);
+  padding: 6rem var(--page-padding);
+}
+
+.contact-section__glow {
+  position: absolute;
+  top: -15rem;
+  right: -13rem;
+  height: 34rem;
+  width: 34rem;
+  border-radius: 50%;
+  background: rgba(255, 90, 31, 0.17);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.contact-section__heading {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1.35rem;
+}
+
+.contact-section__heading h2 {
+  max-width: 12ch;
+  font-size: clamp(3.25rem, 13.5vw, 7rem);
+  font-weight: 600;
+  letter-spacing: -0.075em;
+  line-height: 0.88;
+}
+
+.contact-section__heading h2 span {
+  display: block;
+  color: var(--orange);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.contact-section__heading > p {
+  max-width: 34rem;
+  color: rgba(241, 238, 231, 0.59);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.contact-section__layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 3.5rem;
+  margin-top: 4rem;
+}
+
+.contact-section__details {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.contact-section__availability {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: rgba(241, 238, 231, 0.62);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+.contact-section__availability span {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 18px rgba(255, 90, 31, 0.9);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.contact-section__direct {
+  display: grid;
+  border-top: 1px solid rgba(241, 238, 231, 0.14);
+}
+
+.contact-section__direct a {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid rgba(241, 238, 231, 0.14);
+  padding: 1.15rem 0;
+  color: rgba(241, 238, 231, 0.84);
+  font-size: 0.78rem;
+}
+
+.contact-section__direct a:hover {
+  color: var(--orange);
+}
+
+.contact-section__location {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact-section__location span {
+  color: rgba(241, 238, 231, 0.38);
+  font-size: 0.61rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-section__location p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 8vw, 3.3rem);
+  font-style: italic;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.project-form {
+  display: grid;
+  gap: 1.3rem;
+  border: 1px solid rgba(241, 238, 231, 0.14);
+  border-radius: 1.35rem;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 1.1rem;
+  backdrop-filter: blur(12px);
+}
+
+.project-form__row {
+  display: grid;
+  gap: 1.3rem;
+}
+
+.project-form label {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.project-form label > span {
+  color: rgba(241, 238, 231, 0.5);
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-form input,
+.project-form select,
+.project-form textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(241, 238, 231, 0.16);
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: var(--ivory);
+  padding: 0.35rem 0 0.85rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.project-form textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.project-form select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.project-form select option {
+  background: var(--black);
+  color: var(--ivory);
+}
+
+.project-form input::placeholder,
+.project-form textarea::placeholder {
+  color: rgba(241, 238, 231, 0.29);
+}
+
+.project-form input:focus,
+.project-form select:focus,
+.project-form textarea:focus {
+  border-bottom-color: var(--orange);
+}
+
+.project-form button {
+  display: inline-flex;
+  min-height: 3.65rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--black);
+  padding: 0.95rem 1.2rem;
+  font-size: 0.79rem;
+  font-weight: 700;
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease;
+}
+
+.project-form button:hover {
+  transform: translateY(-2px);
+  background: var(--ivory);
+}
+
+.project-form__note {
+  color: rgba(241, 238, 231, 0.36);
+  font-size: 0.62rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 760px) {
+  .contact-section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .contact-section__heading {
+    grid-template-columns: 1.15fr 0.7fr;
+    align-items: end;
+    column-gap: 3rem;
+  }
+
+  .contact-section__heading .section-kicker {
+    grid-column: 1 / -1;
+  }
+
+  .contact-section__heading > p {
+    justify-self: end;
+    padding-bottom: 0.6rem;
+  }
+
+  .contact-section__layout {
+    grid-template-columns: minmax(15rem, 0.7fr) minmax(0, 1.3fr);
+    gap: 4rem;
+    margin-top: 5.5rem;
+  }
+
+  .project-form {
+    padding: 1.5rem;
+  }
+
+  .project-form__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .contact-section {
+    padding-top: 9.5rem;
+    padding-bottom: 9rem;
+  }
+
+  .contact-section__heading h2 {
+    font-size: clamp(6rem, 8.5vw, 9.5rem);
+  }
+
+  .contact-section__layout {
+    gap: 7rem;
+  }
+
+  .project-form {
+    padding: 2rem;
+    gap: 1.7rem;
+  }
+}
+
+
+.contact-section__pending {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid rgba(241, 238, 231, 0.14);
+  padding: 1.15rem 0;
+  color: rgba(241, 238, 231, 0.38);
+  font-size: 0.78rem;
+}
+
+
+.contact-section__glow {
+  z-index: 0;
+}
+
+.contact-section__heading,
+.contact-section__layout {
+  z-index: 2;
+}
+
+
+.project-form select {
+  padding-right: 2rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(241, 238, 231, 0.62) 50%),
+    linear-gradient(135deg, rgba(241, 238, 231, 0.62) 50%, transparent 50%);
+  background-position:
+    calc(100% - 0.75rem) 46%,
+    calc(100% - 0.48rem) 46%;
+  background-repeat: no-repeat;
+  background-size: 0.3rem 0.3rem, 0.3rem 0.3rem;
+}
+
+.project-form input,
+.project-form select,
+.project-form textarea {
+  font-size: max(0.86rem, 14px);
+}
+
+.project-form__note {
+  font-size: max(0.66rem, 11px);
+}

@@ -1,0 +1,275 @@
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.project-modal__panel {
+  height: 100dvh;
+  width: min(100%, 68rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--ivory);
+  color: var(--black);
+  padding:
+    max(1rem, env(safe-area-inset-top))
+    max(var(--page-padding), env(safe-area-inset-right))
+    max(2rem, env(safe-area-inset-bottom))
+    max(var(--page-padding), env(safe-area-inset-left));
+}
+
+.project-modal__topbar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(9, 9, 9, 0.15);
+  background: rgba(241, 238, 231, 0.92);
+  padding: 0.35rem 0 0.85rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.project-modal__topbar > span {
+  color: rgba(9, 9, 9, 0.56);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-modal__topbar button {
+  display: grid;
+  height: 2.8rem;
+  width: 2.8rem;
+  place-items: center;
+  border: 1px solid rgba(9, 9, 9, 0.17);
+  border-radius: 50%;
+  color: var(--black);
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.project-modal__topbar button:hover {
+  background: var(--orange);
+  transform: rotate(5deg);
+}
+
+.project-modal__hero {
+  display: grid;
+  gap: 2rem;
+  padding: 3.8rem 0 2.6rem;
+}
+
+.project-modal__hero > div > p {
+  color: var(--orange);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.project-modal__hero h2 {
+  margin-top: 0.75rem;
+  font-size: clamp(3.7rem, 16vw, 8.5rem);
+  font-weight: 600;
+  letter-spacing: -0.085em;
+  line-height: 0.82;
+}
+
+.project-modal__hero > div > span {
+  display: block;
+  margin-top: 1rem;
+  color: rgba(9, 9, 9, 0.52);
+  font-size: 0.82rem;
+}
+
+.project-modal__hero > p {
+  max-width: 34rem;
+  color: rgba(9, 9, 9, 0.63);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.project-modal__image {
+  overflow: hidden;
+  border-radius: 1.35rem;
+  background: #d7d2c9;
+}
+
+.project-modal__image img {
+  width: 100%;
+}
+
+.project-modal__facts {
+  display: grid;
+  gap: 1.4rem;
+  border-bottom: 1px solid rgba(9, 9, 9, 0.15);
+  padding: 2rem 0;
+}
+
+.project-modal__facts > div {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.project-modal__facts span,
+.project-modal__story span {
+  color: rgba(9, 9, 9, 0.46);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.project-modal__facts p {
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.project-modal__story {
+  display: grid;
+  padding: 1rem 0 3rem;
+}
+
+.project-modal__story article {
+  display: grid;
+  gap: 0.9rem;
+  border-bottom: 1px solid rgba(9, 9, 9, 0.15);
+  padding: 1.6rem 0;
+}
+
+.project-modal__story p {
+  max-width: 43rem;
+  color: rgba(9, 9, 9, 0.67);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.project-modal__cta {
+  display: grid;
+  gap: 1rem;
+  border-radius: 1.2rem;
+  background: var(--black);
+  color: var(--ivory);
+  padding: 1.35rem;
+}
+
+.project-modal__cta p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 8vw, 3rem);
+  font-style: italic;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.project-modal__cta a {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--black);
+  padding: 0.9rem 1.05rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+body.has-dialog {
+  overflow: hidden;
+}
+
+@media (min-width: 700px) {
+  .project-modal {
+    padding-left: 6vw;
+  }
+
+  .project-modal__panel {
+    border-left: 1px solid rgba(241, 238, 231, 0.22);
+  }
+
+  .project-modal__hero {
+    grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.7fr);
+    align-items: end;
+    padding-top: 5rem;
+  }
+
+  .project-modal__hero > p {
+    justify-self: end;
+    padding-bottom: 0.7rem;
+  }
+
+  .project-modal__facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-modal__story article {
+    grid-template-columns: 10rem minmax(0, 1fr);
+    align-items: start;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .project-modal__cta {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 1.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-modal__topbar button {
+    transition: none;
+  }
+}
+
+
+.project-modal__top-actions,
+.project-modal__cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.project-modal__top-actions > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1px solid rgba(9, 9, 9, 0.34);
+  padding-bottom: 0.22rem;
+  color: rgba(9, 9, 9, 0.68);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.project-modal__cta-actions > a {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  padding: 0.9rem 1.05rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.project-modal__cta-actions > a:first-child {
+  background: var(--orange);
+  color: var(--black);
+}
+
+.project-modal__cta-actions > a:last-child {
+  border: 1px solid rgba(241, 238, 231, 0.25);
+  background: transparent;
+  color: var(--ivory);
+}
