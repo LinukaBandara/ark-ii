@@ -6,33 +6,53 @@ import ProjectModal from "../ProjectModal/ProjectModal";
 import "./WorkSection.css";
 
 const reveal = {
-  hidden: { opacity: 0, y: 45 },
+  hidden: { opacity: 0, y: 42 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.75,
+      duration: 0.78,
       ease: [0.22, 1, 0.36, 1],
     },
   },
 };
 
-function ProjectCard({ project, layout, onOpen }) {
+function getProjectHost(url) {
+  return url
+    .replace(/^https?:\/\//, "")
+    .replace(/\/$/, "");
+}
+
+function ProjectShowcase({ project, position, onOpen }) {
+  const reverse = position % 2 === 1;
+
   return (
     <motion.article
-      className={`project-card project-card--${layout}`}
+      className={`work-project ${
+        reverse ? "work-project--reverse" : ""
+      }`}
       variants={reveal}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.16 }}
+      viewport={{ once: true, amount: 0.14 }}
     >
-      <button
-        className="project-card__link"
-        type="button"
-        onClick={() => onOpen(project)}
-        aria-label={`Open ${project.title} case study`}
-      >
-        <div className="project-card__visual">
+      <div className="work-project__screen">
+        <div className="work-project__chrome" aria-hidden="true">
+          <div className="work-project__dots">
+            <i />
+            <i />
+            <i />
+          </div>
+          <span>{getProjectHost(project.liveUrl)}</span>
+          <strong>LIVE</strong>
+        </div>
+
+        <button
+          className="work-project__visual"
+          type="button"
+          onClick={() => onOpen(project)}
+          aria-label={`Open ${project.title} case study`}
+        >
           <img
             src={project.image}
             alt={project.imageAlt}
@@ -40,58 +60,56 @@ function ProjectCard({ project, layout, onOpen }) {
             referrerPolicy="no-referrer"
           />
 
-          <div className="project-card__visual-top">
-            <span>{project.type}</span>
-            <span>{project.year}</span>
-          </div>
-
-          <div className="project-card__open">
-            <ArrowUpRight size={20} strokeWidth={1.7} />
-          </div>
-
-          <span className="project-card__view-label">
-            View case study
+          <span className="work-project__visual-action">
+            Case study
+            <ArrowUpRight size={18} strokeWidth={1.8} />
           </span>
+        </button>
+      </div>
 
-          <span className="project-card__live-badge">
-            <i />
-            Live
-          </span>
+      <div className="work-project__info">
+        <div className="work-project__meta">
+          <span>{project.index} / 03</span>
+          <span>{project.type}</span>
+          <span>{project.year}</span>
         </div>
 
-        <div className="project-card__content">
-          <div className="project-card__heading">
-            <span className="project-card__index">
-              {project.index}
-            </span>
-
-            <div>
-              <h3>{project.title}</h3>
-              <p>{project.category}</p>
-            </div>
-          </div>
-
-          <p className="project-card__description">
-            {project.description}
+        <div>
+          <h3>{project.title}</h3>
+          <p className="work-project__category">
+            {project.category}
           </p>
-
-          <div className="project-card__tags">
-            {project.tags.map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </div>
         </div>
-      </button>
 
-      <a
-        className="project-card__external"
-        href={project.liveUrl}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Visit live project
-        <ExternalLink size={15} strokeWidth={1.7} />
-      </a>
+        <p className="work-project__description">
+          {project.description}
+        </p>
+
+        <div className="work-project__tags">
+          {project.tags.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
+
+        <div className="work-project__actions">
+          <button
+            type="button"
+            onClick={() => onOpen(project)}
+          >
+            View case study
+            <ArrowUpRight size={16} strokeWidth={1.8} />
+          </button>
+
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Live site
+            <ExternalLink size={15} strokeWidth={1.8} />
+          </a>
+        </div>
+      </div>
     </motion.article>
   );
 }
@@ -115,46 +133,43 @@ function WorkSection() {
             transition={{ duration: 0.6 }}
           >
             <span>01</span>
-            Selected work
+            Selected work / 03
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 38 }}
+            initial={{ opacity: 0, y: 34 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.55 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            Built to be
-            <span> remembered.</span>
+            Real work.
+            <span> Built to be remembered.</span>
           </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
+          <motion.div
+            className="work-section__intro-copy"
+            initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.65 }}
             transition={{ delay: 0.08, duration: 0.7 }}
           >
-            Three real, deployed projects—one client website, one
-            internal business product, and one reusable storefront
-            demo.
-          </motion.p>
+            <p>
+              Three deployed projects across brand, product and
+              commerce—each solving a different business problem.
+            </p>
+            <span>Client work · Internal product · Storefront demo</span>
+          </motion.div>
         </div>
 
-        <div className="work-grid">
+        <div className="work-list">
           {projects.map((project, index) => (
-            <ProjectCard
+            <ProjectShowcase
               key={project.id}
               project={project}
-              layout={
-                index === 0
-                  ? "featured"
-                  : index === 1
-                    ? "left"
-                    : "right"
-              }
+              position={index}
               onOpen={setSelectedProject}
             />
           ))}
@@ -162,18 +177,19 @@ function WorkSection() {
 
         <motion.div
           className="work-section__footer"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.7 }}
         >
           <p>
-            Every project is labelled honestly according to what it
-            is: client work, an internal product, or a reusable demo.
+            Selected Work stays intentionally small: only projects
+            that are live, usable and worth putting the ARK II name
+            behind.
           </p>
 
           <a href="#contact">
-            Discuss your project
+            Build something with us
             <ArrowUpRight size={17} strokeWidth={1.8} />
           </a>
         </motion.div>
