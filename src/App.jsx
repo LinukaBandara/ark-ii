@@ -9,6 +9,7 @@ import LabSection from "./components/LabSection/LabSection";
 import StudioSection from "./components/StudioSection/StudioSection";
 import ServicesSection from "./components/ServicesSection/ServicesSection";
 import ProcessSection from "./components/ProcessSection/ProcessSection";
+import CapabilitiesSection from "./components/CapabilitiesSection/CapabilitiesSection";
 import WhySection from "./components/WhySection/WhySection";
 import ContactSection from "./components/ContactSection/ContactSection";
 import Footer from "./components/Footer/Footer";
@@ -59,6 +60,7 @@ function App() {
             <StudioSection />
             <ServicesSection />
             <ProcessSection />
+            <CapabilitiesSection />
             <WhySection />
             <ContactSection />
           </main>
