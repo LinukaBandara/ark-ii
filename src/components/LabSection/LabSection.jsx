@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import "./LabSection.css";
 
-const screenshot = (url) =>
-  `https://image.thum.io/get/width/1600/crop/1000/png/noanimate/maxAge/24/${url}`;
+
 
 const labProjects = [
   {
@@ -12,7 +11,7 @@ const labProjects = [
     category: "Luxury hospitality concept",
     note: "Resort experience / Multi-page / Booking-led UI",
     url: "https://ayora.linukaipad.workers.dev",
-    image: screenshot("https://ayora.linukaipad.workers.dev"),
+    image: "/projects/ayora.png",
   },
   {
     index: "02",
@@ -20,7 +19,7 @@ const labProjects = [
     category: "Wedding studio concept",
     note: "Editorial storytelling / Portfolio / Luxury direction",
     url: "https://studio-lumiere.linukaipad.workers.dev/",
-    image: screenshot("https://studio-lumiere.linukaipad.workers.dev/"),
+    image: "/projects/studio.png",
   },
   {
     index: "03",
@@ -28,9 +27,10 @@ const labProjects = [
     category: "Performance gym concept",
     note: "High-energy identity / Membership / Mobile-first",
     url: "https://forge-performance-club.linukaipad.workers.dev",
-    image: screenshot("https://forge-performance-club.linukaipad.workers.dev"),
+    image: "/projects/gym.png",
   },
 ];
+;
 
 const reveal = {
   hidden: { opacity: 0, y: 42 },

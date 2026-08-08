@@ -1,6 +1,3 @@
-const screenshot = (url) =>
-  `https://image.thum.io/get/width/1200/crop/900/png/noanimate/maxAge/24/${url}`;
-
 export const projects = [
   {
     id: "suranga-gems",
@@ -11,9 +8,8 @@ export const projects = [
     status: "Live client website",
     year: "2026",
     liveUrl: "https://surangagems.com",
-    image: "/projects/suranga-gems-real.jpeg",
-    imageAlt:
-      "Live homepage preview of the Suranga Gems website",
+    image: "/projects/suranga.png",
+    imageAlt: "Suranga Gems homepage",
     description:
       "A mobile-first brand website created for a natural gemstone business operating across Sri Lanka and Madagascar.",
     tags: ["Strategy", "UI/UX", "React", "Development"],
@@ -24,6 +20,7 @@ export const projects = [
     outcome:
       "A live public website that gives Suranga Gems a polished destination for introductions, referrals, enquiries, and founder-led brand storytelling.",
   },
+
   {
     id: "bgs-agristock",
     index: "02",
@@ -32,13 +29,9 @@ export const projects = [
     type: "Internal Business Product",
     status: "Live deployed application",
     year: "2026",
-    liveUrl:
-      "https://bgs-frontend-production.up.railway.app",
-    image: screenshot(
-      "https://bgs-frontend-production.up.railway.app",
-    ),
-    imageAlt:
-      "Live preview of the deployed BGS AgriStock application",
+    liveUrl: "https://bgs-frontend-production.up.railway.app",
+    image: "/projects/bgs.png",
+    imageAlt: "BGS AgriStock homepage",
     description:
       "A deployed inventory system designed around the daily workflow of a local fertilizer and agricultural-products business.",
     tags: ["Product Design", "Dashboard", "React", "Database"],
@@ -49,6 +42,7 @@ export const projects = [
     outcome:
       "A working internal application that improves stock visibility and reduces dependence on manual checking and handwritten records.",
   },
+
   {
     id: "nuvea-glow",
     index: "03",
@@ -58,9 +52,8 @@ export const projects = [
     status: "Live reusable demo",
     year: "2026",
     liveUrl: "https://nuvea-glow.netlify.app/",
-    image: screenshot("https://nuvea-glow.netlify.app/"),
-    imageAlt:
-      "Live homepage preview of the Nuvéa Glow skincare storefront demo",
+    image: "/projects/nuvea.png",
+    imageAlt: "Nuvéa Glow homepage",
     description:
       "A live, reusable storefront demo created for social-first skincare and beauty businesses.",
     tags: ["Brand Direction", "Storefront", "Mobile-first", "UI Design"],
