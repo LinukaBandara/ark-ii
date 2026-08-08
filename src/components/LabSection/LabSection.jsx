@@ -19,8 +19,8 @@ const labProjects = [
     title: "Studio Lumière",
     category: "Wedding studio concept",
     note: "Editorial storytelling / Portfolio / Luxury direction",
-    url: "https://studio-lumiere-ceylon.netlify.app",
-    image: screenshot("https://studio-lumiere-ceylon.netlify.app"),
+    url: "https://studio-lumiere.linukaipad.workers.dev/",
+    image: screenshot("https://studio-lumiere.linukaipad.workers.dev/"),
   },
   {
     index: "03",
