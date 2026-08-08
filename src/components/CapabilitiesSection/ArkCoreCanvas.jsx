@@ -20,10 +20,30 @@ const diamondPoints = [
 ];
 
 const faces = [
-  [0, 1, 2], [0, 2, 3], [0, 3, 4], [0, 4, 5], [0, 5, 6], [0, 6, 1],
-  [1, 7, 8], [1, 8, 2], [2, 8, 9], [2, 9, 3], [3, 9, 10], [3, 10, 4],
-  [4, 10, 11], [4, 11, 5], [5, 11, 12], [5, 12, 6], [6, 12, 7], [6, 7, 1],
-  [7, 13, 8], [8, 13, 9], [9, 13, 10], [10, 13, 11], [11, 13, 12], [12, 13, 7],
+  [0, 1, 2],
+  [0, 2, 3],
+  [0, 3, 4],
+  [0, 4, 5],
+  [0, 5, 6],
+  [0, 6, 1],
+  [1, 7, 8],
+  [1, 8, 2],
+  [2, 8, 9],
+  [2, 9, 3],
+  [3, 9, 10],
+  [3, 10, 4],
+  [4, 10, 11],
+  [4, 11, 5],
+  [5, 11, 12],
+  [5, 12, 6],
+  [6, 12, 7],
+  [6, 7, 1],
+  [7, 13, 8],
+  [8, 13, 9],
+  [9, 13, 10],
+  [10, 13, 11],
+  [11, 13, 12],
+  [12, 13, 7],
 ];
 
 const edges = [
@@ -68,10 +88,9 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const host = canvas?.closest(".capabilities-section");
-    const coreSpace = host?.querySelector(".capabilities-section__core-space");
+    const coreSpace = canvas?.parentElement;
 
-    if (!canvas || !host || !coreSpace) {
+    if (!canvas || !coreSpace) {
       return undefined;
     }
 
@@ -88,40 +107,45 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       "(prefers-reduced-motion: reduce)",
     ).matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
+    const mobileViewport = () => window.innerWidth < 760;
     const pointer = { x: 0, y: 0, active: false };
 
     let width = 1;
     let height = 1;
     let frameId = 0;
-    let visible = true;
+    let isVisible = true;
     let pageVisible = !document.hidden;
     let rotation = 0.28;
     let tiltX = 0;
     let tiltY = 0;
     let nodes = [];
+    let lastFrameTime = 0;
 
     const makeNodes = () => {
-      const count = width < 700 ? 14 : width < 1100 ? 22 : 30;
+      const count = mobileViewport() ? 9 : window.innerWidth < 1100 ? 16 : 22;
 
       nodes = Array.from({ length: count }, (_, index) => ({
         angle: Math.random() * TAU,
         orbit: index % 3,
         group: index % 4,
         speed:
-          (0.00028 + Math.random() * 0.00048) *
+          (0.00025 + Math.random() * 0.00042) *
           (index % 2 ? 1 : -1),
         offset: (Math.random() - 0.5) * 0.22,
-        size: 0.9 + Math.random() * 1.5,
-        baseOrange: index % 7 === 0 || Math.random() < 0.09,
+        size: 0.9 + Math.random() * 1.35,
+        baseOrange: index % 7 === 0 || Math.random() < 0.08,
         pulse: Math.random() * TAU,
       }));
     };
 
     const resize = () => {
-      const bounds = host.getBoundingClientRect();
+      const bounds = coreSpace.getBoundingClientRect();
       width = Math.max(1, bounds.width);
       height = Math.max(1, bounds.height);
-      const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.75);
+
+      const pixelRatio = mobileViewport()
+        ? 1
+        : Math.min(window.devicePixelRatio || 1, 1.45);
 
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
@@ -132,30 +156,30 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
     };
 
     const getCore = () => {
-      const mobile = width < 760;
-      const tablet = width >= 760 && width < 1100;
+      const mobile = mobileViewport();
+      const scale = mobile
+        ? Math.min(width * 0.18, 76)
+        : window.innerWidth < 1100
+          ? Math.min(width * 0.23, 112)
+          : Math.min(width * 0.24, 138);
 
       return {
-        x: mobile ? width * 0.5 : tablet ? width * 0.48 : width * 0.5,
-        y: mobile ? height * 0.34 : height * 0.49,
-        scale: mobile
-          ? Math.min(width * 0.18, 82)
-          : tablet
-            ? Math.min(width * 0.105, 112)
-            : Math.min(width * 0.085, 138),
+        x: width * 0.5,
+        y: mobile ? height * 0.46 : height * 0.48,
+        scale,
       };
     };
 
     const projectDiamond = (core) => {
       const pointerX = pointer.active
-        ? ((pointer.x - core.x) / Math.max(core.scale * 3, 1)) * 0.09
+        ? ((pointer.x - core.x) / Math.max(core.scale * 3, 1)) * 0.075
         : 0;
       const pointerY = pointer.active
-        ? ((pointer.y - core.y) / Math.max(core.scale * 3, 1)) * -0.065
+        ? ((pointer.y - core.y) / Math.max(core.scale * 3, 1)) * -0.055
         : 0;
 
-      tiltX += (pointerY - tiltX) * 0.035;
-      tiltY += (pointerX - tiltY) * 0.035;
+      tiltX += (pointerY - tiltX) * 0.028;
+      tiltY += (pointerX - tiltY) * 0.028;
 
       return diamondPoints.map((point) => {
         const [x, y, z] = rotatePoint(
@@ -217,7 +241,7 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
           const distance = Math.hypot(a.x - b.x, a.y - b.y);
 
           if (distance < maxDistance) {
-            const alpha = (1 - distance / maxDistance) * 0.15;
+            const alpha = (1 - distance / maxDistance) * 0.14;
             context.beginPath();
             context.moveTo(a.x, a.y);
             context.lineTo(b.x, b.y);
@@ -231,22 +255,21 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       positions.forEach((position, index) => {
         const node = nodes[index];
         const pulse = 0.8 + Math.sin(node.pulse) * 0.2;
-        const highlighted =
-          node.baseOrange || node.group === currentIndex;
+        const highlighted = node.baseOrange || node.group === currentIndex;
 
         if (pointer.active && finePointer) {
           const distance = Math.hypot(
             position.x - pointer.x,
             position.y - pointer.y,
           );
-          const pointerRadius = Math.max(120, core.scale * 1.45);
+          const pointerRadius = Math.max(110, core.scale * 1.35);
 
           if (distance < pointerRadius) {
             const closeness = 1 - distance / pointerRadius;
             context.beginPath();
             context.moveTo(position.x, position.y);
             context.lineTo(pointer.x, pointer.y);
-            context.strokeStyle = `rgba(255, 90, 31, ${closeness * 0.28})`;
+            context.strokeStyle = `rgba(255, 90, 31, ${closeness * 0.24})`;
             context.lineWidth = 0.8;
             context.stroke();
           }
@@ -261,7 +284,7 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
             position.y,
             node.size * 7,
           );
-          glow.addColorStop(0, `rgba(255, 90, 31, ${0.28 * pulse})`);
+          glow.addColorStop(0, `rgba(255, 90, 31, ${0.25 * pulse})`);
           glow.addColorStop(1, "rgba(255, 90, 31, 0)");
           context.beginPath();
           context.arc(position.x, position.y, node.size * 7, 0, TAU);
@@ -272,8 +295,8 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
         context.beginPath();
         context.arc(position.x, position.y, node.size, 0, TAU);
         context.fillStyle = highlighted
-          ? `rgba(255, 90, 31, ${0.86 * pulse})`
-          : `rgba(241, 238, 231, ${0.4 * pulse})`;
+          ? `rgba(255, 90, 31, ${0.82 * pulse})`
+          : `rgba(241, 238, 231, ${0.38 * pulse})`;
         context.fill();
       });
     };
@@ -313,9 +336,9 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
         context.moveTo(points[from].x, points[from].y);
         context.lineTo(points[to].x, points[to].y);
         context.strokeStyle = orange
-          ? `rgba(255, 90, 31, ${Math.min(0.72, alpha + 0.18)})`
+          ? `rgba(255, 90, 31, ${Math.min(0.7, alpha + 0.16)})`
           : `rgba(241, 238, 231, ${alpha})`;
-        context.lineWidth = orange ? 1.05 : 0.7;
+        context.lineWidth = orange ? 1 : 0.7;
         context.stroke();
       });
 
@@ -327,7 +350,7 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
         core.y + core.scale * 1.32,
         core.scale * 0.78,
       );
-      glow.addColorStop(0, "rgba(255, 90, 31, 0.28)");
+      glow.addColorStop(0, "rgba(255, 90, 31, 0.25)");
       glow.addColorStop(1, "rgba(255, 90, 31, 0)");
       context.beginPath();
       context.ellipse(
@@ -360,21 +383,33 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       context.stroke();
     };
 
-    const renderFrame = () => {
+    const renderFrame = (time = 0) => {
       frameId = 0;
 
-      if (!visible || !pageVisible) {
+      if (!isVisible || !pageVisible) {
         return;
       }
 
+      const targetInterval = mobileViewport() ? 34 : 16;
+
+      if (
+        !reducedMotion &&
+        lastFrameTime &&
+        time - lastFrameTime < targetInterval
+      ) {
+        frameId = window.requestAnimationFrame(renderFrame);
+        return;
+      }
+
+      lastFrameTime = time;
       context.clearRect(0, 0, width, height);
       const core = getCore();
 
       if (!reducedMotion) {
-        rotation += 0.00115;
+        rotation += mobileViewport() ? 0.0007 : 0.00105;
         nodes.forEach((node) => {
           node.angle += node.speed * 16;
-          node.pulse += 0.012;
+          node.pulse += mobileViewport() ? 0.009 : 0.012;
         });
       }
 
@@ -391,7 +426,7 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
     };
 
     const start = () => {
-      if (!frameId && visible && pageVisible && !reducedMotion) {
+      if (!frameId && isVisible && pageVisible && !reducedMotion) {
         frameId = window.requestAnimationFrame(renderFrame);
       }
     };
@@ -408,16 +443,10 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
         return;
       }
 
-      const hostBounds = host.getBoundingClientRect();
-      const coreBounds = coreSpace.getBoundingClientRect();
-
-      pointer.x = event.clientX - hostBounds.left;
-      pointer.y = event.clientY - hostBounds.top;
-      pointer.active =
-        event.clientX >= coreBounds.left &&
-        event.clientX <= coreBounds.right &&
-        event.clientY >= coreBounds.top &&
-        event.clientY <= coreBounds.bottom;
+      const bounds = coreSpace.getBoundingClientRect();
+      pointer.x = event.clientX - bounds.left;
+      pointer.y = event.clientY - bounds.top;
+      pointer.active = true;
     };
 
     const handlePointerLeave = () => {
@@ -438,25 +467,29 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
 
     const intersectionObserver = new IntersectionObserver(
       ([entry]) => {
-        visible = entry.isIntersecting;
-        if (visible) {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
           renderFrame();
           start();
         } else {
+          pointer.active = false;
           stop();
         }
       },
-      { threshold: 0.03 },
+      {
+        threshold: 0.01,
+        rootMargin: "60px 0px",
+      },
     );
 
     resize();
     renderFrame();
-    resizeObserver.observe(host);
-    intersectionObserver.observe(host);
-    host.addEventListener("pointermove", handlePointerMove, {
+    resizeObserver.observe(coreSpace);
+    intersectionObserver.observe(coreSpace);
+    coreSpace.addEventListener("pointermove", handlePointerMove, {
       passive: true,
     });
-    host.addEventListener("pointerleave", handlePointerLeave);
+    coreSpace.addEventListener("pointerleave", handlePointerLeave);
     document.addEventListener("visibilitychange", handleVisibility);
     start();
 
@@ -464,8 +497,8 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       stop();
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
-      host.removeEventListener("pointermove", handlePointerMove);
-      host.removeEventListener("pointerleave", handlePointerLeave);
+      coreSpace.removeEventListener("pointermove", handlePointerMove);
+      coreSpace.removeEventListener("pointerleave", handlePointerLeave);
       document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
