@@ -79,8 +79,6 @@ function CapabilitiesSection() {
 
   return (
     <section className="capabilities-section" id="capabilities">
-      <ArkCoreCanvas activeIndex={activeIndex} />
-
       <div className="capabilities-section__grid" aria-hidden="true">
         <span />
         <span />
@@ -118,6 +116,7 @@ function CapabilitiesSection() {
         </motion.div>
 
         <div className="capabilities-section__core-space" aria-hidden="true">
+          <ArkCoreCanvas activeIndex={activeIndex} />
           <span className="capabilities-core-label capabilities-core-label--strategy">
             Strategy
           </span>
@@ -211,17 +210,14 @@ function CapabilitiesSection() {
         </div>
 
         <div className="capabilities-flow__steps" aria-label="Production flow">
-          {[
-            "Strategy",
-            "Design",
-            "Development",
-            "Deployment",
-          ].map((step, index) => (
-            <span key={step}>
-              {step}
-              {index < 3 ? <i aria-hidden="true">→</i> : null}
-            </span>
-          ))}
+          {["Strategy", "Design", "Development", "Deployment"].map(
+            (step, index) => (
+              <span key={step}>
+                {step}
+                {index < 3 ? <i aria-hidden="true">→</i> : null}
+              </span>
+            ),
+          )}
         </div>
 
         <div className="capabilities-flow__signal" aria-hidden="true">
