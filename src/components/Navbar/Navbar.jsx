@@ -5,6 +5,7 @@ import "./Navbar.css";
 
 const links = [
   { label: "Work", href: "#work" },
+  { label: "Lab", href: "#lab" },
   { label: "Services", href: "#services" },
   { label: "Studio", href: "#studio" },
 ];
@@ -153,7 +154,7 @@ function Navbar() {
                 onClick={closeMenu}
                 initial={{ opacity: 0, y: 35 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.46, duration: 0.55 }}
+                transition={{ delay: 0.52, duration: 0.55 }}
               >
                 Start a project
                 <ArrowUpRight size={22} strokeWidth={1.7} />
