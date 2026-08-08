@@ -51,20 +51,27 @@ function rotatePoint([x, y, z], rx, ry, rz) {
   nextX = xAfterY;
   nextZ = zAfterY;
 
-  const xAfterZ = nextX * cosZ - nextY * sinZ;
-  const yAfterZ = nextX * sinZ + nextY * cosZ;
-
-  return [xAfterZ, yAfterZ, nextZ];
+  return [
+    nextX * cosZ - nextY * sinZ,
+    nextX * sinZ + nextY * cosZ,
+    nextZ,
+  ];
 }
 
 function ArkCoreCanvas({ activeIndex = 0 }) {
   const canvasRef = useRef(null);
+  const activeIndexRef = useRef(activeIndex);
+
+  useEffect(() => {
+    activeIndexRef.current = activeIndex;
+  }, [activeIndex]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const host = canvas?.closest(".capabilities-section");
+    const coreSpace = host?.querySelector(".capabilities-section__core-space");
 
-    if (!canvas || !host) {
+    if (!canvas || !host || !coreSpace) {
       return undefined;
     }
 
@@ -80,17 +87,15 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-
     const finePointer = window.matchMedia("(pointer: fine)").matches;
     const pointer = { x: 0, y: 0, active: false };
 
-    let width = 0;
-    let height = 0;
-    let pixelRatio = 1;
+    let width = 1;
+    let height = 1;
     let frameId = 0;
     let visible = true;
     let pageVisible = !document.hidden;
-    let rotation = activeIndex * 0.16;
+    let rotation = 0.28;
     let tiltX = 0;
     let tiltY = 0;
     let nodes = [];
@@ -101,10 +106,13 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       nodes = Array.from({ length: count }, (_, index) => ({
         angle: Math.random() * TAU,
         orbit: index % 3,
-        speed: (0.00045 + Math.random() * 0.0007) * (index % 2 ? 1 : -1),
+        group: index % 4,
+        speed:
+          (0.00028 + Math.random() * 0.00048) *
+          (index % 2 ? 1 : -1),
         offset: (Math.random() - 0.5) * 0.22,
-        size: 0.9 + Math.random() * 1.6,
-        orange: index % 5 === activeIndex || Math.random() < 0.14,
+        size: 0.9 + Math.random() * 1.5,
+        baseOrange: index % 7 === 0 || Math.random() < 0.09,
         pulse: Math.random() * TAU,
       }));
     };
@@ -113,7 +121,7 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       const bounds = host.getBoundingClientRect();
       width = Math.max(1, bounds.width);
       height = Math.max(1, bounds.height);
-      pixelRatio = Math.min(window.devicePixelRatio || 1, 1.75);
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.75);
 
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
@@ -139,11 +147,15 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
     };
 
     const projectDiamond = (core) => {
-      const pointerX = pointer.active ? (pointer.x / width - 0.5) * 0.18 : 0;
-      const pointerY = pointer.active ? (pointer.y / height - 0.5) * -0.12 : 0;
+      const pointerX = pointer.active
+        ? ((pointer.x - core.x) / Math.max(core.scale * 3, 1)) * 0.09
+        : 0;
+      const pointerY = pointer.active
+        ? ((pointer.y - core.y) / Math.max(core.scale * 3, 1)) * -0.065
+        : 0;
 
-      tiltX += (pointerY - tiltX) * 0.045;
-      tiltY += (pointerX - tiltY) * 0.045;
+      tiltX += (pointerY - tiltX) * 0.035;
+      tiltY += (pointerX - tiltY) * 0.035;
 
       return diamondPoints.map((point) => {
         const [x, y, z] = rotatePoint(
@@ -196,6 +208,7 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
     const drawNetwork = (core) => {
       const positions = nodes.map((node) => getNodePosition(node, core));
       const maxDistance = core.scale * 1.25;
+      const currentIndex = activeIndexRef.current;
 
       for (let first = 0; first < positions.length; first += 1) {
         for (let second = first + 1; second < positions.length; second += 1) {
@@ -204,7 +217,7 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
           const distance = Math.hypot(a.x - b.x, a.y - b.y);
 
           if (distance < maxDistance) {
-            const alpha = (1 - distance / maxDistance) * 0.16;
+            const alpha = (1 - distance / maxDistance) * 0.15;
             context.beginPath();
             context.moveTo(a.x, a.y);
             context.lineTo(b.x, b.y);
@@ -217,60 +230,68 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
 
       positions.forEach((position, index) => {
         const node = nodes[index];
-        const pulse = 0.78 + Math.sin(node.pulse) * 0.22;
+        const pulse = 0.8 + Math.sin(node.pulse) * 0.2;
+        const highlighted =
+          node.baseOrange || node.group === currentIndex;
 
         if (pointer.active && finePointer) {
-          const distance = Math.hypot(position.x - pointer.x, position.y - pointer.y);
-          const pointerRadius = Math.max(130, core.scale * 1.65);
+          const distance = Math.hypot(
+            position.x - pointer.x,
+            position.y - pointer.y,
+          );
+          const pointerRadius = Math.max(120, core.scale * 1.45);
 
           if (distance < pointerRadius) {
             const closeness = 1 - distance / pointerRadius;
             context.beginPath();
             context.moveTo(position.x, position.y);
             context.lineTo(pointer.x, pointer.y);
-            context.strokeStyle = `rgba(255, 90, 31, ${closeness * 0.36})`;
-            context.lineWidth = 0.85;
+            context.strokeStyle = `rgba(255, 90, 31, ${closeness * 0.28})`;
+            context.lineWidth = 0.8;
             context.stroke();
           }
         }
 
-        if (node.orange) {
+        if (highlighted) {
           const glow = context.createRadialGradient(
             position.x,
             position.y,
             0,
             position.x,
             position.y,
-            node.size * 8,
+            node.size * 7,
           );
-          glow.addColorStop(0, `rgba(255, 90, 31, ${0.32 * pulse})`);
+          glow.addColorStop(0, `rgba(255, 90, 31, ${0.28 * pulse})`);
           glow.addColorStop(1, "rgba(255, 90, 31, 0)");
           context.beginPath();
-          context.arc(position.x, position.y, node.size * 8, 0, TAU);
+          context.arc(position.x, position.y, node.size * 7, 0, TAU);
           context.fillStyle = glow;
           context.fill();
         }
 
         context.beginPath();
         context.arc(position.x, position.y, node.size, 0, TAU);
-        context.fillStyle = node.orange
-          ? `rgba(255, 90, 31, ${0.9 * pulse})`
-          : `rgba(241, 238, 231, ${0.42 * pulse})`;
+        context.fillStyle = highlighted
+          ? `rgba(255, 90, 31, ${0.86 * pulse})`
+          : `rgba(241, 238, 231, ${0.4 * pulse})`;
         context.fill();
       });
     };
 
     const drawDiamond = (points, core) => {
+      const currentIndex = activeIndexRef.current;
       const sortedFaces = faces
         .map((face) => ({
           face,
-          depth: face.reduce((sum, index) => sum + points[index].z, 0) / 3,
+          depth:
+            face.reduce((sum, index) => sum + points[index].z, 0) / 3,
         }))
         .sort((a, b) => a.depth - b.depth);
 
       sortedFaces.forEach(({ face, depth }, faceIndex) => {
         const alpha = 0.025 + ((depth + 1) / 2) * 0.055;
-        const orangeFace = faceIndex % (5 - Math.min(activeIndex, 2)) === 0;
+        const orangeFace =
+          faceIndex % (5 - Math.min(currentIndex, 2)) === 0;
 
         context.beginPath();
         context.moveTo(points[face[0]].x, points[face[0]].y);
@@ -286,7 +307,7 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       edges.forEach(([from, to], index) => {
         const depth = (points[from].z + points[to].z) / 2;
         const alpha = 0.16 + ((depth + 1) / 2) * 0.34;
-        const orange = index % 4 === activeIndex;
+        const orange = index % 4 === currentIndex;
 
         context.beginPath();
         context.moveTo(points[from].x, points[from].y);
@@ -306,7 +327,7 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
         core.y + core.scale * 1.32,
         core.scale * 0.78,
       );
-      glow.addColorStop(0, "rgba(255, 90, 31, 0.34)");
+      glow.addColorStop(0, "rgba(255, 90, 31, 0.28)");
       glow.addColorStop(1, "rgba(255, 90, 31, 0)");
       context.beginPath();
       context.ellipse(
@@ -328,13 +349,13 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       }
 
       context.beginPath();
-      context.arc(pointer.x, pointer.y, 2.2, 0, TAU);
-      context.fillStyle = "rgba(255, 90, 31, 0.9)";
+      context.arc(pointer.x, pointer.y, 2, 0, TAU);
+      context.fillStyle = "rgba(255, 90, 31, 0.82)";
       context.fill();
 
       context.beginPath();
-      context.arc(pointer.x, pointer.y, 8, 0, TAU);
-      context.strokeStyle = "rgba(255, 90, 31, 0.2)";
+      context.arc(pointer.x, pointer.y, 7, 0, TAU);
+      context.strokeStyle = "rgba(255, 90, 31, 0.16)";
       context.lineWidth = 1;
       context.stroke();
     };
@@ -350,16 +371,16 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       const core = getCore();
 
       if (!reducedMotion) {
-        rotation += 0.0022;
+        rotation += 0.00115;
         nodes.forEach((node) => {
           node.angle += node.speed * 16;
-          node.pulse += 0.015;
+          node.pulse += 0.012;
         });
       }
 
-      drawOrbit(core, core.scale * 2.05, core.scale * 0.62, -0.23, 0.2);
-      drawOrbit(core, core.scale * 2.48, core.scale * 0.77, 0.18, 0.12);
-      drawOrbit(core, core.scale * 3.02, core.scale * 0.93, -0.06, 0.08);
+      drawOrbit(core, core.scale * 2.05, core.scale * 0.62, -0.23, 0.19);
+      drawOrbit(core, core.scale * 2.48, core.scale * 0.77, 0.18, 0.11);
+      drawOrbit(core, core.scale * 3.02, core.scale * 0.93, -0.06, 0.07);
       drawNetwork(core);
       drawDiamond(projectDiamond(core), core);
       drawPointer();
@@ -387,12 +408,16 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
         return;
       }
 
-      const bounds = host.getBoundingClientRect();
-      pointer.x = event.clientX - bounds.left;
-      pointer.y = event.clientY - bounds.top;
+      const hostBounds = host.getBoundingClientRect();
+      const coreBounds = coreSpace.getBoundingClientRect();
+
+      pointer.x = event.clientX - hostBounds.left;
+      pointer.y = event.clientY - hostBounds.top;
       pointer.active =
-        pointer.x >= 0 && pointer.x <= bounds.width &&
-        pointer.y >= 0 && pointer.y <= bounds.height;
+        event.clientX >= coreBounds.left &&
+        event.clientX <= coreBounds.right &&
+        event.clientY >= coreBounds.top &&
+        event.clientY <= coreBounds.bottom;
     };
 
     const handlePointerLeave = () => {
@@ -428,7 +453,9 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
     renderFrame();
     resizeObserver.observe(host);
     intersectionObserver.observe(host);
-    host.addEventListener("pointermove", handlePointerMove, { passive: true });
+    host.addEventListener("pointermove", handlePointerMove, {
+      passive: true,
+    });
     host.addEventListener("pointerleave", handlePointerLeave);
     document.addEventListener("visibilitychange", handleVisibility);
     start();
@@ -441,9 +468,15 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       host.removeEventListener("pointerleave", handlePointerLeave);
       document.removeEventListener("visibilitychange", handleVisibility);
     };
-  }, [activeIndex]);
+  }, []);
 
-  return <canvas ref={canvasRef} className="capabilities-core-canvas" aria-hidden="true" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="capabilities-core-canvas"
+      aria-hidden="true"
+    />
+  );
 }
 
 export default ArkCoreCanvas;
