@@ -50,6 +50,7 @@ function Footer() {
           <div>
             <span>Navigate</span>
             <a href="#work">Work</a>
+            <a href="#lab">Lab</a>
             <a href="#services">Services</a>
             <a href="#studio">Studio</a>
             <a href="#contact">Contact</a>
