@@ -5,6 +5,7 @@ import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import SmoothScroll from "./components/SmoothScroll/SmoothScroll";
 import Hero from "./components/Hero/Hero";
 import WorkSection from "./components/WorkSection/WorkSection";
+import LabSection from "./components/LabSection/LabSection";
 import StudioSection from "./components/StudioSection/StudioSection";
 import ServicesSection from "./components/ServicesSection/ServicesSection";
 import ProcessSection from "./components/ProcessSection/ProcessSection";
@@ -30,8 +31,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // A final safety net: the website can never remain invisible because
-    // of an interrupted font, image, or loader event.
     const failsafe = window.setTimeout(() => {
       document.body.classList.remove("is-loading");
       setSiteReady(true);
@@ -56,6 +55,7 @@ function App() {
           <main>
             <Hero ready={siteReady} />
             <WorkSection />
+            <LabSection />
             <StudioSection />
             <ServicesSection />
             <ProcessSection />
