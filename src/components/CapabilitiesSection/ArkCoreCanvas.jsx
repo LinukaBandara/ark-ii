@@ -339,7 +339,7 @@ function ArkCoreCanvas({ activeIndex = 0 }) {
       context.stroke();
     };
 
-    const renderFrame = (time = 0) => {
+    const renderFrame = () => {
       frameId = 0;
 
       if (!visible || !pageVisible) {
