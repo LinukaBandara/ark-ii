@@ -2,13 +2,49 @@
 
 **Premium digital studio website built with React and Vite.**
 
-ARK II is a portfolio-focused digital studio experience designed around premium branding, modern motion, strong visual hierarchy and responsive UX. The project presents ARK II as a contemporary web/design studio rather than a generic template site.
+ARK II is a portfolio-focused digital studio experience designed around premium branding, modern motion, strong visual hierarchy and responsive UX. The project presents ARK II as a contemporary digital studio rather than a generic template site.
 
 ## Project showcase
 
-The repository includes the production visual assets used by the site, including the social preview cover and project imagery.
+The repository includes screenshots from the finished interface, including desktop, mobile, navigation, project work, capabilities, lab experiments, contact and loading experiences.
 
-![ARK II](public/og-cover.png)
+### Hero
+
+![ARK II Hero](docs/screenshots/hero.png)
+
+### Mobile hero
+
+![ARK II Mobile Hero](docs/screenshots/mbhero.png)
+
+### Responsive navigation
+
+![ARK II Mobile Navigation](docs/screenshots/mbresponsivenavbar.png)
+
+### Selected work
+
+![ARK II Work](docs/screenshots/work.png)
+
+### Capabilities
+
+![ARK II Capabilities](docs/screenshots/CAPABILITIES.png)
+
+### ARK II Lab
+
+![ARK II Lab](docs/screenshots/lab.png)
+
+![ARK II Lab Detail](docs/screenshots/lab2.png)
+
+### Contact
+
+![ARK II Contact](docs/screenshots/contact.png)
+
+### Footer
+
+![ARK II Footer](docs/screenshots/footer.png)
+
+### Loading experience
+
+![ARK II Loader](docs/screenshots/loader.png)
 
 ## What the project demonstrates
 
@@ -21,6 +57,7 @@ The repository includes the production visual assets used by the site, including
 - Structured project showcase content
 - Custom visual identity and typography
 - Responsive navigation and layouts
+- Interactive studio/lab presentation
 - SEO and social-sharing assets
 - Production-oriented Vite configuration
 - Netlify deployment configuration
@@ -50,6 +87,18 @@ ark-ii/
 │   ├── sitemap.xml
 │   ├── robots.txt
 │   └── site.webmanifest
+├── docs/
+│   └── screenshots/
+│       ├── hero.png
+│       ├── mbhero.png
+│       ├── mbresponsivenavbar.png
+│       ├── work.png
+│       ├── CAPABILITIES.png
+│       ├── lab.png
+│       ├── lab2.png
+│       ├── contact.png
+│       ├── footer.png
+│       └── loader.png
 ├── src/
 │   ├── components/
 │   ├── data/
