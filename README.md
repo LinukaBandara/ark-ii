@@ -1,8 +1,20 @@
 # ARK II
 
-**Premium digital studio website built with React and Vite.**
+**My personal digital studio and client-facing portfolio website.**
 
-ARK II is a portfolio-focused digital studio experience designed around premium branding, modern motion, strong visual hierarchy and responsive UX. The project presents ARK II as a contemporary digital studio rather than a generic template site.
+ARK II is the website I designed and built to showcase my web development work, capabilities and selected projects to prospective clients. It serves as both a personal portfolio and a client-facing platform for presenting premium websites and digital experiences I design and build.
+
+Rather than using a generic portfolio template, ARK II was built as a complete branded digital studio experience with its own visual identity, motion system, responsive layouts and project presentation.
+
+## What ARK II is for
+
+ARK II is designed to help prospective clients quickly understand:
+
+- What I build
+- The type of websites and digital experiences I can deliver
+- My frontend and interaction design capabilities
+- Selected projects and experiments
+- How to start a project or get in contact
 
 ## Project showcase
 
@@ -46,18 +58,19 @@ The repository includes screenshots from the finished interface, including deskt
 
 ![ARK II Loader](docs/screenshots/loader.png)
 
-## What the project demonstrates
+## Key features
 
-- Premium agency / digital-studio positioning
+- Premium digital-studio branding
+- Client-facing portfolio presentation
+- Selected work showcase
+- Capabilities / services presentation
+- Interactive ARK II Lab section for experiments and creative concepts
 - Responsive, mobile-first interface design
-- Component-based React architecture
+- Responsive mobile navigation
 - Motion-driven interactions and page transitions
 - Smooth scrolling with Lenis
 - Framer Motion animations
-- Structured project showcase content
 - Custom visual identity and typography
-- Responsive navigation and layouts
-- Interactive studio/lab presentation
 - SEO and social-sharing assets
 - Production-oriented Vite configuration
 - Netlify deployment configuration
@@ -177,10 +190,8 @@ The live deployment is intentionally not hard-coded into this README while the h
 
 ## Portfolio value
 
-ARK II demonstrates the ability to translate a brand concept into a polished frontend experience, combining **React component architecture, responsive design, animation, interaction design and visual storytelling**.
-
-It complements the more systems-focused projects in this portfolio by demonstrating frontend craftsmanship and product presentation.
+ARK II demonstrates that I can build and ship my own professional client-facing web presence rather than only isolated demo projects. It combines **React component architecture, responsive design, animation, interaction design, visual storytelling and client-oriented presentation** in one production-style frontend project.
 
 ## License
 
-Portfolio / demonstration project — not licensed for reuse.
+Portfolio / personal studio project — not licensed for reuse.
