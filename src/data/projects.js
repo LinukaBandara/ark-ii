@@ -27,20 +27,20 @@ export const projects = [
     title: "BGS AgriStock",
     category: "Inventory management system",
     type: "Internal Business Product",
-    status: "Live deployed application",
+    status: "Live frontend demo",
     year: "2026",
-    liveUrl: "https://bgs-frontend-production.up.railway.app",
+    liveUrl: "https://bgs-agri-stock.vercel.app",
     image: "/projects/bgs.png",
-    imageAlt: "BGS AgriStock homepage",
+    imageAlt: "BGS AgriStock dashboard",
     description:
-      "A deployed inventory system designed around the daily workflow of a local fertilizer and agricultural-products business.",
-    tags: ["Product Design", "Dashboard", "React", "Database"],
+      "A frontend demo of an inventory management system designed around the daily workflow of a local fertilizer and agricultural-products business.",
+    tags: ["Product Design", "Dashboard", "React", "Demo Mode"],
     challenge:
       "The business depended on notebook records and could not quickly identify low-stock products across its growing agricultural inventory.",
     approach:
-      "The system was structured around practical actions such as updating stock, reviewing reports, adding products, and monitoring inventory health through clear dashboard interfaces.",
+      "The system was structured around practical actions such as updating stock, reviewing reports, adding products, and monitoring inventory health through clear dashboard interfaces. The portfolio deployment runs with realistic demo data and frontend authentication so the experience remains accessible without a hosted backend.",
     outcome:
-      "A working internal application that improves stock visibility and reduces dependence on manual checking and handwritten records.",
+      "A portfolio-ready live demo that showcases the complete inventory workflow without requiring visitors to connect to the original production backend.",
   },
 
   {
