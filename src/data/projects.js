@@ -65,3 +65,4 @@ export const projects = [
       "A deployed storefront concept that demonstrates how an independent skincare business can move from social-only selling to a more credible branded experience.",
   },
 ];
+
