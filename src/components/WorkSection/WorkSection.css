@@ -27,6 +27,8 @@
 .work-project__dots i:first-child { background: var(--orange); }
 .work-project__visual { position: relative; display: block; overflow: hidden; aspect-ratio: 16 / 9; width: 100%; background: #d9d4cb; cursor: pointer; }
 .work-project__visual img { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; object-position: center; transition: transform 750ms cubic-bezier(0.22, 1, 0.36, 1); }
+.work-project__visual--bgs { aspect-ratio: 21 / 10; }
+.work-project__visual--bgs img { object-fit: contain; }
 .work-project__visual::after { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.22), transparent 32%); content: ""; pointer-events: none; }
 .work-project__visual-action { position: absolute; right: 0.85rem; bottom: 0.85rem; z-index: 2; display: inline-flex; align-items: center; gap: 0.48rem; border-radius: 999px; background: rgba(241, 238, 231, 0.94); padding: 0.72rem 0.85rem; color: var(--black); font-size: max(0.66rem, 11px); font-weight: 700; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: background-color 240ms ease, transform 240ms ease; }
 .work-project__visual:hover img, .work-project__visual:focus-visible img { transform: scale(1.025); }
