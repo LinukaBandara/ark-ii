@@ -46,7 +46,7 @@ function ProjectShowcase({ project, position, onOpen }) {
         </div>
 
         <button
-          className="work-project__visual"
+          className={`work-project__visual ${project.id === "bgs-agristock" ? "work-project__visual--bgs" : ""}`}
           type="button"
           onClick={() => onOpen(project)}
           aria-label={`Open ${project.title} case study`}
@@ -180,7 +180,10 @@ function WorkSection() {
         </motion.div>
       </section>
 
-      <ProjectModal project={selectedProject} onClose={closeProject} />
+      <ProjectModal
+        project={selectedProject}
+        onClose={closeProject}
+      />
     </>
   );
 }
