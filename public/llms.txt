@@ -1,0 +1,40 @@
+# ARK II
+
+> ARK II is an independent digital studio created by Linuka Bandara, focused on premium websites, web applications, redesigns and digital experiences.
+
+## Website
+
+- https://ark-ii.studio/
+
+## About
+
+ARK II is a Sri Lanka-based digital studio serving ambitious businesses in Sri Lanka and worldwide. The studio combines web development, responsive interface design, interaction design, motion and visual storytelling to create polished digital experiences.
+
+## Creator
+
+- Linuka Bandara: https://linukabandara.me/
+- GitHub: https://github.com/linuka7
+- LinkedIn: https://www.linkedin.com/in/linukabandara/
+
+## Source
+
+- GitHub repository: https://github.com/LinukaBandara/ark-ii
+
+## Services / capabilities
+
+- Web design
+- Frontend web development
+- Responsive and mobile-first interfaces
+- UI/UX design
+- Website redesigns
+- Web applications
+- Interaction and motion design
+- Digital product presentation
+
+## Technology
+
+ARK II is built with React and Vite, with JavaScript/JSX, CSS, Framer Motion, Lenis and Lucide React.
+
+## Identity
+
+ARK II is a client-facing digital studio and portfolio project created and maintained by Linuka Bandara.
