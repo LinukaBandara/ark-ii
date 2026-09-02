@@ -6,6 +6,10 @@ ARK II is the website I designed and built to showcase my web development work, 
 
 Rather than using a generic portfolio template, ARK II was built as a complete branded digital studio experience with its own visual identity, motion system, responsive layouts and project presentation.
 
+## Live website
+
+**https://ark-ii.studio/**
+
 ## What ARK II is for
 
 ARK II is designed to help prospective clients quickly understand:
@@ -72,6 +76,8 @@ The repository includes screenshots from the finished interface, including deskt
 - Framer Motion animations
 - Custom visual identity and typography
 - SEO and social-sharing assets
+- Canonical custom domain: `https://ark-ii.studio/`
+- AI-readable `llms.txt` site overview
 - Production-oriented Vite configuration
 - Netlify deployment configuration
 
@@ -87,7 +93,7 @@ The repository includes screenshots from the finished interface, including deskt
 | Icons | Lucide React |
 | Styling | CSS |
 | Linting | ESLint |
-| Deployment config | Netlify |
+| Deployment | Netlify |
 
 ## Project structure
 
@@ -99,19 +105,10 @@ ark-ii/
 │   ├── favicon.svg
 │   ├── sitemap.xml
 │   ├── robots.txt
+│   ├── llms.txt
 │   └── site.webmanifest
 ├── docs/
 │   └── screenshots/
-│       ├── hero.png
-│       ├── mbhero.png
-│       ├── mbresponsivenavbar.png
-│       ├── work.png
-│       ├── CAPABILITIES.png
-│       ├── lab.png
-│       ├── lab2.png
-│       ├── contact.png
-│       ├── footer.png
-│       └── loader.png
 ├── src/
 │   ├── components/
 │   ├── data/
@@ -184,9 +181,7 @@ npm run lint
 
 ## Deployment
 
-The project includes a `netlify.toml` configuration for static deployment through Netlify.
-
-The live deployment is intentionally not hard-coded into this README while the hosting setup is being maintained.
+The project includes a `netlify.toml` configuration for static deployment through Netlify. The custom domain `ark-ii.studio` is the intended canonical production URL, while the Netlify subdomain is redirected to it.
 
 ## Portfolio value
 
