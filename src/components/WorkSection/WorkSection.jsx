@@ -28,9 +28,7 @@ function ProjectShowcase({ project, position, onOpen }) {
 
   return (
     <motion.article
-      className={`work-project ${
-        reverse ? "work-project--reverse" : ""
-      }`}
+      className={`work-project ${reverse ? "work-project--reverse" : ""}`}
       variants={reveal}
       initial="hidden"
       whileInView="visible"
@@ -69,21 +67,17 @@ function ProjectShowcase({ project, position, onOpen }) {
 
       <div className="work-project__info">
         <div className="work-project__meta">
-          <span>{project.index} / 03</span>
+          <span>{project.index} / {String(projects.length).padStart(2, "0")}</span>
           <span>{project.type}</span>
           <span>{project.year}</span>
         </div>
 
         <div>
           <h3>{project.title}</h3>
-          <p className="work-project__category">
-            {project.category}
-          </p>
+          <p className="work-project__category">{project.category}</p>
         </div>
 
-        <p className="work-project__description">
-          {project.description}
-        </p>
+        <p className="work-project__description">{project.description}</p>
 
         <div className="work-project__tags">
           {project.tags.map((tag) => (
@@ -92,19 +86,12 @@ function ProjectShowcase({ project, position, onOpen }) {
         </div>
 
         <div className="work-project__actions">
-          <button
-            type="button"
-            onClick={() => onOpen(project)}
-          >
+          <button type="button" onClick={() => onOpen(project)}>
             View case study
             <ArrowUpRight size={16} strokeWidth={1.8} />
           </button>
 
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={project.liveUrl} target="_blank" rel="noreferrer">
             Live site
             <ExternalLink size={15} strokeWidth={1.8} />
           </a>
@@ -121,6 +108,8 @@ function WorkSection() {
     setSelectedProject(null);
   }, []);
 
+  const projectCount = String(projects.length).padStart(2, "0");
+
   return (
     <>
       <section className="work-section" id="work">
@@ -133,17 +122,14 @@ function WorkSection() {
             transition={{ duration: 0.6 }}
           >
             <span>01</span>
-            Selected work / 03
+            Selected work / {projectCount}
           </motion.div>
 
           <motion.h2
             initial={{ opacity: 0, y: 34 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.22, 1, 0.36, 1],
-            }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             Real work.
             <span> Built to be remembered.</span>
@@ -157,10 +143,10 @@ function WorkSection() {
             transition={{ delay: 0.08, duration: 0.7 }}
           >
             <p>
-              Three deployed projects across brand, product and
-              commerce—each solving a different business problem.
+              Four deployed projects across brand, product and commerce—each
+              solving a different business problem.
             </p>
-            <span>Client work · Internal product · Storefront demo</span>
+            <span>Client work · Internal product · Personal brand · Product platform</span>
           </motion.div>
         </div>
 
@@ -183,9 +169,8 @@ function WorkSection() {
           transition={{ duration: 0.7 }}
         >
           <p>
-            Selected Work stays intentionally small: only projects
-            that are live, usable and worth putting the ARK II name
-            behind.
+            Selected Work stays intentionally small: only projects that are
+            live, usable and worth putting the ARK II name behind.
           </p>
 
           <a href="#contact">
@@ -195,10 +180,7 @@ function WorkSection() {
         </motion.div>
       </section>
 
-      <ProjectModal
-        project={selectedProject}
-        onClose={closeProject}
-      />
+      <ProjectModal project={selectedProject} onClose={closeProject} />
     </>
   );
 }

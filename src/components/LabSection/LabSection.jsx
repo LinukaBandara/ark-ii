@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import "./LabSection.css";
 
-
-
 const labProjects = [
   {
     index: "01",
@@ -29,8 +27,15 @@ const labProjects = [
     url: "https://forge-performance-club.linukaipad.workers.dev",
     image: "/projects/gym.png",
   },
+  {
+    index: "04",
+    title: "Nuvéa Glow",
+    category: "Skincare storefront demo",
+    note: "Social-first commerce / Mobile-first / Reusable storefront",
+    url: "https://nuvea-glow.netlify.app/",
+    image: "/projects/nuvea.png",
+  },
 ];
-;
 
 const reveal = {
   hidden: { opacity: 0, y: 42 },
@@ -105,7 +110,11 @@ function LabSection() {
               rel="noreferrer"
               aria-label={`Open ${project.title} live concept`}
             >
-              <img src={project.image} alt={`${project.title} website preview`} loading="lazy" />
+              <img
+                src={project.image}
+                alt={`${project.title} website preview`}
+                loading="lazy"
+              />
               <div className="lab-card__shade" />
 
               <div className="lab-card__top">

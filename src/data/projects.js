@@ -44,25 +44,46 @@ export const projects = [
   },
 
   {
-    id: "nuvea-glow",
+    id: "linuka-bandara",
     index: "03",
-    title: "Nuvéa Glow",
-    category: "Skincare storefront demo",
-    type: "Storefront Demo",
-    status: "Live reusable demo",
+    title: "Linuka Bandara",
+    category: "Personal portfolio & engineering profile",
+    type: "Personal Brand",
+    status: "Live personal website",
     year: "2026",
-    liveUrl: "https://nuvea-glow.netlify.app/",
-    image: "/projects/nuvea.png",
-    imageAlt: "Nuvéa Glow homepage",
+    liveUrl: "https://linukabandara.me",
+    image: "/projects/linuka.svg",
+    imageAlt: "Linuka Bandara portfolio homepage",
     description:
-      "A live, reusable storefront demo created for social-first skincare and beauty businesses.",
-    tags: ["Brand Direction", "Storefront", "Mobile-first", "UI Design"],
+      "A personal portfolio designed to present software engineering work, technical capabilities, and selected products through a focused digital experience.",
+    tags: ["Personal Brand", "UI/UX", "React", "Development"],
     challenge:
-      "Many beauty sellers build demand through social platforms but do not have a polished website that explains the brand, products, and purchasing journey.",
+      "Create an engineering portfolio that feels like a product experience rather than a generic student CV, while keeping projects and technical work easy to discover.",
     approach:
-      "The demo combines feminine editorial typography, product storytelling, mobile-first layouts, and clear conversion paths that can be adapted to different beauty brands.",
+      "The experience prioritizes clear hierarchy, responsive presentation, project storytelling, and direct paths to the work, profile, and professional presence.",
     outcome:
-      "A deployed storefront concept that demonstrates how an independent skincare business can move from social-only selling to a more credible branded experience.",
+      "A live personal platform that gives recruiters, clients, and collaborators a clear view of Linuka's work and engineering direction.",
+  },
+
+  {
+    id: "dispatcharc",
+    index: "04",
+    title: "DispatchArc",
+    category: "Operations & dispatch platform",
+    type: "Product Platform",
+    status: "Live product showcase",
+    year: "2026",
+    liveUrl: "https://dispatch-arc-eight.vercel.app/",
+    image: "/projects/dispatcharc.svg",
+    imageAlt: "DispatchArc operations platform",
+    description:
+      "A full-stack operations platform concept built around jobs, customers, scheduling, and dispatch workflows.",
+    tags: ["Product Engineering", "React", ".NET", "Operations"],
+    challenge:
+      "Turn fragmented operational workflows into a clear system for teams managing customers, jobs, statuses, and dispatch activity.",
+    approach:
+      "The product combines a focused data-rich interface with structured API-driven workflows for core operational resources and tenant-aware business operations.",
+    outcome:
+      "A portfolio-ready product that demonstrates full-stack engineering beyond marketing websites and showcases practical business workflow design.",
   },
 ];
-
