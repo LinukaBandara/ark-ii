@@ -10,17 +10,12 @@ export const projects = [
     liveUrl: "https://surangagems.com",
     image: "/projects/suranga.png",
     imageAlt: "Suranga Gems homepage",
-    description:
-      "A mobile-first brand website created for a natural gemstone business operating across Sri Lanka and Madagascar.",
+    description: "A mobile-first brand website created for a natural gemstone business operating across Sri Lanka and Madagascar.",
     tags: ["Strategy", "UI/UX", "React", "Development"],
-    challenge:
-      "Build a credible digital presence that presents the founder, gemstone sourcing relationships, and international business story without turning the website into a conventional online shop.",
-    approach:
-      "The experience uses editorial typography, gemstone-led imagery, focused storytelling, and a mobile-first structure designed for business contacts who primarily browse on phones.",
-    outcome:
-      "A live public website that gives Suranga Gems a polished destination for introductions, referrals, enquiries, and founder-led brand storytelling.",
+    challenge: "Build a credible digital presence that presents the founder, gemstone sourcing relationships, and international business story without turning the website into a conventional online shop.",
+    approach: "The experience uses editorial typography, gemstone-led imagery, focused storytelling, and a mobile-first structure designed for business contacts who primarily browse on phones.",
+    outcome: "A live public website that gives Suranga Gems a polished destination for introductions, referrals, enquiries, and founder-led brand storytelling.",
   },
-
   {
     id: "bgs-agristock",
     index: "02",
@@ -32,17 +27,12 @@ export const projects = [
     liveUrl: "https://bgs-agri-stock.vercel.app",
     image: "/projects/bgs.png",
     imageAlt: "BGS AgriStock dashboard",
-    description:
-      "A frontend demo of an inventory management system designed around the daily workflow of a local fertilizer and agricultural-products business.",
+    description: "A frontend demo of an inventory management system designed around the daily workflow of a local fertilizer and agricultural-products business.",
     tags: ["Product Design", "Dashboard", "React", "Demo Mode"],
-    challenge:
-      "The business depended on notebook records and could not quickly identify low-stock products across its growing agricultural inventory.",
-    approach:
-      "The system was structured around practical actions such as updating stock, reviewing reports, adding products, and monitoring inventory health through clear dashboard interfaces. The portfolio deployment runs with realistic demo data and frontend authentication so the experience remains accessible without a hosted backend.",
-    outcome:
-      "A portfolio-ready live demo that showcases the complete inventory workflow without requiring visitors to connect to the original production backend.",
+    challenge: "The business depended on notebook records and could not quickly identify low-stock products across its growing agricultural inventory.",
+    approach: "The system was structured around practical actions such as updating stock, reviewing reports, adding products, and monitoring inventory health through clear dashboard interfaces. The portfolio deployment runs with realistic demo data and frontend authentication so the experience remains accessible without a hosted backend.",
+    outcome: "A portfolio-ready live demo that showcases the complete inventory workflow without requiring visitors to connect to the original production backend.",
   },
-
   {
     id: "linuka-bandara",
     index: "03",
@@ -52,19 +42,14 @@ export const projects = [
     status: "Live personal website",
     year: "2026",
     liveUrl: "https://linukabandara.me",
-    image: "/projects/linuka.svg",
+    image: "/projects/linuka.jpg",
     imageAlt: "Linuka Bandara portfolio homepage",
-    description:
-      "A personal portfolio designed to present software engineering work, technical capabilities, and selected products through a focused digital experience.",
+    description: "A personal portfolio designed to present software engineering work, technical capabilities, and selected products through a focused digital experience.",
     tags: ["Personal Brand", "UI/UX", "React", "Development"],
-    challenge:
-      "Create an engineering portfolio that feels like a product experience rather than a generic student CV, while keeping projects and technical work easy to discover.",
-    approach:
-      "The experience prioritizes clear hierarchy, responsive presentation, project storytelling, and direct paths to the work, profile, and professional presence.",
-    outcome:
-      "A live personal platform that gives recruiters, clients, and collaborators a clear view of Linuka's work and engineering direction.",
+    challenge: "Create an engineering portfolio that feels like a product experience rather than a generic student CV, while keeping projects and technical work easy to discover.",
+    approach: "The experience prioritizes clear hierarchy, responsive presentation, project storytelling, and direct paths to the work, profile, and professional presence.",
+    outcome: "A live personal platform that gives recruiters, clients, and collaborators a clear view of Linuka's work and engineering direction.",
   },
-
   {
     id: "dispatcharc",
     index: "04",
@@ -74,16 +59,12 @@ export const projects = [
     status: "Live product showcase",
     year: "2026",
     liveUrl: "https://dispatch-arc-eight.vercel.app/",
-    image: "/projects/dispatcharc.svg",
-    imageAlt: "DispatchArc operations platform",
-    description:
-      "A full-stack operations platform concept built around jobs, customers, scheduling, and dispatch workflows.",
+    image: "/projects/dispatcharc.jpg",
+    imageAlt: "DispatchArc sign-in and operations platform homepage",
+    description: "A full-stack operations platform concept built around jobs, customers, scheduling, and dispatch workflows.",
     tags: ["Product Engineering", "React", ".NET", "Operations"],
-    challenge:
-      "Turn fragmented operational workflows into a clear system for teams managing customers, jobs, statuses, and dispatch activity.",
-    approach:
-      "The product combines a focused data-rich interface with structured API-driven workflows for core operational resources and tenant-aware business operations.",
-    outcome:
-      "A portfolio-ready product that demonstrates full-stack engineering beyond marketing websites and showcases practical business workflow design.",
+    challenge: "Turn fragmented operational workflows into a clear system for teams managing customers, jobs, statuses, and dispatch activity.",
+    approach: "The product combines a focused data-rich interface with structured API-driven workflows for core operational resources and tenant-aware business operations.",
+    outcome: "A portfolio-ready product that demonstrates full-stack engineering beyond marketing websites and showcases practical business workflow design.",
   },
 ];
