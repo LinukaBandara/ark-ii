@@ -143,10 +143,10 @@ function WorkSection() {
             transition={{ delay: 0.08, duration: 0.7 }}
           >
             <p>
-              Four deployed projects across brand, product and commerce—each
-              solving a different business problem.
+              A curated set of deployed websites, digital experiences and
+              software products across brand, commerce, travel and business operations.
             </p>
-            <span>Client work · Internal product · Personal brand · Product platform</span>
+            <span>Client work · Web experiences · Internal products · Product platforms</span>
           </motion.div>
         </div>
 
@@ -169,8 +169,8 @@ function WorkSection() {
           transition={{ duration: 0.7 }}
         >
           <p>
-            Selected Work stays intentionally small: only projects that are
-            live, usable and worth putting the ARK II name behind.
+            Selected Work stays focused on projects that are live, usable and
+            strong enough to represent the ARK II standard.
           </p>
 
           <a href="#contact">
