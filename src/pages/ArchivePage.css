@@ -33,4 +33,9 @@
 .archive-card__tags span { padding:.5rem .72rem; border:1px solid rgba(9,9,9,.14); border-radius:999px; color:rgba(9,9,9,.6); font-size:10px; }
 .archive-card__actions { margin-top:1.6rem; }
 .archive-card__actions a { display:inline-flex; align-items:center; gap:.5rem; border-bottom:1px solid rgba(9,9,9,.35); padding-bottom:.25rem; font-size:12px; font-weight:700; }
+
+/* Lab archive has its own image system. Work archive remains on the rules above. */
+.archive-page--lab .archive-card__visual { aspect-ratio:21/10; }
+.archive-page--lab .archive-card__visual img.archive-card__image--lab { object-fit:contain; object-position:center; }
+
 @media (max-width:759px) { .archive-hero { padding-top:7.2rem; } .archive-hero__top { margin-bottom:4rem; } .archive-hero__content { display:block; } .archive-hero__intro { margin-top:2rem; } .archive-card { padding:4rem 0; } .archive-card__info { grid-template-columns:2rem minmax(0,1fr); gap:1rem; } .archive-card__heading { align-items:start; } .archive-card__heading > span { display:none; } }
