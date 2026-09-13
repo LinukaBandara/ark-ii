@@ -1,9 +1,7 @@
-import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import ProjectModal from "../components/ProjectModal/ProjectModal";
 import { labProjects, workProjects } from "../data/projects";
 import "./ArchivePage.css";
 
@@ -11,7 +9,6 @@ function ArchivePage({ section }) {
   const isWork = section === "work";
   const items = isWork ? workProjects : labProjects;
   const [featured, ...rest] = items;
-
   const title = isWork ? <>Built for the real world.<span> Built to last.</span></> : <>A place to <span>experiment.</span></>;
   const intro = isWork
     ? "The complete ARK II work archive — client websites, business products and software platforms built around real problems."
@@ -32,7 +29,6 @@ function ArchivePage({ section }) {
           </div>
           <div className="archive-hero__stats"><span>{String(items.length).padStart(2, "0")} projects</span><span>2026 archive</span><span>{isWork ? "Client / Product" : "Concept / Live demo"}</span></div>
         </section>
-
         <section className="archive-list">
           <ArchiveCard project={featured} featured />
           {rest.map((project) => <ArchiveCard key={project.id} project={project} />)}
