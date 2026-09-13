@@ -16,6 +16,7 @@ function getProjectHost(url) {
 
 function ProjectShowcase({ project, position, onOpen }) {
   const reverse = position % 2 === 1;
+  const isBgs = project.id === "bgs-agristock";
 
   return (
     <motion.article className={`work-project ${reverse ? "work-project--reverse" : ""}`} variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.14 }}>
@@ -25,8 +26,8 @@ function ProjectShowcase({ project, position, onOpen }) {
           <span>{getProjectHost(project.liveUrl)}</span>
           <strong>LIVE</strong>
         </div>
-        <button className="work-project__visual" type="button" onClick={() => onOpen(project)} aria-label={`Open ${project.title} case study`}>
-          <img src={project.image} alt={project.imageAlt} loading="lazy" referrerPolicy="no-referrer" />
+        <button className={`work-project__visual ${isBgs ? "work-project__visual--bgs" : ""}`} type="button" onClick={() => onOpen(project)} aria-label={`Open ${project.title} case study`}>
+          <img className={isBgs ? "work-project__image--bgs" : ""} src={project.image} alt={project.imageAlt} loading="lazy" referrerPolicy="no-referrer" />
           <span className="work-project__visual-action">Case study <ArrowUpRight size={18} strokeWidth={1.8} /></span>
         </button>
       </div>
