@@ -1,100 +1,44 @@
 import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { projects } from "../../data/projects";
+import { workProjects } from "../../data/projects";
 import ProjectModal from "../ProjectModal/ProjectModal";
 import "./WorkSection.css";
 
 const reveal = {
   hidden: { opacity: 0, y: 42 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.78,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.78, ease: [0.22, 1, 0.36, 1] } },
 };
 
 function getProjectHost(url) {
-  return url
-    .replace(/^https?:\/\//, "")
-    .replace(/\/$/, "");
+  return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 }
 
 function ProjectShowcase({ project, position, onOpen }) {
   const reverse = position % 2 === 1;
 
   return (
-    <motion.article
-      className={`work-project ${reverse ? "work-project--reverse" : ""}`}
-      variants={reveal}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.14 }}
-    >
+    <motion.article className={`work-project ${reverse ? "work-project--reverse" : ""}`} variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.14 }}>
       <div className="work-project__screen">
         <div className="work-project__chrome" aria-hidden="true">
-          <div className="work-project__dots">
-            <i />
-            <i />
-            <i />
-          </div>
+          <div className="work-project__dots"><i /><i /><i /></div>
           <span>{getProjectHost(project.liveUrl)}</span>
           <strong>LIVE</strong>
         </div>
-
-        <button
-          className={`work-project__visual ${project.id === "bgs-agristock" ? "work-project__visual--bgs" : ""}`}
-          type="button"
-          onClick={() => onOpen(project)}
-          aria-label={`Open ${project.title} case study`}
-        >
-          <img
-            src={project.image}
-            alt={project.imageAlt}
-            loading="lazy"
-            referrerPolicy="no-referrer"
-          />
-
-          <span className="work-project__visual-action">
-            Case study
-            <ArrowUpRight size={18} strokeWidth={1.8} />
-          </span>
+        <button className="work-project__visual" type="button" onClick={() => onOpen(project)} aria-label={`Open ${project.title} case study`}>
+          <img src={project.image} alt={project.imageAlt} loading="lazy" referrerPolicy="no-referrer" />
+          <span className="work-project__visual-action">Case study <ArrowUpRight size={18} strokeWidth={1.8} /></span>
         </button>
       </div>
 
       <div className="work-project__info">
-        <div className="work-project__meta">
-          <span>{project.index} / {String(projects.length).padStart(2, "0")}</span>
-          <span>{project.type}</span>
-          <span>{project.year}</span>
-        </div>
-
-        <div>
-          <h3>{project.title}</h3>
-          <p className="work-project__category">{project.category}</p>
-        </div>
-
+        <div className="work-project__meta"><span>{project.index} / 05</span><span>{project.type}</span><span>{project.year}</span></div>
+        <div><h3>{project.title}</h3><p className="work-project__category">{project.category}</p></div>
         <p className="work-project__description">{project.description}</p>
-
-        <div className="work-project__tags">
-          {project.tags.map((tag) => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </div>
-
+        <div className="work-project__tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
         <div className="work-project__actions">
-          <button type="button" onClick={() => onOpen(project)}>
-            View case study
-            <ArrowUpRight size={16} strokeWidth={1.8} />
-          </button>
-
-          <a href={project.liveUrl} target="_blank" rel="noreferrer">
-            Live site
-            <ExternalLink size={15} strokeWidth={1.8} />
-          </a>
+          <button type="button" onClick={() => onOpen(project)}>View case study <ArrowUpRight size={16} strokeWidth={1.8} /></button>
+          <a href={project.liveUrl} target="_blank" rel="noreferrer">Live site <ExternalLink size={15} strokeWidth={1.8} /></a>
         </div>
       </div>
     </motion.article>
@@ -103,87 +47,32 @@ function ProjectShowcase({ project, position, onOpen }) {
 
 function WorkSection() {
   const [selectedProject, setSelectedProject] = useState(null);
-
-  const closeProject = useCallback(() => {
-    setSelectedProject(null);
-  }, []);
-
-  const projectCount = String(projects.length).padStart(2, "0");
+  const closeProject = useCallback(() => setSelectedProject(null), []);
 
   return (
     <>
       <section className="work-section" id="work">
         <div className="work-section__intro">
-          <motion.div
-            className="section-kicker"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.8 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span>01</span>
-            Selected work / {projectCount}
+          <motion.div className="section-kicker" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.8 }} transition={{ duration: 0.6 }}>
+            <span>01</span> Selected work / 05
           </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 34 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Real work.
-            <span> Built to be remembered.</span>
+          <motion.h2 initial={{ opacity: 0, y: 34 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+            Real work.<span> Built to be remembered.</span>
           </motion.h2>
-
-          <motion.div
-            className="work-section__intro-copy"
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.65 }}
-            transition={{ delay: 0.08, duration: 0.7 }}
-          >
-            <p>
-              A curated set of deployed websites, digital experiences and
-              software products across brand, commerce, travel and business operations.
-            </p>
+          <motion.div className="work-section__intro-copy" initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.65 }} transition={{ delay: 0.08, duration: 0.7 }}>
+            <p>A curated set of deployed websites, digital experiences and software products across brand, commerce and business operations.</p>
             <span>Client work · Web experiences · Internal products · Product platforms</span>
           </motion.div>
         </div>
 
-        <div className="work-list">
-          {projects.map((project, index) => (
-            <ProjectShowcase
-              key={project.id}
-              project={project}
-              position={index}
-              onOpen={setSelectedProject}
-            />
-          ))}
-        </div>
+        <div className="work-list">{workProjects.map((project, index) => <ProjectShowcase key={project.id} project={project} position={index} onOpen={setSelectedProject} />)}</div>
 
-        <motion.div
-          className="work-section__footer"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 0.7 }}
-        >
-          <p>
-            Selected Work stays focused on projects that are live, usable and
-            strong enough to represent the ARK II standard.
-          </p>
-
-          <a href="#contact">
-            Build something with us
-            <ArrowUpRight size={17} strokeWidth={1.8} />
-          </a>
+        <motion.div className="work-section__footer" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.8 }} transition={{ duration: 0.7 }}>
+          <p>Five projects selected for the homepage. Explore the full archive for the complete ARK II body of work.</p>
+          <a href="/work">View all work <ArrowUpRight size={17} strokeWidth={1.8} /></a>
         </motion.div>
       </section>
-
-      <ProjectModal
-        project={selectedProject}
-        onClose={closeProject}
-      />
+      <ProjectModal project={selectedProject} onClose={closeProject} />
     </>
   );
 }
