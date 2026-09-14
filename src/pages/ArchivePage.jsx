@@ -40,12 +40,14 @@ function ArchivePage({ section }) {
 }
 
 function ArchiveCard({ project, featured = false, isLab = false }) {
+  if (isLab) return <LabArchiveCard project={project} />;
+
   const imageClass = project.id === "bgs-agristock" ? "archive-card__image--bgs" : "";
 
   return (
     <motion.article className={`archive-card ${featured ? "archive-card--featured" : ""}`} initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .14 }} transition={{ duration: .65, ease: [0.22,1,0.36,1] }}>
-      <a className={`archive-card__visual ${isLab ? "archive-card__visual--lab" : ""}`} href={project.liveUrl} target="_blank" rel="noreferrer">
-        <img className={`${imageClass} ${isLab ? "archive-card__image--lab" : ""}`} src={project.image} alt={project.imageAlt} loading={featured ? "eager" : "lazy"} referrerPolicy="no-referrer" />
+      <a className="archive-card__visual" href={project.liveUrl} target="_blank" rel="noreferrer">
+        <img className={imageClass} src={project.image} alt={project.imageAlt} loading={featured ? "eager" : "lazy"} referrerPolicy="no-referrer" />
         <div className="archive-card__shade" />
         <div className="archive-card__chrome"><span>{project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span><strong>LIVE</strong></div>
         <div className="archive-card__launch"><ArrowUpRight size={22} /></div>
@@ -59,6 +61,27 @@ function ArchiveCard({ project, featured = false, isLab = false }) {
           <div className="archive-card__tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
           <div className="archive-card__actions"><a href={project.liveUrl} target="_blank" rel="noreferrer">Open live site <ExternalLink size={15} /></a></div>
         </div>
+      </div>
+    </motion.article>
+  );
+}
+
+function LabArchiveCard({ project }) {
+  return (
+    <motion.article className="lab-archive-card" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .12 }} transition={{ duration: .65, ease: [0.22,1,0.36,1] }}>
+      <a className="lab-archive-card__visual" href={project.liveUrl} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} live site`}>
+        <img src={project.image} alt={project.imageAlt} loading="lazy" referrerPolicy="no-referrer" />
+        <div className="lab-archive-card__shade" />
+        <div className="lab-archive-card__chrome"><span>{project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span><strong>LIVE</strong></div>
+        <div className="lab-archive-card__launch"><ArrowUpRight size={19} strokeWidth={1.8} /></div>
+      </a>
+      <div className="lab-archive-card__info">
+        <div className="lab-archive-card__topline"><span>LAB PROJECT</span><ArrowUpRight size={16} /></div>
+        <div className="lab-archive-card__heading">
+          <h2>{project.title}</h2>
+        </div>
+        <p className="lab-archive-card__description">{project.description}</p>
+        <div className="lab-archive-card__tags">{project.tags.slice(0, 4).map((tag) => <span key={tag}>{tag}</span>)}</div>
       </div>
     </motion.article>
   );
