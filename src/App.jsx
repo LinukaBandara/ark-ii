@@ -14,6 +14,8 @@ import WhySection from "./components/WhySection/WhySection";
 import ContactSection from "./components/ContactSection/ContactSection";
 import Footer from "./components/Footer/Footer";
 import ArchivePage from "./pages/ArchivePage";
+import ServicesPage from "./pages/ServicesPage";
+import StudioPage from "./pages/StudioPage";
 
 function getInitialSiteReady() {
   if (typeof window === "undefined") return false;
@@ -61,6 +63,8 @@ function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
   if (path === "/work") return <ArchivePage section="work" />;
   if (path === "/lab") return <ArchivePage section="lab" />;
+  if (path === "/services") return <ServicesPage />;
+  if (path === "/studio") return <StudioPage />;
   return <HomePage />;
 }
 
