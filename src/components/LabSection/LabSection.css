@@ -20,7 +20,9 @@
 .lab-card__overlay-title { position:absolute; right:5.2rem; bottom:1.1rem; left:1rem; z-index:2; display:grid; gap:.4rem; }
 .lab-card__overlay-title span { color:rgba(255,255,255,.66); font-size:.64rem; font-weight:650; letter-spacing:.06em; text-transform:uppercase; }
 .lab-card__overlay-title strong { color:#fff; font-size:clamp(1.85rem,8vw,3.1rem); font-weight:600; letter-spacing:-.055em; line-height:.95; }
+.lab-card__visual img.lab-card__image--contain { object-fit:contain; }
 .lab-card__visual:hover img,.lab-card__visual:focus-visible img { transform:scale(1.025); }
+.lab-card__visual:hover img.lab-card__image--contain,.lab-card__visual:focus-visible img.lab-card__image--contain { transform:none; }
 .lab-card__visual:hover .lab-card__launch,.lab-card__visual:focus-visible .lab-card__launch { transform:rotate(8deg); }
 .lab-card__visual:focus-visible { outline:2px solid var(--orange); outline-offset:.35rem; }
 .lab-card__caption { display:grid; gap:1rem; border-top:1px solid rgba(241,238,231,.15); padding-top:1.15rem; margin-top:1rem; }
