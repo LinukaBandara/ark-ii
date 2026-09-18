@@ -6,8 +6,8 @@ import "./Navbar.css";
 const links = [
   { label: "Work", href: "/work" },
   { label: "Lab", href: "/lab" },
-  { label: "Services", href: "/#services" },
-  { label: "Studio", href: "/#studio" },
+  { label: "Services", href: "/services" },
+  { label: "Studio", href: "/studio" },
 ];
 
 function Navbar() {
