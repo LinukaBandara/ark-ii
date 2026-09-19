@@ -20,6 +20,14 @@
     {
       "source": "/lab",
       "destination": "/"
+    },
+    {
+      "source": "/services",
+      "destination": "/"
+    },
+    {
+      "source": "/studio",
+      "destination": "/"
     }
   ]
 }
