@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import ProcessSection from "../components/ProcessSection/ProcessSection";
 import ContactSection from "../components/ContactSection/ContactSection";
 import Footer from "../components/Footer/Footer";
+import NotFoundPage from "./NotFoundPage";
 import "./ServiceDetailPage.css";
 
 const serviceData = {
@@ -70,7 +71,9 @@ const serviceData = {
 };
 
 function ServiceDetailPage({ slug }) {
-  const service = serviceData[slug] || serviceData["web-design"];
+  const service = serviceData[slug];
+
+  if (!service) return <NotFoundPage />;
 
   useEffect(() => {
     document.title = `ARK II | ${service.label} Services | Premium Digital Studio`;
