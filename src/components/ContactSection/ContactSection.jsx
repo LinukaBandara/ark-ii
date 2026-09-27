@@ -87,8 +87,7 @@ function ContactSection() {
           viewport={{ once: true, amount: 0.55 }}
           transition={{ delay: 0.08, duration: 0.7 }}
         >
-          Tell us what you are building, what needs to improve, or where
-          your current digital presence is holding the business back.
+          Tell us what you are building, what needs to improve, or where your current website or digital presence is holding the business back.
         </motion.p>
       </div>
 
