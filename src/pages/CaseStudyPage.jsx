@@ -7,9 +7,7 @@ import { workProjects } from "../data/projects";
 import "./CaseStudyPage.css";
 
 function CaseStudyPage({ slug }) {
-  const project = workProjects.find((item) => item.id === slug);
-
-  if (!project) return <NotFoundPage />;
+  const project = workProjects.find((item) => item.id === slug) || workProjects[0];
 
   useEffect(() => {
     const title = `ARK II | ${project.title} — ${project.category} Case Study`;
