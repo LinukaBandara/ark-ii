@@ -16,6 +16,7 @@ import Footer from "./components/Footer/Footer";
 import ArchivePage from "./pages/ArchivePage";
 import ServicesPage from "./pages/ServicesPage";
 import StudioPage from "./pages/StudioPage";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
 
 function getInitialSiteReady() {
   if (typeof window === "undefined") return false;
@@ -65,6 +66,7 @@ function App() {
   if (path === "/lab") return <ArchivePage section="lab" />;
   if (path === "/services") return <ServicesPage />;
   if (path === "/studio") return <StudioPage />;
+  if (path.startsWith("/services/")) return <ServiceDetailPage slug={path.split("/")[2]} />;
   return <HomePage />;
 }
 
