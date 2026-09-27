@@ -96,7 +96,7 @@ function Footer() {
 
       <div className="footer__bottom">
         <p>© 2026 ARK II</p>
-        <p>Designed and developed by ARK II</p>
+        <p>All projects designed and developed by ARK II</p>
         <p>All rights reserved</p>
 
         <button
