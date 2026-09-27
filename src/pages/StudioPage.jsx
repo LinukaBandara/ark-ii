@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "../components/Navbar/Navbar";
@@ -9,6 +10,14 @@ import Footer from "../components/Footer/Footer";
 import "./StudioPage.css";
 
 function StudioPage() {
+  useEffect(() => {
+    document.title = "ARK II | Independent Digital Studio";
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.setAttribute("content", "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.");
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/studio/");
+  }, []);
+
   return (
     <div className="studio-page">
       <Navbar />
