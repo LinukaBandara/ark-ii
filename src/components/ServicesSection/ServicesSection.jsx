@@ -4,7 +4,7 @@ import { ArrowDownRight, Plus } from "lucide-react";
 import { services } from "../../data/services";
 import "./ServicesSection.css";
 
-function ServiceItem({ service, index, isOpen, onToggle }) {
+const servicePaths = {\n  "Brand Websites": "/services/web-design/",\n  "Website Redesign": "/services/website-redesign/",\n  "UI/UX Design": "/services/web-design/",\n  "Web Applications": "/services/web-app-development/",\n  "Digital Direction": "/services/web-design/",\n};\n\nfunction ServiceItem({ service, index, isOpen, onToggle }) {
   const triggerId = `service-trigger-${index}`;
   const panelId = `service-panel-${index}`;
 
