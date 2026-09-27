@@ -3,11 +3,14 @@ import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import Navbar from "../components/Navbar/Navbar";
 import ContactSection from "../components/ContactSection/ContactSection";
 import Footer from "../components/Footer/Footer";
+import NotFoundPage from "./NotFoundPage";
 import { workProjects } from "../data/projects";
 import "./CaseStudyPage.css";
 
 function CaseStudyPage({ slug }) {
-  const project = workProjects.find((item) => item.id === slug) || workProjects[0];
+  const project = workProjects.find((item) => item.id === slug);
+
+  if (!project) return <NotFoundPage />;
 
   useEffect(() => {
     const title = `ARK II | ${project.title} — ${project.category} Case Study`;
