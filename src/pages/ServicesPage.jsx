@@ -39,7 +39,7 @@ function ServicesPage() {
           </div>
           <div className="services-page__hero-meta">
             <span>Strategy → Design → Development</span>
-            <span>01—05 core services</span>
+            <span>01—06 core services</span>
             <span>Remote / Worldwide</span>
           </div>
         </section>
