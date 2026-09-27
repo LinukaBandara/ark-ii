@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar/Navbar";
 import ProcessSection from "../components/ProcessSection/ProcessSection";
 import ContactSection from "../components/ContactSection/ContactSection";
 import Footer from "../components/Footer/Footer";
-import NotFoundPage from "./NotFoundPage";
 import "./ServiceDetailPage.css";
 
 const serviceData = {
