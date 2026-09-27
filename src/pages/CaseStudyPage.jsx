@@ -29,15 +29,44 @@ function CaseStudyPage({ slug }) {
 
     schema.textContent = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "CreativeWork",
-      name: project.title,
-      description: project.description,
-      url: `https://ark-ii.studio/work/${project.id}/`,
-      image: project.image,
-      creator: { "@type": "Organization", name: "ARK II", url: "https://ark-ii.studio/" },
-      keywords: project.tags.join(", "),
-      dateCreated: project.year,
-      about: project.category,
+      "@graph": [
+        {
+          "@type": "CreativeWork",
+          "@id": `https://ark-ii.studio/work/${project.id}/#case-study`,
+          name: project.title,
+          description: project.description,
+          url: `https://ark-ii.studio/work/${project.id}/`,
+          image: project.image,
+          creator: { "@type": "Organization", "@id": "https://ark-ii.studio/#organization", name: "ARK II", url: "https://ark-ii.studio/" },
+          keywords: project.tags.join(", "),
+          dateCreated: project.year,
+          about: project.category
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `https://ark-ii.studio/work/${project.id}/#breadcrumb`,
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://ark-ii.studio/"
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Work",
+              item: "https://ark-ii.studio/work"
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: project.title,
+              item: `https://ark-ii.studio/work/${project.id}/`
+            }
+          ]
+        }
+      ]
     });
 
     window.scrollTo(0, 0);
@@ -107,6 +136,17 @@ function CaseStudyPage({ slug }) {
                 <ArrowUpRight size={17} />
               </a>
             ))}
+          </div>
+        </section>
+
+        <section className="case-study__service-link">
+          <p className="section-kicker"><span>→</span> Need something similar?</p>
+          <h2>Explore ARK II<br /><em>services.</em></h2>
+          <div>
+            <a href="/services/web-design/">Web Design <ArrowUpRight size={16} /></a>
+            <a href="/services/web-development/">Web Development <ArrowUpRight size={16} /></a>
+            <a href="/services/web-app-development/">Web App Development <ArrowUpRight size={16} /></a>
+            <a href="/services/website-redesign/">Website Redesign <ArrowUpRight size={16} /></a>
           </div>
         </section>
 
