@@ -77,7 +77,7 @@ function ServiceDetailPage({ slug }) {
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", service.description);
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/services/${slug}/`);
+    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/services/${slug}`);
 
     let schema = document.getElementById("service-schema");
     if (!schema) {
@@ -92,10 +92,10 @@ function ServiceDetailPage({ slug }) {
       "@graph": [
         {
           "@type": "Service",
-          "@id": `https://ark-ii.studio/services/${slug}/#service`,
+          "@id": `https://ark-ii.studio/services/${slug}#service`,
           name: service.label,
           description: service.description,
-          url: `https://ark-ii.studio/services/${slug}/`,
+          url: `https://ark-ii.studio/services/${slug}`,
           provider: {
             "@type": "Organization",
             "@id": "https://ark-ii.studio/#organization",
@@ -107,7 +107,7 @@ function ServiceDetailPage({ slug }) {
         },
         {
           "@type": "BreadcrumbList",
-          "@id": `https://ark-ii.studio/services/${slug}/#breadcrumb`,
+          "@id": `https://ark-ii.studio/services/${slug}#breadcrumb`,
           itemListElement: [
             {
               "@type": "ListItem",
@@ -125,7 +125,7 @@ function ServiceDetailPage({ slug }) {
               "@type": "ListItem",
               position: 3,
               name: service.label,
-              item: `https://ark-ii.studio/services/${slug}/`
+              item: `https://ark-ii.studio/services/${slug}`
             }
           ]
         }
