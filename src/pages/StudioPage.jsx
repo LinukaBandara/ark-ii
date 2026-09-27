@@ -15,7 +15,7 @@ function StudioPage() {
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.");
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/studio/");
+    if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/studio");
   }, []);
 
   return (
