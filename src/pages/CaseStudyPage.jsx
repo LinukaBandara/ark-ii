@@ -17,7 +17,7 @@ function CaseStudyPage({ slug }) {
     if (description) description.setAttribute("content", project.description);
 
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/work/${project.id}/`);
+    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/work/${project.id}`);
 
     let schema = document.getElementById("case-study-schema");
     if (!schema) {
@@ -32,10 +32,10 @@ function CaseStudyPage({ slug }) {
       "@graph": [
         {
           "@type": "CreativeWork",
-          "@id": `https://ark-ii.studio/work/${project.id}/#case-study`,
+          "@id": `https://ark-ii.studio/work/${project.id}#case-study`,
           name: project.title,
           description: project.description,
-          url: `https://ark-ii.studio/work/${project.id}/`,
+          url: `https://ark-ii.studio/work/${project.id}`,
           image: project.image,
           creator: { "@type": "Organization", "@id": "https://ark-ii.studio/#organization", name: "ARK II", url: "https://ark-ii.studio/" },
           keywords: project.tags.join(", "),
@@ -44,7 +44,7 @@ function CaseStudyPage({ slug }) {
         },
         {
           "@type": "BreadcrumbList",
-          "@id": `https://ark-ii.studio/work/${project.id}/#breadcrumb`,
+          "@id": `https://ark-ii.studio/work/${project.id}#breadcrumb`,
           itemListElement: [
             {
               "@type": "ListItem",
@@ -62,7 +62,7 @@ function CaseStudyPage({ slug }) {
               "@type": "ListItem",
               position: 3,
               name: project.title,
-              item: `https://ark-ii.studio/work/${project.id}/`
+              item: `https://ark-ii.studio/work/${project.id}`
             }
           ]
         }
