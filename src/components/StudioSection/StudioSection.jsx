@@ -59,9 +59,7 @@ function StudioSection() {
           </p>
 
           <p className="studio-section__copy">
-            ARK II combines strategy, storytelling, interface design and
-            development to turn ordinary businesses into memorable digital
-            brands.
+            ARK II combines strategy, storytelling, UI/UX design and web development to turn ordinary business websites into memorable digital experiences.
           </p>
         </motion.div>
 
