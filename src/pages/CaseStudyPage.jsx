@@ -36,7 +36,7 @@ function CaseStudyPage({ slug }) {
           name: project.title,
           description: project.description,
           url: `https://ark-ii.studio/work/${project.id}`,
-          image: project.image,
+          image: project.image.startsWith("http") ? project.image : `https://ark-ii.studio${project.image}`,
           creator: { "@type": "Organization", "@id": "https://ark-ii.studio/#organization", name: "ARK II", url: "https://ark-ii.studio/" },
           keywords: project.tags.join(", "),
           dateCreated: project.year,
