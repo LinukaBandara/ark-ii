@@ -190,3 +190,19 @@
 .service-item__trigger:focus-visible {
   outline-offset: 0.4rem;
 }
+.service-item__learn-more {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-bottom: 1px solid rgba(9, 9, 9, 0.32);
+  padding-bottom: 0.28rem;
+  color: var(--black);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.service-item__learn-more:hover {
+  color: var(--orange);
+}
