@@ -34,3 +34,11 @@
 .service-detail__related h2 em{color:var(--orange);font-family:var(--font-serif);font-style:italic;font-weight:400}
 .service-detail__related a{display:inline-flex;align-items:center;gap:.55rem;border-bottom:1px solid rgba(9,9,9,.35);padding-bottom:.3rem;font-size:12px;font-weight:700}
 @media(max-width:759px){.service-detail__related{padding-top:5.5rem;padding-bottom:5.5rem}}
+
+.service-detail__other-services{padding:6rem var(--page-padding);border-top:1px solid rgba(9,9,9,.14)}
+.service-detail__other-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:2rem}
+.service-detail__other-grid a{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;padding:1.1rem 1rem;border:1px solid rgba(9,9,9,.14);color:inherit;transition:border-color .25s,transform .25s}
+.service-detail__other-grid a:hover{border-color:var(--orange);transform:translateY(-2px)}
+.service-detail__other-grid span{font-size:10px;opacity:.5}
+.service-detail__other-grid strong{font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+@media(max-width:759px){.service-detail__other-services{padding-top:5rem;padding-bottom:5rem}.service-detail__other-grid{grid-template-columns:1fr}}
