@@ -65,13 +65,18 @@ function HomePage() {
 function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
   if (path === "/work") return <ArchivePage section="work" />;
-  if (path.startsWith("/work/")) return <CaseStudyPage slug={path.split("/")[2]} />;
+  if (path.startsWith("/work/")) {
+    const slug = path.split("/")[2];
+    const validWork = ["ceylon-gem-atelier", "dispatcharc", "suranga-gems", "bgs-agristock", "linuka-bandara"];
+    return validWork.includes(slug) ? <CaseStudyPage slug={slug} /> : <NotFoundPage />;
+  }
   if (path === "/lab") return <ArchivePage section="lab" />;
   if (path === "/services") return <ServicesPage />;
   if (path === "/studio") return <StudioPage />;
   if (path.startsWith("/services/")) {
     const slug = path.split("/")[2];
-    return <ServiceDetailPage slug={slug} />;
+    const validServices = ["web-design", "web-development", "web-app-development", "website-redesign"];
+    return validServices.includes(slug) ? <ServiceDetailPage slug={slug} /> : <NotFoundPage />;
   }
   return <NotFoundPage />;
 }
