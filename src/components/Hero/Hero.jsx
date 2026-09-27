@@ -46,7 +46,7 @@ function Hero({ ready = true }) {
           transition={{ delay: 0.18, duration: 0.65 }}
         >
           <span className="hero__status-dot" />
-          Independent digital studio
+          Independent web design & development studio
         </motion.div>
 
         <h1
