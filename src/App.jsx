@@ -18,6 +18,7 @@ import ServicesPage from "./pages/ServicesPage";
 import StudioPage from "./pages/StudioPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import CaseStudyPage from "./pages/CaseStudyPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function getInitialSiteReady() {
   if (typeof window === "undefined") return false;
@@ -68,8 +69,11 @@ function App() {
   if (path === "/lab") return <ArchivePage section="lab" />;
   if (path === "/services") return <ServicesPage />;
   if (path === "/studio") return <StudioPage />;
-  if (path.startsWith("/services/")) return <ServiceDetailPage slug={path.split("/")[2]} />;
-  return <HomePage />;
+  if (path.startsWith("/services/")) {
+    const slug = path.split("/")[2];
+    return <ServiceDetailPage slug={slug} />;
+  }
+  return <NotFoundPage />;
 }
 
 export default App;
