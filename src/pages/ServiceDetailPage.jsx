@@ -70,9 +70,7 @@ const serviceData = {
 };
 
 function ServiceDetailPage({ slug }) {
-  const service = serviceData[slug];
-
-  if (!service) return <NotFoundPage />;
+  const service = serviceData[slug] || serviceData["web-design"];
 
   useEffect(() => {
     document.title = `ARK II | ${service.label} Services | Premium Digital Studio`;
