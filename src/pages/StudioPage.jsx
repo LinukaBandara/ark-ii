@@ -33,14 +33,14 @@ function StudioPage() {
               <h1>Small studio.<br /><span>Serious work.</span></h1>
             </motion.div>
             <motion.div className="studio-page__hero-copy" initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1, duration: .75 }}>
-              <p>ARK II is a focused digital studio built around one idea: good digital work should make a business clearer, more credible and easier to choose.</p>
+              <p>ARK II is a focused digital studio from Sri Lanka, working remotely with businesses worldwide. Good digital work should make a business clearer, more credible and easier to choose.</p>
               <a href="#studio-detail">Meet the studio <ArrowUpRight size={16} /></a>
             </motion.div>
           </div>
           <div className="studio-page__hero-meta">
             <span>Independent / Sri Lanka</span>
             <span>Design + Development</span>
-            <span>Working worldwide</span>
+            <span>Remote / Worldwide</span>
           </div>
         </section>
 
