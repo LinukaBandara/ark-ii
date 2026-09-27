@@ -18,7 +18,7 @@ function ArchivePage({ section }) {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", description);
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/${isWork ? "work" : "lab"}/`);
+    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/${isWork ? "work" : "lab"}`);
   }, [isWork]);
   const items = isWork ? workProjects : labProjects;
   const [featured, ...rest] = items;
