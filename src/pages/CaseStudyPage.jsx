@@ -1,0 +1,128 @@
+import { useEffect } from "react";
+import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
+import Navbar from "../components/Navbar/Navbar";
+import ContactSection from "../components/ContactSection/ContactSection";
+import Footer from "../components/Footer/Footer";
+import { workProjects } from "../data/projects";
+import "./CaseStudyPage.css";
+
+function CaseStudyPage({ slug }) {
+  const project = workProjects.find((item) => item.id === slug) || workProjects[0];
+
+  useEffect(() => {
+    const title = `ARK II | ${project.title} — ${project.category}`;
+    document.title = title;
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.setAttribute("content", project.description);
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/work/${project.id}/`);
+
+    let schema = document.getElementById("case-study-schema");
+    if (!schema) {
+      schema = document.createElement("script");
+      schema.id = "case-study-schema";
+      schema.type = "application/ld+json";
+      document.head.appendChild(schema);
+    }
+
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: project.title,
+      description: project.description,
+      url: `https://ark-ii.studio/work/${project.id}/`,
+      image: project.image,
+      creator: { "@type": "Organization", name: "ARK II", url: "https://ark-ii.studio/" },
+      keywords: project.tags.join(", "),
+      dateCreated: project.year,
+      about: project.category,
+    });
+
+    window.scrollTo(0, 0);
+
+    return () => {
+      document.getElementById("case-study-schema")?.remove();
+    };
+  }, [project]);
+
+  return (
+    <div className="case-study-page">
+      <Navbar />
+      <main>
+        <section className="case-study__hero">
+          <div className="case-study__top">
+            <a href="/work"><ArrowLeft size={15} /> All work</a>
+            <span>{project.index} / 05 CASE STUDY</span>
+          </div>
+
+          <div className="case-study__grid">
+            <div>
+              <p className="case-study__kicker">ARK II / {project.type}</p>
+              <h1>{project.title}<span>.</span></h1>
+              <p className="case-study__category">{project.category}</p>
+            </div>
+            <div className="case-study__intro">
+              <p>{project.description}</p>
+              <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                View live project <ExternalLink size={15} />
+              </a>
+            </div>
+          </div>
+
+          <div className="case-study__visual">
+            <img src={project.image} alt={project.imageAlt} />
+          </div>
+        </section>
+
+        <section className="case-study__overview">
+          <div>
+            <p className="section-kicker"><span>01</span> Project overview</p>
+            <h2>A digital experience<br /><em>with a job to do.</em></h2>
+          </div>
+          <div className="case-study__overview-copy">
+            <div><span>Challenge</span><p>{project.challenge}</p></div>
+            <div><span>Approach</span><p>{project.approach}</p></div>
+            <div><span>Outcome</span><p>{project.outcome}</p></div>
+          </div>
+        </section>
+
+        <section className="case-study__stack">
+          <div>
+            <p className="section-kicker section-kicker--light"><span>02</span> Build</p>
+            <h2>Tools behind<br /><em>the work.</em></h2>
+          </div>
+          <div className="case-study__tags">
+            {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+          </div>
+        </section>
+
+        <section className="case-study__next">
+          <p className="section-kicker"><span>03</span> More work</p>
+          <div>
+            {workProjects.filter((item) => item.id !== project.id).slice(0, 3).map((item) => (
+              <a key={item.id} href={`/work/${item.id}/`}>
+                <span>{item.title}</span>
+                <ArrowUpRight size={17} />
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="case-study__closing">
+          <div>
+            <p className="section-kicker section-kicker--light"><span>→</span> Have a similar project?</p>
+            <h2>Let's build something<br /><em>worth remembering.</em></h2>
+          </div>
+          <a href="#contact">Start a conversation <ArrowUpRight size={17} /></a>
+        </section>
+
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default CaseStudyPage;
