@@ -29,6 +29,13 @@ export const services = [
   },
   {
     number: "05",
+    title: "Web Development",
+    description:
+      "Custom web development that turns approved designs into fast, responsive websites and maintainable digital products.",
+    deliverables: ["Frontend Development", "API Integration", "Responsive Delivery"],
+  },
+  {
+    number: "06",
     title: "Digital Direction",
     description:
       "A focused visual and strategic system that helps a business show up consistently online.",
