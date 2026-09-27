@@ -34,7 +34,7 @@ function Footer() {
             Ready to give your business a stronger digital identity?
           </p>
 
-          <a href="#contact">
+          <a href="/#contact">
             Start a project
             <ArrowUpRight size={18} strokeWidth={1.8} />
           </a>
@@ -49,10 +49,10 @@ function Footer() {
         <div className="footer__links">
           <div>
             <span>Navigate</span>
-            <a href="#work">Work</a>
-            <a href="#lab">Lab</a>
-            <a href="#services">Services</a>
-            <a href="#studio">Studio</a>
+            <a href="/work">Work</a>
+            <a href="/lab">Lab</a>
+            <a href="/services">Services</a>
+            <a href="/studio">Studio</a>
             <a href="#contact">Contact</a>
           </div>
 
