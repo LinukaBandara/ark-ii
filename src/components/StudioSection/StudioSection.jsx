@@ -99,7 +99,7 @@ function StudioSection() {
             Working with businesses everywhere.
           </p>
 
-          <a href="#contact">
+          <a href="/studio">
             Meet ARK II
             <ArrowUpRight size={17} strokeWidth={1.8} />
           </a>
