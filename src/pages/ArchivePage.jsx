@@ -72,7 +72,7 @@ function ArchiveCard({ project, featured = false, isLab = false }) {
           <p className="archive-card__category">{project.category}</p>
           <p className="archive-card__description">{project.description}</p>
           <div className="archive-card__tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-          <div className="archive-card__actions"><a href={`/work/${project.id}/`}>View case study <ArrowUpRight size={15} /></a><a href={project.liveUrl} target="_blank" rel="noreferrer">Open live site <ExternalLink size={15} /></a></div>
+          <div className="archive-card__actions"><a href={`/work/${project.id}`}>View case study <ArrowUpRight size={15} /></a><a href={project.liveUrl} target="_blank" rel="noreferrer">Open live site <ExternalLink size={15} /></a></div>
         </div>
       </div>
     </motion.article>
