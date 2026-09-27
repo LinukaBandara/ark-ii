@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import Navbar from "../components/Navbar/Navbar";
@@ -7,6 +8,18 @@ import "./ArchivePage.css";
 
 function ArchivePage({ section }) {
   const isWork = section === "work";
+
+  useEffect(() => {
+    const title = isWork ? "ARK II | Web Design & Development Work" : "ARK II | Digital Experiments & Lab";
+    const description = isWork
+      ? "Explore selected ARK II website design, web development and business software projects built for real-world needs."
+      : "Explore ARK II digital experiments, concepts and live experiences across different industries.";
+    document.title = title;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute("content", description);
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/${isWork ? "work" : "lab"}/`);
+  }, [isWork]);
   const items = isWork ? workProjects : labProjects;
   const [featured, ...rest] = items;
   const title = isWork ? <>Built for the real world.<span> Built to last.</span></> : <>A place to <span>experiment.</span></>;
