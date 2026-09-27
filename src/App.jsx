@@ -17,6 +17,7 @@ import ArchivePage from "./pages/ArchivePage";
 import ServicesPage from "./pages/ServicesPage";
 import StudioPage from "./pages/StudioPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
+import CaseStudyPage from "./pages/CaseStudyPage";
 
 function getInitialSiteReady() {
   if (typeof window === "undefined") return false;
@@ -63,6 +64,7 @@ function HomePage() {
 function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
   if (path === "/work") return <ArchivePage section="work" />;
+  if (path.startsWith("/work/")) return <CaseStudyPage slug={path.split("/")[2]} />;
   if (path === "/lab") return <ArchivePage section="lab" />;
   if (path === "/services") return <ServicesPage />;
   if (path === "/studio") return <StudioPage />;
