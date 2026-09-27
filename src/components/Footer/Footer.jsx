@@ -53,7 +53,7 @@ function Footer() {
             <a href="/lab">Lab</a>
             <a href="/services">Services</a>
             <a href="/studio">Studio</a>
-            <a href="#contact">Contact</a>
+            <a href="/#contact">Contact</a>
           </div>
 
           <div>
