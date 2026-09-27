@@ -13,7 +13,7 @@ function ServicesPage() {
   useEffect(() => {
     document.title = "ARK II | Web Design & Development Services";
     const description = document.querySelector('meta[name="description"]');
-    if (description) description.setAttribute("content", "Explore ARK II web design, web development, web app development and website redesign services for ambitious businesses. Sri Lanka-based, working worldwide.");
+    if (description) description.setAttribute("content", "Explore ARK II web design, web development, web app development and website redesign services for ambitious businesses in the US, UK, Australia and worldwide.");
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/services");
   }, []);
@@ -54,7 +54,7 @@ function ServicesPage() {
             <h2>Digital experiences built for <em>real business goals.</em></h2>
           </div>
           <div>
-            <p>ARK II provides website design, web development, custom web application development and website redesign services for businesses in Sri Lanka and clients working remotely worldwide.</p>
+            <p>ARK II provides website design, web development, custom web application development and website redesign services for businesses in the US, UK, Australia, Sri Lanka and other markets worldwide.</p>
             <p>From a focused business website to a data-driven dashboard or customer portal, every engagement is shaped around the audience, workflow and outcome that matter.</p>
           </div>
         </section>
