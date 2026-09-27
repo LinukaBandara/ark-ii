@@ -1,0 +1,32 @@
+.case-study-page{min-height:100vh;background:var(--ivory);color:var(--black)}
+.case-study__hero{padding:8.5rem var(--page-padding) 5rem;border-bottom:1px solid rgba(9,9,9,.14)}
+.case-study__top{display:flex;justify-content:space-between;align-items:center;max-width:96rem;margin:0 auto 5rem;color:rgba(9,9,9,.5);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.case-study__top a{display:inline-flex;align-items:center;gap:.45rem}
+.case-study__grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(18rem,.55fr);gap:4rem;align-items:end;max-width:96rem;margin:0 auto}
+.case-study__kicker{margin:0 0 1.2rem;color:var(--orange);font-size:11px;font-weight:750;letter-spacing:.12em;text-transform:uppercase}
+.case-study__hero h1{max-width:10ch;margin:0;font-size:clamp(4rem,9vw,9rem);line-height:.86;letter-spacing:-.078em;font-weight:600}
+.case-study__hero h1 span{color:var(--orange);font-family:var(--font-serif);font-style:italic;font-weight:400}
+.case-study__category{margin:1.5rem 0 0;color:rgba(9,9,9,.5);font-size:13px}
+.case-study__intro{max-width:31rem;padding-bottom:.5rem}
+.case-study__intro p{margin:0;color:rgba(9,9,9,.62);font-size:15px;line-height:1.75}
+.case-study__intro a{display:inline-flex;align-items:center;gap:.5rem;margin-top:2rem;border-bottom:1px solid rgba(9,9,9,.35);padding-bottom:.3rem;font-size:12px;font-weight:700}
+.case-study__visual{max-width:96rem;margin:5rem auto 0;overflow:hidden;background:var(--black);aspect-ratio:16/9}
+.case-study__visual img{width:100%;height:100%;object-fit:cover}
+.case-study__overview{display:grid;grid-template-columns:.75fr 1.25fr;gap:5rem;padding:8rem var(--page-padding)}
+.case-study__overview h2,.case-study__stack h2{margin:1rem 0 0;font-size:clamp(3.5rem,7vw,7rem);line-height:.88;letter-spacing:-.075em}
+.case-study__overview h2 em,.case-study__stack h2 em,.case-study__closing h2 em{color:var(--orange);font-family:var(--font-serif);font-style:italic;font-weight:400}
+.case-study__overview-copy{border-top:1px solid rgba(9,9,9,.14)}
+.case-study__overview-copy>div{border-bottom:1px solid rgba(9,9,9,.14);padding:1.5rem 0}
+.case-study__overview-copy span{display:block;color:var(--orange);font-size:10px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
+.case-study__overview-copy p{max-width:42rem;margin:.65rem 0 0;color:rgba(9,9,9,.6);font-size:13px;line-height:1.75}
+.case-study__stack{display:grid;grid-template-columns:.75fr 1.25fr;gap:5rem;padding:7rem var(--page-padding);background:var(--black);color:var(--ivory)}
+.case-study__tags{display:flex;flex-wrap:wrap;align-content:start;gap:.55rem}
+.case-study__tags span{border:1px solid rgba(241,238,231,.18);border-radius:999px;padding:.65rem .8rem;color:rgba(241,238,231,.75);font-size:11px}
+.case-study__next{padding:7rem var(--page-padding)}
+.case-study__next>div{margin-top:2rem;border-top:1px solid rgba(9,9,9,.14)}
+.case-study__next a{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(9,9,9,.14);padding:1.3rem 0;font-size:clamp(1.4rem,3vw,2.6rem);letter-spacing:-.04em}
+.case-study__next a:hover{color:var(--orange)}
+.case-study__closing{display:flex;justify-content:space-between;align-items:end;gap:2rem;padding:7rem var(--page-padding);background:#071017;color:var(--ivory)}
+.case-study__closing h2{margin:.8rem 0 0;font-size:clamp(3.5rem,7vw,7rem);line-height:.88;letter-spacing:-.075em}
+.case-study__closing a{display:inline-flex;align-items:center;gap:.55rem;border-bottom:1px solid rgba(241,238,231,.35);padding-bottom:.3rem;font-size:12px;font-weight:700}
+@media(max-width:759px){.case-study__hero{padding-top:7.2rem}.case-study__top{margin-bottom:4rem}.case-study__grid,.case-study__overview,.case-study__stack{display:block}.case-study__intro{margin-top:2.2rem}.case-study__visual{margin-top:3.5rem;aspect-ratio:4/3}.case-study__overview{padding-top:5.5rem;padding-bottom:5.5rem}.case-study__overview-copy{margin-top:3rem}.case-study__stack{padding-top:5.5rem;padding-bottom:5.5rem}.case-study__tags{margin-top:3rem}.case-study__next{padding-top:5.5rem;padding-bottom:5.5rem}.case-study__closing{display:block;padding-top:5.5rem;padding-bottom:5.5rem}.case-study__closing a{margin-top:2.2rem}}
