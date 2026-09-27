@@ -9,6 +9,7 @@ const servicePaths = {
   "Website Redesign": "/services/website-redesign",
   "UI/UX Design": "/services/web-design",
   "Web Applications": "/services/web-app-development",
+  "Web Development": "/services/web-development",
   "Digital Direction": "/services/web-design",
 };
 
