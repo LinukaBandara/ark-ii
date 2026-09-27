@@ -38,3 +38,10 @@
 .case-study__service-link a{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(241,238,231,.18);padding:.8rem 1rem;color:rgba(241,238,231,.82);font-size:11px;font-weight:700;transition:border-color .25s,color .25s}
 .case-study__service-link a:hover{border-color:var(--orange);color:var(--orange)}
 @media(max-width:759px){.case-study__service-link{padding-top:5.5rem;padding-bottom:5.5rem}.case-study__service-link>div{display:grid;grid-template-columns:1fr}}
+
+.case-study__seo-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.8fr);gap:clamp(3rem,8vw,8rem);padding:7rem var(--page-padding);border-top:1px solid rgba(9,9,9,.14)}
+.case-study__seo-intro h2{margin:1rem 0 0;font-size:clamp(3rem,6vw,6rem);line-height:.9;letter-spacing:-.07em}
+.case-study__seo-intro h2 em{color:var(--orange);font-family:var(--font-serif);font-style:italic;font-weight:400}
+.case-study__seo-intro>div:last-child{display:flex;flex-direction:column;justify-content:flex-end;gap:1.2rem;max-width:34rem}
+.case-study__seo-intro>div:last-child p{margin:0;font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.65;color:rgba(9,9,9,.68)}
+@media(max-width:759px){.case-study__seo-intro{grid-template-columns:1fr;padding-top:5.5rem;padding-bottom:5.5rem}}
