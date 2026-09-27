@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "../components/Navbar/Navbar";
@@ -9,6 +10,14 @@ import Footer from "../components/Footer/Footer";
 import "./ServicesPage.css";
 
 function ServicesPage() {
+  useEffect(() => {
+    document.title = "ARK II | Web Design & Development Services";
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.setAttribute("content", "Explore ARK II web design, web development, web app development and website redesign services for ambitious businesses. Sri Lanka-based, working worldwide.");
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/services/");
+  }, []);
+
   return (
     <div className="services-page">
       <Navbar />
