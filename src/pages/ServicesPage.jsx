@@ -48,9 +48,20 @@ function ServicesPage() {
           <ServicesSection />
         </div>
 
+        <section className="services-page__seo-copy" aria-label="Who ARK II works with">
+          <div>
+            <p className="section-kicker"><span>06</span> Who we work with</p>
+            <h2>Built for ambitious <em>businesses.</em></h2>
+          </div>
+          <div>
+            <p>ARK II works remotely with small and growing businesses, professional services firms, hospitality brands, studios and teams building digital products.</p>
+            <p>Our priority international markets include the United States, United Kingdom and Australia, while projects can be delivered remotely for clients worldwide.</p>
+          </div>
+        </section>
+
         <section className="services-page__seo-copy">
           <div>
-            <p className="section-kicker"><span>06</span> What we build</p>
+            <p className="section-kicker"><span>07</span> What we build</p>
             <h2>Digital experiences built for <em>real business goals.</em></h2>
           </div>
           <div>
@@ -64,7 +75,7 @@ function ServicesPage() {
 
         <section className="services-page__closing">
           <div>
-            <p className="section-kicker"><span>07</span> A focused engagement</p>
+            <p className="section-kicker"><span>08</span> A focused engagement</p>
             <h2>Have a project<br /><em>in mind?</em></h2>
           </div>
           <a href="#contact">Start a conversation <ArrowUpRight size={17} /></a>
