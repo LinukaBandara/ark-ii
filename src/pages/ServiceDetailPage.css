@@ -1,0 +1,30 @@
+.service-detail-page{min-height:100vh;background:var(--ivory);color:var(--black)}
+.service-detail__hero{padding:8.5rem var(--page-padding) 3.5rem;border-bottom:1px solid rgba(9,9,9,.14)}
+.service-detail__top{display:flex;justify-content:space-between;align-items:center;max-width:96rem;margin:0 auto 5rem;color:rgba(9,9,9,.5);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.service-detail__top a{display:inline-flex;align-items:center;gap:.45rem}
+.service-detail__grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(18rem,.55fr);gap:4rem;align-items:end;max-width:96rem;margin:0 auto}
+.service-detail__kicker{margin:0 0 1.2rem;color:var(--orange);font-size:11px;font-weight:750;letter-spacing:.12em;text-transform:uppercase}
+.service-detail__hero h1{max-width:11ch;margin:0;font-size:clamp(4rem,8.5vw,8.5rem);line-height:.87;letter-spacing:-.078em;font-weight:600}
+.service-detail__hero h1 span,.service-detail__body h2 em,.service-detail__deliverables h2 em,.service-detail__closing h2 em{color:var(--orange);font-family:var(--font-serif);font-style:italic;font-weight:400}
+.service-detail__copy{max-width:31rem;padding-bottom:.5rem}
+.service-detail__copy p{margin:0;color:rgba(9,9,9,.6);font-size:15px;line-height:1.75}
+.service-detail__copy a{display:inline-flex;align-items:center;gap:.5rem;margin-top:2rem;border-bottom:1px solid rgba(9,9,9,.35);padding-bottom:.3rem;font-size:12px;font-weight:700}
+.service-detail__meta{display:flex;flex-wrap:wrap;gap:.65rem 2rem;max-width:96rem;margin:4rem auto 0;padding-top:1rem;border-top:1px solid rgba(9,9,9,.14);color:rgba(9,9,9,.43);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.service-detail__meta span:first-child{color:var(--orange)}
+.service-detail__body{display:grid;grid-template-columns:.75fr 1.25fr;gap:5rem;padding:8rem var(--page-padding)}
+.service-detail__body-head h2,.service-detail__deliverables h2{margin:1rem 0 0;font-size:clamp(3.5rem,7vw,7rem);line-height:.88;letter-spacing:-.075em}
+.service-detail__points{border-top:1px solid rgba(9,9,9,.14)}
+.service-detail__points article{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:1.5rem;border-bottom:1px solid rgba(9,9,9,.14);padding:1.6rem 0}
+.service-detail__points article>span{color:var(--orange);font-size:10px;font-weight:750;letter-spacing:.08em}
+.service-detail__points h3{margin:0;font-size:clamp(1.3rem,2.1vw,2.1rem);letter-spacing:-.045em;font-weight:500}
+.service-detail__points p{margin:.65rem 0 0;max-width:38rem;color:rgba(9,9,9,.58);font-size:12px;line-height:1.7}
+.service-detail__deliverables{display:grid;grid-template-columns:.75fr 1.25fr;gap:5rem;padding:7rem var(--page-padding);background:var(--black);color:var(--ivory)}
+.service-detail__deliverable-list{border-top:1px solid rgba(241,238,231,.15)}
+.service-detail__deliverable-list div{display:flex;align-items:center;gap:.75rem;border-bottom:1px solid rgba(241,238,231,.15);padding:1.25rem 0;font-size:13px}
+.service-detail__deliverable-list svg{color:var(--orange);flex:none}
+.service-detail__fit{padding:7rem var(--page-padding);background:#071017;color:var(--ivory)}
+.service-detail__fit h2{max-width:60rem;margin:1rem 0 0;font-size:clamp(2.4rem,5vw,5rem);line-height:.98;letter-spacing:-.055em;font-weight:500}
+.service-detail__closing{display:flex;justify-content:space-between;align-items:end;gap:2rem;padding:7rem var(--page-padding);background:var(--black);color:var(--ivory)}
+.service-detail__closing h2{margin:.8rem 0 0;font-size:clamp(3.5rem,7vw,7rem);line-height:.88;letter-spacing:-.075em}
+.service-detail__closing a{display:inline-flex;align-items:center;gap:.55rem;border-bottom:1px solid rgba(241,238,231,.35);padding-bottom:.3rem;font-size:12px;font-weight:700}
+@media(max-width:759px){.service-detail__hero{padding-top:7.2rem}.service-detail__top{margin-bottom:4rem}.service-detail__grid,.service-detail__body,.service-detail__deliverables{display:block}.service-detail__copy{margin-top:2.2rem}.service-detail__meta{margin-top:2.8rem}.service-detail__body{padding-top:5.5rem;padding-bottom:5.5rem}.service-detail__points{margin-top:3rem}.service-detail__deliverables{padding-top:5.5rem;padding-bottom:5.5rem}.service-detail__deliverable-list{margin-top:3rem}.service-detail__fit{padding-top:5.5rem;padding-bottom:5.5rem}.service-detail__closing{display:block;padding-top:5.5rem;padding-bottom:5.5rem}.service-detail__closing a{margin-top:2.2rem}}
