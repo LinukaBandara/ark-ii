@@ -11,7 +11,7 @@ const serviceData = {
     number: "01",
     label: "Web Design",
     title: <>Premium business websites built to <span>be chosen.</span></>,
-    description: "ARK II provides premium web design services for business websites that need clearer positioning, stronger UX and a more confident path to enquiry.",
+    description: "ARK II provides premium web design services for business websites that need clearer positioning, stronger UX and a more confident path to enquiry — for ambitious businesses in the US, UK, Australia and worldwide.",
     meta: ["Strategy + UI/UX", "Responsive by default", "Working worldwide"],
     points: [
       ["Positioning & structure", "Clarify the offer, audience and page hierarchy before visual design begins."],
@@ -26,7 +26,7 @@ const serviceData = {
     number: "02",
     label: "Web Development",
     title: <>Web development that turns design into <span>working systems.</span></>,
-    description: "ARK II provides custom web development for responsive business websites and digital products, with integrations, performance and maintainable architecture built in.",
+    description: "ARK II provides custom web development for responsive business websites and digital products, with integrations, performance and maintainable architecture built in for businesses in the US, UK, Australia and worldwide.",
     meta: ["Frontend + integrations", "Performance focused", "Built for growth"],
     points: [
       ["Production-ready frontend", "Translate approved designs into responsive, accessible interfaces with reusable components."],
@@ -41,7 +41,7 @@ const serviceData = {
     number: "03",
     label: "Web App Development",
     title: <>Custom web applications for <span>real operations.</span></>,
-    description: "ARK II provides custom web application development for businesses that need dashboards, portals, workflows and data-driven software beyond a standard website.",
+    description: "ARK II provides custom web application development for businesses in the US, UK, Australia and worldwide that need dashboards, portals, workflows and data-driven software beyond a standard website.",
     meta: ["Product thinking", "Custom workflows", "Business software"],
     points: [
       ["Workflow mapping", "Turn manual or fragmented processes into clear digital flows before development starts."],
@@ -56,7 +56,7 @@ const serviceData = {
     number: "04",
     label: "Website Redesign",
     title: <>Turn an outdated website into a <span>stronger first impression.</span></>,
-    description: "ARK II provides website redesign services for businesses with outdated or unclear websites, combining UX restructuring, visual design and responsive redevelopment.",
+    description: "ARK II provides website redesign services for businesses in the US, UK, Australia and worldwide with outdated or unclear websites, combining UX restructuring, visual design and responsive redevelopment.",
     meta: ["Audit + strategy", "UX restructuring", "Visual rebuild"],
     points: [
       ["Website audit", "Identify clarity, content, UX and responsive issues that are getting in the way of the current site."],
