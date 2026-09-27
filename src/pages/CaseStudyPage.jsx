@@ -10,7 +10,7 @@ function CaseStudyPage({ slug }) {
   const project = workProjects.find((item) => item.id === slug) || workProjects[0];
 
   useEffect(() => {
-    const title = `ARK II | ${project.title} — ${project.category}`;
+    const title = `ARK II | ${project.title} — ${project.category} Case Study`;
     document.title = title;
 
     const description = document.querySelector('meta[name="description"]');
@@ -117,6 +117,17 @@ function CaseStudyPage({ slug }) {
           </div>
         </section>
 
+        <section className="case-study__seo-intro">
+          <div>
+            <p className="section-kicker"><span>02</span> Project details</p>
+            <h2>From brief to <em>built experience.</em></h2>
+          </div>
+          <div>
+            <p>{project.title} is a {project.category.toLowerCase()} created by ARK II. The project brings together strategy, interface design and development around a specific business or product need.</p>
+            <p>Explore the challenge, approach, technology and outcome below to see how the work was shaped from an initial brief into a usable digital experience.</p>
+          </div>
+        </section>
+
         <section className="case-study__stack">
           <div>
             <p className="section-kicker section-kicker--light"><span>02</span> Build</p>
@@ -131,7 +142,7 @@ function CaseStudyPage({ slug }) {
           <p className="section-kicker"><span>03</span> More work</p>
           <div>
             {workProjects.filter((item) => item.id !== project.id).slice(0, 3).map((item) => (
-              <a key={item.id} href={`/work/${item.id}/`}>
+              <a key={item.id} href={`/work/${item.id}`}>
                 <span>{item.title}</span>
                 <ArrowUpRight size={17} />
               </a>
@@ -143,10 +154,10 @@ function CaseStudyPage({ slug }) {
           <p className="section-kicker"><span>→</span> Need something similar?</p>
           <h2>Explore ARK II<br /><em>services.</em></h2>
           <div>
-            <a href="/services/web-design/">Web Design <ArrowUpRight size={16} /></a>
-            <a href="/services/web-development/">Web Development <ArrowUpRight size={16} /></a>
-            <a href="/services/web-app-development/">Web App Development <ArrowUpRight size={16} /></a>
-            <a href="/services/website-redesign/">Website Redesign <ArrowUpRight size={16} /></a>
+            <a href="/services/web-design">Web Design <ArrowUpRight size={16} /></a>
+            <a href="/services/web-development">Web Development <ArrowUpRight size={16} /></a>
+            <a href="/services/web-app-development">Web App Development <ArrowUpRight size={16} /></a>
+            <a href="/services/website-redesign">Website Redesign <ArrowUpRight size={16} /></a>
           </div>
         </section>
 
