@@ -5,11 +5,11 @@ import { services } from "../../data/services";
 import "./ServicesSection.css";
 
 const servicePaths = {
-  "Brand Websites": "/services/web-design/",
-  "Website Redesign": "/services/website-redesign/",
-  "UI/UX Design": "/services/web-design/",
-  "Web Applications": "/services/web-app-development/",
-  "Digital Direction": "/services/web-design/",
+  "Brand Websites": "/services/web-design",
+  "Website Redesign": "/services/website-redesign",
+  "UI/UX Design": "/services/web-design",
+  "Web Applications": "/services/web-app-development",
+  "Digital Direction": "/services/web-design",
 };
 
 function ServiceItem({ service, index, isOpen, onToggle }) {
@@ -67,7 +67,7 @@ function ServiceItem({ service, index, isOpen, onToggle }) {
               </div>
               <a
                 className="service-item__learn-more"
-                href={servicePaths[service.title] || "/services/"}
+                href={servicePaths[service.title] || "/services"}
               >
                 View service
               </a>
