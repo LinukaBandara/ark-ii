@@ -54,7 +54,7 @@ function ServicesPage() {
             <h2>Digital experiences built for <em>real business goals.</em></h2>
           </div>
           <div>
-            <p>ARK II provides website design, web development, custom web application development and website redesign services for businesses that need a stronger digital presence.</p>
+            <p>ARK II provides website design, web development, custom web application development and website redesign services for businesses in Sri Lanka and clients working remotely worldwide.</p>
             <p>From a focused business website to a data-driven dashboard or customer portal, every engagement is shaped around the audience, workflow and outcome that matter.</p>
           </div>
         </section>
