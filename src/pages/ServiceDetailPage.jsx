@@ -10,8 +10,8 @@ const serviceData = {
   "web-design": {
     number: "01",
     label: "Web Design",
-    title: <>Premium websites built to <span>be chosen.</span></>,
-    description: "ARK II designs conversion-focused business websites that make your positioning clear, communicate quality and give customers a confident next step.",
+    title: <>Premium business websites built to <span>be chosen.</span></>,
+    description: "ARK II provides premium web design services for business websites that need clearer positioning, stronger UX and a more confident path to enquiry.",
     meta: ["Strategy + UI/UX", "Responsive by default", "Working worldwide"],
     points: [
       ["Positioning & structure", "Clarify the offer, audience and page hierarchy before visual design begins."],
@@ -26,7 +26,7 @@ const serviceData = {
     number: "02",
     label: "Web Development",
     title: <>Web development that turns design into <span>working systems.</span></>,
-    description: "ARK II builds fast, responsive websites and digital products with clean frontend architecture, real integrations and a focus on maintainability.",
+    description: "ARK II provides custom web development for responsive business websites and digital products, with integrations, performance and maintainable architecture built in.",
     meta: ["Frontend + integrations", "Performance focused", "Built for growth"],
     points: [
       ["Production-ready frontend", "Translate approved designs into responsive, accessible interfaces with reusable components."],
@@ -41,7 +41,7 @@ const serviceData = {
     number: "03",
     label: "Web App Development",
     title: <>Custom web applications for <span>real operations.</span></>,
-    description: "When a business needs more than pages, ARK II designs and develops focused web applications around real workflows, data and operational requirements.",
+    description: "ARK II provides custom web application development for businesses that need dashboards, portals, workflows and data-driven software beyond a standard website.",
     meta: ["Product thinking", "Custom workflows", "Business software"],
     points: [
       ["Workflow mapping", "Turn manual or fragmented processes into clear digital flows before development starts."],
@@ -56,7 +56,7 @@ const serviceData = {
     number: "04",
     label: "Website Redesign",
     title: <>Turn an outdated website into a <span>stronger first impression.</span></>,
-    description: "ARK II redesigns websites that no longer represent the quality of the business, making the experience clearer, more credible and easier to use.",
+    description: "ARK II provides website redesign services for businesses with outdated or unclear websites, combining UX restructuring, visual design and responsive redevelopment.",
     meta: ["Audit + strategy", "UX restructuring", "Visual rebuild"],
     points: [
       ["Website audit", "Identify clarity, content, UX and responsive issues that are getting in the way of the current site."],
@@ -73,7 +73,7 @@ function ServiceDetailPage({ slug }) {
   const service = serviceData[slug] || serviceData["web-design"];
 
   useEffect(() => {
-    document.title = `ARK II | ${service.label} Services`;
+    document.title = `ARK II | ${service.label} Services | Premium Digital Studio`;
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", service.description);
     const canonical = document.querySelector('link[rel="canonical"]');
@@ -191,6 +191,19 @@ function ServiceDetailPage({ slug }) {
         <section className="service-detail__fit">
           <p className="section-kicker"><span>→</span> Where it fits</p>
           <h2>{service.projects}</h2>
+        </section>
+
+        <section className="service-detail__other-services">
+          <p className="section-kicker"><span>→</span> Related services</p>
+          <div className="service-detail__other-grid">
+            {Object.entries(serviceData).filter(([key]) => key !== slug).map(([key, item]) => (
+              <a key={key} href={`/services/${key}`}>
+                <span>{item.number}</span>
+                <strong>{item.label}</strong>
+                <ArrowUpRight size={16} />
+              </a>
+            ))}
+          </div>
         </section>
 
         <section className="service-detail__related">
