@@ -33,7 +33,7 @@ function ServicesPage() {
               <h1>Digital work with a <span>purpose.</span></h1>
             </motion.div>
             <motion.div className="services-page__hero-copy" initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1, duration: .75 }}>
-              <p>We design and build websites, interfaces and digital products around what a business actually needs — not a pre-made package.</p>
+              <p>We design and build premium business websites, custom web applications and digital products around what a business actually needs — not a pre-made package.</p>
               <a href="#services-detail">Explore capabilities <ArrowUpRight size={16} /></a>
             </motion.div>
           </div>
@@ -48,12 +48,23 @@ function ServicesPage() {
           <ServicesSection />
         </div>
 
+        <section className="services-page__seo-copy">
+          <div>
+            <p className="section-kicker"><span>06</span> What we build</p>
+            <h2>Digital experiences built for <em>real business goals.</em></h2>
+          </div>
+          <div>
+            <p>ARK II provides website design, web development, custom web application development and website redesign services for businesses that need a stronger digital presence.</p>
+            <p>From a focused business website to a data-driven dashboard or customer portal, every engagement is shaped around the audience, workflow and outcome that matter.</p>
+          </div>
+        </section>
+
         <ProcessSection />
         <CapabilitiesSection />
 
         <section className="services-page__closing">
           <div>
-            <p className="section-kicker"><span>06</span> A focused engagement</p>
+            <p className="section-kicker"><span>07</span> A focused engagement</p>
             <h2>Have a project<br /><em>in mind?</em></h2>
           </div>
           <a href="#contact">Start a conversation <ArrowUpRight size={17} /></a>
