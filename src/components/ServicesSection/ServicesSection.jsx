@@ -4,7 +4,15 @@ import { ArrowDownRight, Plus } from "lucide-react";
 import { services } from "../../data/services";
 import "./ServicesSection.css";
 
-const servicePaths = {\n  "Brand Websites": "/services/web-design/",\n  "Website Redesign": "/services/website-redesign/",\n  "UI/UX Design": "/services/web-design/",\n  "Web Applications": "/services/web-app-development/",\n  "Digital Direction": "/services/web-design/",\n};\n\nfunction ServiceItem({ service, index, isOpen, onToggle }) {
+const servicePaths = {
+  "Brand Websites": "/services/web-design/",
+  "Website Redesign": "/services/website-redesign/",
+  "UI/UX Design": "/services/web-design/",
+  "Web Applications": "/services/web-app-development/",
+  "Digital Direction": "/services/web-design/",
+};
+
+function ServiceItem({ service, index, isOpen, onToggle }) {
   const triggerId = `service-trigger-${index}`;
   const panelId = `service-panel-${index}`;
 
@@ -57,6 +65,12 @@ const servicePaths = {\n  "Brand Websites": "/services/web-design/",\n  "Website
                   <span key={item}>{item}</span>
                 ))}
               </div>
+              <a
+                className="service-item__learn-more"
+                href={servicePaths[service.title] || "/services/"}
+              >
+                View service
+              </a>
             </div>
           </motion.div>
         )}
