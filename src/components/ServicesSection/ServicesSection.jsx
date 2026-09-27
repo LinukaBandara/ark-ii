@@ -101,8 +101,7 @@ function ServicesSection() {
           viewport={{ once: true, amount: 0.55 }}
           transition={{ delay: 0.08, duration: 0.7 }}
         >
-          From first idea to final launch, ARK II creates focused digital
-          experiences that support real business growth.
+          From strategy and website design to custom web development and web applications, ARK II creates focused digital experiences built around real business goals.
         </motion.p>
       </div>
 
