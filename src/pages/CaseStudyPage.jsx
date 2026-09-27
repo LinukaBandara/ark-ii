@@ -3,7 +3,6 @@ import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import Navbar from "../components/Navbar/Navbar";
 import ContactSection from "../components/ContactSection/ContactSection";
 import Footer from "../components/Footer/Footer";
-import NotFoundPage from "./NotFoundPage";
 import { workProjects } from "../data/projects";
 import "./CaseStudyPage.css";
 
