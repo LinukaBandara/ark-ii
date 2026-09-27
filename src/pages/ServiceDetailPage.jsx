@@ -78,7 +78,65 @@ function ServiceDetailPage({ slug }) {
     if (description) description.setAttribute("content", service.description);
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/services/${slug}/`);
+
+    let schema = document.getElementById("service-schema");
+    if (!schema) {
+      schema = document.createElement("script");
+      schema.id = "service-schema";
+      schema.type = "application/ld+json";
+      document.head.appendChild(schema);
+    }
+
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": `https://ark-ii.studio/services/${slug}/#service`,
+          name: service.label,
+          description: service.description,
+          url: `https://ark-ii.studio/services/${slug}/`,
+          provider: {
+            "@type": "Organization",
+            "@id": "https://ark-ii.studio/#organization",
+            name: "ARK II",
+            url: "https://ark-ii.studio/"
+          },
+          areaServed: "Worldwide",
+          serviceType: service.label
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `https://ark-ii.studio/services/${slug}/#breadcrumb`,
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://ark-ii.studio/"
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Services",
+              item: "https://ark-ii.studio/services"
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: service.label,
+              item: `https://ark-ii.studio/services/${slug}/`
+            }
+          ]
+        }
+      ]
+    });
+
     window.scrollTo(0, 0);
+
+    return () => {
+      document.getElementById("service-schema")?.remove();
+    };
   }, [slug, service]);
 
   return (
@@ -133,6 +191,12 @@ function ServiceDetailPage({ slug }) {
         <section className="service-detail__fit">
           <p className="section-kicker"><span>→</span> Where it fits</p>
           <h2>{service.projects}</h2>
+        </section>
+
+        <section className="service-detail__related">
+          <p className="section-kicker"><span>→</span> Explore ARK II work</p>
+          <h2>See how the service<br /><em>becomes a real product.</em></h2>
+          <a href="/work">View selected work <ArrowUpRight size={17} /></a>
         </section>
 
         <ProcessSection />
