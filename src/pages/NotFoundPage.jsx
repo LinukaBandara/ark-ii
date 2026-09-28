@@ -9,6 +9,14 @@ function NotFoundPage() {
     document.title = "ARK II | Page Not Found";
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", "The ARK II page you requested could not be found.");
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (socialTitle) socialTitle.setAttribute("content", document.title);
+    if (socialDescription) socialDescription.setAttribute("content", "The ARK II page you requested could not be found.");
+    if (twitterTitle) twitterTitle.setAttribute("content", document.title);
+    if (twitterDescription) twitterDescription.setAttribute("content", "The ARK II page you requested could not be found.");
     const robots = document.querySelector('meta[name="robots"]');
     if (robots) robots.setAttribute("content", "noindex, follow");
     return () => {
