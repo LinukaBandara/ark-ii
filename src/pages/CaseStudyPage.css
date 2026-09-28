@@ -45,3 +45,12 @@
 .case-study__seo-intro>div:last-child{display:flex;flex-direction:column;justify-content:flex-end;gap:1.2rem;max-width:34rem}
 .case-study__seo-intro>div:last-child p{margin:0;font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.65;color:rgba(9,9,9,.68)}
 @media(max-width:759px){.case-study__seo-intro{grid-template-columns:1fr;padding-top:5.5rem;padding-bottom:5.5rem}}
+
+
+.case-study__service-context {
+  max-width: 34rem;
+  margin-top: 0.9rem;
+  color: rgba(241, 238, 231, 0.58);
+  font-size: 0.72rem;
+  line-height: 1.7;
+}
