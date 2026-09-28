@@ -17,6 +17,14 @@ function ArchivePage({ section }) {
     document.title = title;
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", description);
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (socialTitle) socialTitle.setAttribute("content", title);
+    if (socialDescription) socialDescription.setAttribute("content", description);
+    if (twitterTitle) twitterTitle.setAttribute("content", title);
+    if (twitterDescription) twitterDescription.setAttribute("content", description);
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/${isWork ? "work" : "lab"}`);
 
