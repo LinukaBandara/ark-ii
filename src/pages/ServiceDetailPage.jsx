@@ -85,6 +85,11 @@ const serviceData = {
     relatedWork: [
       ["Suranga Gems", "Luxury brand website", "/work/suranga-gems"],
       ["Ceylon Gem Atelier", "Premium gemstone digital experience", "/work/ceylon-gem-atelier"]
+    ],
+    faqs: [
+      ["When does a business need a website redesign?", "A redesign makes sense when the current website is outdated, difficult to use, weak on mobile, unclear about the offer or no longer reflects the quality of the business."],
+      ["Does ARK II redesign existing websites?", "Yes. ARK II can audit the existing experience, restructure content and UX, refresh the visual direction and rebuild the website responsively."],
+      ["Can a redesign include SEO foundations?", "Yes. The rebuild can include clean page structure, responsive implementation, metadata, internal linking and other foundational SEO considerations."]
     ]
   }
 };
@@ -271,6 +276,18 @@ function ServiceDetailPage({ slug }) {
             <h2>Understand the scope before comparing <em>quotes.</em></h2>
             <p>Project cost depends on pages, content, design depth, functionality, integrations and ongoing ownership. Use the ARK II guide to understand the variables before choosing a web design or development partner.</p>
             <a href="/resources/business-website-cost">Read the business website cost guide <ArrowUpRight size={16} /></a>
+          </div>
+        </section>
+
+        <section className="service-detail__faq">
+          <p className="section-kicker"><span>→</span> Common questions</p>
+          <div className="service-detail__faq-list">
+            {service.faqs?.map(([question, answer]) => (
+              <article key={question}>
+                <h3>{question}</h3>
+                <p>{answer}</p>
+              </article>
+            ))}
           </div>
         </section>
 
