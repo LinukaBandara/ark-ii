@@ -65,6 +65,7 @@ function HomePage() {
 
 function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
+  if (path === "/") return <HomePage />;
   if (path === "/work") return <ArchivePage section="work" />;
   if (path.startsWith("/work/")) {
     const slug = path.split("/")[2];
