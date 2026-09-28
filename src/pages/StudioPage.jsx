@@ -16,6 +16,38 @@ function StudioPage() {
     if (description) description.setAttribute("content", "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.");
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/studio");
+
+    let schema = document.getElementById("studio-schema");
+    if (!schema) {
+      schema = document.createElement("script");
+      schema.id = "studio-schema";
+      schema.type = "application/ld+json";
+      document.head.appendChild(schema);
+    }
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://ark-ii.studio/studio#webpage",
+          url: "https://ark-ii.studio/studio",
+          name: "ARK II | Independent Digital Studio",
+          description: "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.",
+          isPartOf: { "@id": "https://ark-ii.studio/#website" },
+          about: { "@id": "https://ark-ii.studio/#organization" },
+          inLanguage: "en"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://ark-ii.studio/studio#breadcrumb",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://ark-ii.studio/" },
+            { "@type": "ListItem", position: 2, name: "Studio", item: "https://ark-ii.studio/studio" }
+          ]
+        }
+      ]
+    });
+    return () => document.getElementById("studio-schema")?.remove();
   }, []);
 
   return (
