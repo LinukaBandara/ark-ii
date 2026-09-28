@@ -30,7 +30,7 @@ function ServicesPage() {
           <div className="services-page__hero-grid">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .75 }}>
               <p className="services-page__kicker">ARK II / Capabilities</p>
-              <h1>Digital work with a <span>purpose.</span></h1>
+              <h1>Web design & development with a <span>purpose.</span></h1>
             </motion.div>
             <motion.div className="services-page__hero-copy" initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1, duration: .75 }}>
               <p>We design and build premium business websites, custom web applications and digital products around what a business actually needs — not a pre-made package.</p>
