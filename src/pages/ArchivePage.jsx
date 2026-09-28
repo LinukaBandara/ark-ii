@@ -18,8 +18,8 @@ function ArchivePage({ section }) {
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", description);
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/${isWork ? "work" : "lab"}`);
-  }, [isWork]);
+    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/${isWork ? "work" : "lab"}`);\n\n    let schema = document.getElementById("archive-schema");\n    if (!schema) {\n      schema = document.createElement("script");\n      schema.id = "archive-schema";\n      schema.type = "application/ld+json";\n      document.head.appendChild(schema);\n    }\n    const url = `https://ark-ii.studio/${isWork ? "work" : "lab"}`;\n    schema.textContent = JSON.stringify({\n      "@context": "https://schema.org",\n      "@graph": [\n        {\n          "@type": "CollectionPage",\n          "@id": `${url}#webpage`,\n          url,\n          name: title,\n          description,\n          isPartOf: { "@id": "https://ark-ii.studio/#website" },\n          inLanguage: "en"\n        },\n        {\n          "@type": "BreadcrumbList",\n          "@id": `${url}#breadcrumb`,\n          itemListElement: [\n            { "@type": "ListItem", position: 1, name: "Home", item: "https://ark-ii.studio/" },\n            { "@type": "ListItem", position: 2, name: isWork ? "Work" : "Lab", item: url }\n          ]\n        }\n      ]\n    });
+    return () => document.getElementById("archive-schema")?.remove();\n  }, [isWork]);
   const items = isWork ? workProjects : labProjects;
   const [featured, ...rest] = items;
   const title = isWork ? <>Built for the real world.<span> Built to last.</span></> : <>A place to <span>experiment.</span></>;
