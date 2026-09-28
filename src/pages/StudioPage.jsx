@@ -14,6 +14,14 @@ function StudioPage() {
     document.title = "ARK II | Independent Digital Studio";
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.");
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (socialTitle) socialTitle.setAttribute("content", document.title);
+    if (socialDescription) socialDescription.setAttribute("content", "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.");
+    if (twitterTitle) twitterTitle.setAttribute("content", document.title);
+    if (twitterDescription) twitterDescription.setAttribute("content", "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.");
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/studio");
 
