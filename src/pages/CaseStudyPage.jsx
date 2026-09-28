@@ -94,6 +94,7 @@ function CaseStudyPage({ slug }) {
             </div>
             <div className="case-study__intro">
               <p>{project.description}</p>
+              <p className="case-study__service-context">ARK II {project.category.toLowerCase()} — relevant to businesses looking for premium web design, web development or custom digital products.</p>
               <a href={project.liveUrl} target="_blank" rel="noreferrer">
                 View live project <ExternalLink size={15} />
               </a>
