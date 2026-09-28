@@ -15,6 +15,14 @@ function CaseStudyPage({ slug }) {
 
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", project.description);
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (socialTitle) socialTitle.setAttribute("content", document.title);
+    if (socialDescription) socialDescription.setAttribute("content", project.description);
+    if (twitterTitle) twitterTitle.setAttribute("content", document.title);
+    if (twitterDescription) twitterDescription.setAttribute("content", project.description);
 
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/work/${project.id}`);
