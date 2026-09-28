@@ -52,6 +52,7 @@ function Footer() {
             <a href="/work">Work</a>
             <a href="/lab">Lab</a>
             <a href="/services">Services</a>
+            <a href="/resources/business-website-cost">Website cost guide</a>
             <a href="/studio">Studio</a>
             <a href="/#contact">Contact</a>
           </div>
