@@ -116,6 +116,14 @@ function ServiceDetailPage({ slug }) {
     document.title = `ARK II | ${service.label} Services | Premium Digital Studio`;
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", service.description);
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (socialTitle) socialTitle.setAttribute("content", document.title);
+    if (socialDescription) socialDescription.setAttribute("content", service.description);
+    if (twitterTitle) twitterTitle.setAttribute("content", document.title);
+    if (twitterDescription) twitterDescription.setAttribute("content", service.description);
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/services/${slug}`);
 
