@@ -31,6 +31,16 @@ function CaseStudyPage({ slug }) {
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "WebPage",
+          "@id": `https://ark-ii.studio/work/${project.id}#webpage`,
+          url: `https://ark-ii.studio/work/${project.id}`,
+          name: title,
+          description: project.description,
+          isPartOf: { "@id": "https://ark-ii.studio/#website" },
+          about: { "@id": `https://ark-ii.studio/work/${project.id}#case-study` },
+          inLanguage: "en"
+        },
+        {
           "@type": "CreativeWork",
           "@id": `https://ark-ii.studio/work/${project.id}#case-study`,
           name: project.title,
@@ -40,7 +50,8 @@ function CaseStudyPage({ slug }) {
           creator: { "@type": "Organization", "@id": "https://ark-ii.studio/#organization", name: "ARK II", url: "https://ark-ii.studio/" },
           keywords: project.tags.join(", "),
           dateCreated: project.year,
-          about: project.category
+          about: project.category,
+          mainEntityOfPage: { "@id": `https://ark-ii.studio/work/${project.id}#webpage` }
         },
         {
           "@type": "BreadcrumbList",
