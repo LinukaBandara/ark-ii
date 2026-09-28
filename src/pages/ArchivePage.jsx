@@ -91,7 +91,7 @@ function ArchiveCard({ project, featured = false, isLab = false }) {
 
   return (
     <motion.article className={`archive-card ${featured ? "archive-card--featured" : ""}`} initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .14 }} transition={{ duration: .65, ease: [0.22,1,0.36,1] }}>
-      <a className="archive-card__visual" href={project.liveUrl} target="_blank" rel="noreferrer">
+      <a className="archive-card__visual" href={isLab ? project.liveUrl : `/work/${project.id}`} target={isLab ? "_blank" : undefined} rel={isLab ? "noreferrer" : undefined}>
         <img className={imageClass} src={project.image} alt={project.imageAlt} loading={featured ? "eager" : "lazy"} referrerPolicy="no-referrer" />
         <div className="archive-card__shade" />
         <div className="archive-card__chrome"><span>{project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span><strong>LIVE</strong></div>
