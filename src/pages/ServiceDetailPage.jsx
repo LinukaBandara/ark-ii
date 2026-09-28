@@ -25,6 +25,11 @@ const serviceData = {
     relatedWork: [
       ["Ceylon Gem Atelier", "Premium gemstone digital experience", "/work/ceylon-gem-atelier"],
       ["Suranga Gems", "Luxury brand website", "/work/suranga-gems"]
+    ],
+    faqs: [
+      ["What is included in a business website design project?", "Typical work can include strategy, information architecture, UI/UX design, responsive development, content integration and launch support."],
+      ["Can ARK II design a website for an international business?", "Yes. ARK II works remotely from Sri Lanka with businesses in the US, UK, Australia and other markets worldwide."],
+      ["Is the website designed for mobile devices?", "Yes. Responsive behaviour is planned as part of the design so the experience works across mobile, tablet and desktop."]
     ]
   },
   "web-development": {
@@ -45,6 +50,11 @@ const serviceData = {
     relatedWork: [
       ["DispatchArc", "Operations & dispatch platform", "/work/dispatcharc"],
       ["BGS AgriStock", "Inventory management system", "/work/bgs-agristock"]
+    ],
+    faqs: [
+      ["What kind of web applications can ARK II build?", "Projects can include internal tools, dashboards, customer portals, booking systems, inventory systems and other workflow-driven business software."],
+      ["Can a web application have different user roles?", "Yes. Interfaces and permissions can be structured around admins, staff, customers and other user types where the workflow requires it."],
+      ["Does ARK II build the backend as well as the frontend?", "The scope can cover frontend development, APIs, database workflows and integrations so the application works as a complete product."]
     ]
   },
   "web-app-development": {
