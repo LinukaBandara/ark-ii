@@ -61,7 +61,7 @@ function WorkSection() {
             Real work.<span> Built to be remembered.</span>
           </motion.h2>
           <motion.div className="work-section__intro-copy" initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.65 }} transition={{ delay: 0.08, duration: 0.7 }}>
-            <p>A curated set of deployed websites, digital experiences and software products across brand, commerce and business operations.</p>
+            <p>Explore selected ARK II website design, web development and business software projects — from premium brand websites to custom digital products and operational platforms.</p>
             <span>Client work · Web experiences · Internal products · Product platforms</span>
           </motion.div>
         </div>

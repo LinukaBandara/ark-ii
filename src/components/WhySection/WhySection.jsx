@@ -73,10 +73,7 @@ function WhySection() {
           transition={{ delay: 0.08, duration: 0.7 }}
         >
           <p>
-            ARK II is built for businesses that want more than a website
-            that simply exists. We create digital experiences that
-            communicate quality before a customer reads the first
-            paragraph.
+            ARK II is built for businesses that want more than a website that simply exists. We create premium digital experiences that communicate quality, strengthen trust and support customer enquiries.
           </p>
 
           <a href="#contact">

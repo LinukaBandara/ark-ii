@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import Navbar from "../components/Navbar/Navbar";
@@ -7,6 +8,58 @@ import "./ArchivePage.css";
 
 function ArchivePage({ section }) {
   const isWork = section === "work";
+
+  useEffect(() => {
+    const title = isWork ? "ARK II | Web Design & Development Work" : "ARK II | Digital Experiments & Lab";
+    const description = isWork
+      ? "Explore selected ARK II website design, web development and business software projects built for real-world needs."
+      : "Explore ARK II digital experiments, concepts and live experiences across different industries.";
+    document.title = title;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute("content", description);
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (socialTitle) socialTitle.setAttribute("content", title);
+    if (socialDescription) socialDescription.setAttribute("content", description);
+    if (twitterTitle) twitterTitle.setAttribute("content", title);
+    if (twitterDescription) twitterDescription.setAttribute("content", description);
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/${isWork ? "work" : "lab"}`);
+
+    let schema = document.getElementById("archive-schema");
+    if (!schema) {
+      schema = document.createElement("script");
+      schema.id = "archive-schema";
+      schema.type = "application/ld+json";
+      document.head.appendChild(schema);
+    }
+    const url = `https://ark-ii.studio/${isWork ? "work" : "lab"}`;
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": `${url}#webpage`,
+          url,
+          name: title,
+          description,
+          isPartOf: { "@id": "https://ark-ii.studio/#website" },
+          inLanguage: "en"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `${url}#breadcrumb`,
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://ark-ii.studio/" },
+            { "@type": "ListItem", position: 2, name: isWork ? "Work" : "Lab", item: url }
+          ]
+        }
+      ]
+    });
+    return () => document.getElementById("archive-schema")?.remove();
+  }, [isWork]);
   const items = isWork ? workProjects : labProjects;
   const [featured, ...rest] = items;
   const title = isWork ? <>Built for the real world.<span> Built to last.</span></> : <>A place to <span>experiment.</span></>;
@@ -46,7 +99,7 @@ function ArchiveCard({ project, featured = false, isLab = false }) {
 
   return (
     <motion.article className={`archive-card ${featured ? "archive-card--featured" : ""}`} initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .14 }} transition={{ duration: .65, ease: [0.22,1,0.36,1] }}>
-      <a className="archive-card__visual" href={project.liveUrl} target="_blank" rel="noreferrer">
+      <a className="archive-card__visual" href={isLab ? project.liveUrl : `/work/${project.id}`} target={isLab ? "_blank" : undefined} rel={isLab ? "noreferrer" : undefined}>
         <img className={imageClass} src={project.image} alt={project.imageAlt} loading={featured ? "eager" : "lazy"} referrerPolicy="no-referrer" />
         <div className="archive-card__shade" />
         <div className="archive-card__chrome"><span>{project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span><strong>LIVE</strong></div>
@@ -59,7 +112,7 @@ function ArchiveCard({ project, featured = false, isLab = false }) {
           <p className="archive-card__category">{project.category}</p>
           <p className="archive-card__description">{project.description}</p>
           <div className="archive-card__tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-          <div className="archive-card__actions"><a href={project.liveUrl} target="_blank" rel="noreferrer">Open live site <ExternalLink size={15} /></a></div>
+          <div className="archive-card__actions"><a href={`/work/${project.id}`}>View case study <ArrowUpRight size={15} /></a><a href={project.liveUrl} target="_blank" rel="noreferrer">Open live site <ExternalLink size={15} /></a></div>
         </div>
       </div>
     </motion.article>

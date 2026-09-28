@@ -16,6 +16,10 @@ import Footer from "./components/Footer/Footer";
 import ArchivePage from "./pages/ArchivePage";
 import ServicesPage from "./pages/ServicesPage";
 import StudioPage from "./pages/StudioPage";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
+import CaseStudyPage from "./pages/CaseStudyPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import ResourcePage from "./pages/ResourcePage";
 
 function getInitialSiteReady() {
   if (typeof window === "undefined") return false;
@@ -30,7 +34,7 @@ function HomePage() {
     const failsafe = window.setTimeout(() => {
       document.body.classList.remove("is-loading");
       setSiteReady(true);
-    }, 7000);
+    }, 4000);
     return () => window.clearTimeout(failsafe);
   }, []);
 
@@ -61,11 +65,23 @@ function HomePage() {
 
 function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
+  if (path === "/") return <HomePage />;
   if (path === "/work") return <ArchivePage section="work" />;
+  if (path.startsWith("/work/")) {
+    const slug = path.split("/")[2];
+    const validWork = ["ceylon-gem-atelier", "dispatcharc", "suranga-gems", "bgs-agristock", "linuka-bandara"];
+    return validWork.includes(slug) ? <CaseStudyPage slug={slug} /> : <NotFoundPage />;
+  }
   if (path === "/lab") return <ArchivePage section="lab" />;
   if (path === "/services") return <ServicesPage />;
   if (path === "/studio") return <StudioPage />;
-  return <HomePage />;
+  if (path === "/resources/business-website-cost") return <ResourcePage />;
+  if (path.startsWith("/services/")) {
+    const slug = path.split("/")[2];
+    const validServices = ["web-design", "web-development", "web-app-development", "website-redesign"];
+    return validServices.includes(slug) ? <ServiceDetailPage slug={slug} /> : <NotFoundPage />;
+  }
+  return <NotFoundPage />;
 }
 
 export default App;

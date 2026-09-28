@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "../components/Navbar/Navbar";
@@ -9,6 +10,53 @@ import Footer from "../components/Footer/Footer";
 import "./ServicesPage.css";
 
 function ServicesPage() {
+  useEffect(() => {
+    document.title = "ARK II | Web Design & Development Services";
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.setAttribute("content", "Explore ARK II web design, web development, web app development and website redesign services for ambitious businesses in the US, UK, Australia and worldwide.");
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (socialTitle) socialTitle.setAttribute("content", document.title);
+    if (socialDescription) socialDescription.setAttribute("content", "Explore ARK II web design, web development, web app development and website redesign services for ambitious businesses in the US, UK, Australia and worldwide.");
+    if (twitterTitle) twitterTitle.setAttribute("content", document.title);
+    if (twitterDescription) twitterDescription.setAttribute("content", "Explore ARK II web design, web development, web app development and website redesign services for ambitious businesses in the US, UK, Australia and worldwide.");
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/services");
+
+    let schema = document.getElementById("services-schema");
+    if (!schema) {
+      schema = document.createElement("script");
+      schema.id = "services-schema";
+      schema.type = "application/ld+json";
+      document.head.appendChild(schema);
+    }
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://ark-ii.studio/services#webpage",
+          url: "https://ark-ii.studio/services",
+          name: "ARK II | Web Design & Development Services",
+          description: "Explore ARK II web design, web development, web app development and website redesign services for ambitious businesses in the US, UK, Australia and worldwide.",
+          isPartOf: { "@id": "https://ark-ii.studio/#website" },
+          inLanguage: "en"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://ark-ii.studio/services#breadcrumb",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://ark-ii.studio/" },
+            { "@type": "ListItem", position: 2, name: "Services", item: "https://ark-ii.studio/services" }
+          ]
+        }
+      ]
+    });
+    return () => document.getElementById("services-schema")?.remove();
+  }, []);
+
   return (
     <div className="services-page">
       <Navbar />
@@ -21,16 +69,16 @@ function ServicesPage() {
           <div className="services-page__hero-grid">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .75 }}>
               <p className="services-page__kicker">ARK II / Capabilities</p>
-              <h1>Digital work with a <span>purpose.</span></h1>
+              <h1>Web design & development with a <span>purpose.</span></h1>
             </motion.div>
             <motion.div className="services-page__hero-copy" initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1, duration: .75 }}>
-              <p>We design and build websites, interfaces and digital products around what a business actually needs — not a pre-made package.</p>
+              <p>We design and build premium business websites, custom web applications and digital products around what a business actually needs — not a pre-made package.</p>
               <a href="#services-detail">Explore capabilities <ArrowUpRight size={16} /></a>
             </motion.div>
           </div>
           <div className="services-page__hero-meta">
             <span>Strategy → Design → Development</span>
-            <span>01—05 core services</span>
+            <span>01—06 core services</span>
             <span>Remote / Worldwide</span>
           </div>
         </section>
@@ -39,12 +87,45 @@ function ServicesPage() {
           <ServicesSection />
         </div>
 
+        <section className="services-page__seo-copy" aria-label="Who ARK II works with">
+          <div>
+            <p className="section-kicker"><span>06</span> Who we work with</p>
+            <h2>Built for ambitious <em>businesses.</em></h2>
+          </div>
+          <div>
+            <p>ARK II works remotely with small and growing businesses, professional services firms, hospitality brands, studios and teams building digital products.</p>
+            <p>Our priority international markets include the United States, United Kingdom and Australia, while projects can be delivered remotely for clients worldwide.</p>
+          </div>
+        </section>
+
+        <section className="services-page__seo-copy">
+          <div>
+            <p className="section-kicker"><span>07</span> What we build</p>
+            <h2>Digital experiences built for <em>real business goals.</em></h2>
+          </div>
+          <div>
+            <p>ARK II provides website design, web development, custom web application development and website redesign services for businesses in the US, UK, Australia, Sri Lanka and other markets worldwide.</p>
+            <p>From a focused business website to a data-driven dashboard or customer portal, every engagement is shaped around the audience, workflow and outcome that matter.</p>
+          </div>
+        </section>
+
         <ProcessSection />
         <CapabilitiesSection />
 
+        <section className="services-page__seo-guide">
+          <div>
+            <p className="section-kicker"><span>08</span> Planning a website</p>
+            <h2>Know what the project<br /><em>actually needs.</em></h2>
+          </div>
+          <div>
+            <p>Before choosing a web design or development partner, define the job the website needs to do: establish credibility, generate enquiries, support a workflow, or become part of a larger digital product.</p>
+            <p>Scope, content, integrations, responsive design, SEO foundations and ongoing ownership can change the work considerably. ARK II starts with those requirements rather than forcing every business into the same package.</p>
+          </div>
+        </section>
+
         <section className="services-page__closing">
           <div>
-            <p className="section-kicker"><span>06</span> A focused engagement</p>
+            <p className="section-kicker"><span>09</span> A focused engagement</p>
             <h2>Have a project<br /><em>in mind?</em></h2>
           </div>
           <a href="#contact">Start a conversation <ArrowUpRight size={17} /></a>

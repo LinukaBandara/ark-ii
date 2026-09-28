@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ark-ii.studio/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://ark-ii.studio/work</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ark-ii.studio/lab</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://ark-ii.studio/</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/work</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/lab</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/services</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/work/ceylon-gem-atelier</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/work/dispatcharc</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/work/suranga-gems</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/work/bgs-agristock</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/work/linuka-bandara</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/services/web-design</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/services/web-development</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/services/web-app-development</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/services/website-redesign</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/studio</loc><lastmod>2026-09-28</lastmod></url>
+  <url><loc>https://ark-ii.studio/resources/business-website-cost</loc><lastmod>2026-09-28</lastmod></url>
 </urlset>

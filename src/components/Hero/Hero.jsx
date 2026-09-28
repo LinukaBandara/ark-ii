@@ -46,7 +46,7 @@ function Hero({ ready = true }) {
           transition={{ delay: 0.18, duration: 0.65 }}
         >
           <span className="hero__status-dot" />
-          Independent digital studio
+          Independent web design & development studio
         </motion.div>
 
         <h1
@@ -100,8 +100,7 @@ function Hero({ ready = true }) {
             animate={fadeState}
             transition={{ delay: 0.78, duration: 0.75 }}
           >
-            ARK II creates strategic, high-performance websites for
-            ambitious businesses ready to become impossible to ignore.
+            ARK II builds premium, conversion-focused websites and web applications for ambitious businesses. Sri Lanka-based, working worldwide.
           </motion.p>
 
           <motion.div

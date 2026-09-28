@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "../components/Navbar/Navbar";
@@ -9,6 +10,63 @@ import Footer from "../components/Footer/Footer";
 import "./StudioPage.css";
 
 function StudioPage() {
+  useEffect(() => {
+    document.title = "ARK II | Independent Digital Studio";
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.setAttribute("content", "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.");
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (socialTitle) socialTitle.setAttribute("content", document.title);
+    if (socialDescription) socialDescription.setAttribute("content", "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.");
+    if (twitterTitle) twitterTitle.setAttribute("content", document.title);
+    if (twitterDescription) twitterDescription.setAttribute("content", "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.");
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/studio");
+
+    let schema = document.getElementById("studio-schema");
+    if (!schema) {
+      schema = document.createElement("script");
+      schema.id = "studio-schema";
+      schema.type = "application/ld+json";
+      document.head.appendChild(schema);
+    }
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "@id": "https://ark-ii.studio/studio#profile",
+          url: "https://ark-ii.studio/studio",
+          name: "ARK II | Independent Digital Studio",
+          description: "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.",
+          mainEntity: { "@id": "https://ark-ii.studio/#organization" },
+          inLanguage: "en"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://ark-ii.studio/studio#webpage",
+          url: "https://ark-ii.studio/studio",
+          name: "ARK II | Independent Digital Studio",
+          description: "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.",
+          isPartOf: { "@id": "https://ark-ii.studio/#website" },
+          about: { "@id": "https://ark-ii.studio/#organization" },
+          inLanguage: "en"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://ark-ii.studio/studio#breadcrumb",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://ark-ii.studio/" },
+            { "@type": "ListItem", position: 2, name: "Studio", item: "https://ark-ii.studio/studio" }
+          ]
+        }
+      ]
+    });
+    return () => document.getElementById("studio-schema")?.remove();
+  }, []);
+
   return (
     <div className="studio-page">
       <Navbar />
@@ -24,14 +82,14 @@ function StudioPage() {
               <h1>Small studio.<br /><span>Serious work.</span></h1>
             </motion.div>
             <motion.div className="studio-page__hero-copy" initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1, duration: .75 }}>
-              <p>ARK II is a focused digital studio built around one idea: good digital work should make a business clearer, more credible and easier to choose.</p>
+              <p>ARK II is a focused digital studio from Sri Lanka, working remotely with businesses worldwide. Good digital work should make a business clearer, more credible and easier to choose.</p>
               <a href="#studio-detail">Meet the studio <ArrowUpRight size={16} /></a>
             </motion.div>
           </div>
           <div className="studio-page__hero-meta">
             <span>Independent / Sri Lanka</span>
             <span>Design + Development</span>
-            <span>Working worldwide</span>
+            <span>Remote / Worldwide</span>
           </div>
         </section>
 
@@ -39,9 +97,20 @@ function StudioPage() {
           <StudioSection />
         </div>
 
+        <section className="studio-page__founder" aria-label="ARK II founder">
+          <div>
+            <p className="section-kicker"><span>05</span> The person behind ARK II</p>
+            <h2>Built by <em>Linuka Bandara.</em></h2>
+          </div>
+          <div className="studio-page__founder-copy">
+            <p>ARK II is led by Linuka Bandara, an independent developer focused on turning business ideas into polished websites, web applications and digital products.</p>
+            <a href="https://linukabandara.me/" target="_blank" rel="noreferrer">View developer portfolio <ArrowUpRight size={16} /></a>
+          </div>
+        </section>
+
         <section className="studio-page__principles">
           <div className="studio-page__principles-head">
-            <p className="section-kicker"><span>05</span> How we think</p>
+            <p className="section-kicker"><span>06</span> How we think</p>
             <h2>Less noise.<br /><em>More intent.</em></h2>
           </div>
           <div className="studio-page__principles-list">
@@ -56,7 +125,7 @@ function StudioPage() {
 
         <section className="studio-page__closing">
           <div>
-            <p className="section-kicker section-kicker--light"><span>06</span> Work together</p>
+            <p className="section-kicker section-kicker--light"><span>07</span> Work together</p>
             <h2>Build something<br /><em>worth remembering.</em></h2>
           </div>
           <a href="#contact">Start a conversation <ArrowUpRight size={17} /></a>

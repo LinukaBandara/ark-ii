@@ -9,8 +9,8 @@ const disciplines = [
   "DIRECTION",
 ];
 
-const MINIMUM_DURATION = 3600;
-const MAXIMUM_DURATION = 5800;
+const MINIMUM_DURATION = 1400;
+const MAXIMUM_DURATION = 3000;
 
 function shouldShowLoader() {
   if (typeof window === "undefined") {
@@ -160,7 +160,7 @@ function Loader({ onComplete }) {
           exit={{
             y: "-100%",
             transition: {
-              duration: 0.9,
+              duration: 0.7,
               ease: [0.76, 0, 0.24, 1],
             },
           }}

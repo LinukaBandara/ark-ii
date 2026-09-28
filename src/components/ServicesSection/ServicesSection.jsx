@@ -4,6 +4,15 @@ import { ArrowDownRight, Plus } from "lucide-react";
 import { services } from "../../data/services";
 import "./ServicesSection.css";
 
+const servicePaths = {
+  "Brand Websites": "/services/web-design",
+  "Website Redesign": "/services/website-redesign",
+  "UI/UX Design": "/services/web-design",
+  "Web Applications": "/services/web-app-development",
+  "Web Development": "/services/web-development",
+  "Digital Direction": "/services/web-design",
+};
+
 function ServiceItem({ service, index, isOpen, onToggle }) {
   const triggerId = `service-trigger-${index}`;
   const panelId = `service-panel-${index}`;
@@ -57,6 +66,12 @@ function ServiceItem({ service, index, isOpen, onToggle }) {
                   <span key={item}>{item}</span>
                 ))}
               </div>
+              <a
+                className="service-item__learn-more"
+                href={servicePaths[service.title] || "/services"}
+              >
+                View service
+              </a>
             </div>
           </motion.div>
         )}
@@ -101,8 +116,7 @@ function ServicesSection() {
           viewport={{ once: true, amount: 0.55 }}
           transition={{ delay: 0.08, duration: 0.7 }}
         >
-          From first idea to final launch, ARK II creates focused digital
-          experiences that support real business growth.
+          From strategy and website design to custom web development and web applications, ARK II creates focused digital experiences built around real business goals.
         </motion.p>
       </div>
 

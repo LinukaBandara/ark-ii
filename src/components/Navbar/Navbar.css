@@ -19,6 +19,16 @@
     padding 260ms ease;
 }
 
+.navbar--light-page { color: var(--black); }
+
+.navbar--light-page:not(.navbar--scrolled) { border-color: rgba(9, 9, 9, 0.12); background: rgba(241, 238, 231, 0.88); box-shadow: 0 12px 40px rgba(9, 9, 9, 0.08); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+
+.navbar--light-page .navbar__menu-button { border-color: rgba(9, 9, 9, 0.18); }
+
+.navbar--light-page .navbar__cta { border-color: rgba(9, 9, 9, 0.2); }
+
+.navbar--light-page .navbar__cta:hover { background: var(--black); color: var(--ivory); }
+
 .navbar--scrolled {
   border-color: rgba(241, 238, 231, 0.13);
   background: rgba(9, 9, 9, 0.82);
