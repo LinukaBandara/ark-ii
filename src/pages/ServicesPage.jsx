@@ -73,9 +73,20 @@ function ServicesPage() {
         <ProcessSection />
         <CapabilitiesSection />
 
+        <section className="services-page__seo-guide">
+          <div>
+            <p className="section-kicker"><span>08</span> Planning a website</p>
+            <h2>Know what the project<br /><em>actually needs.</em></h2>
+          </div>
+          <div>
+            <p>Before choosing a web design or development partner, define the job the website needs to do: establish credibility, generate enquiries, support a workflow, or become part of a larger digital product.</p>
+            <p>Scope, content, integrations, responsive design, SEO foundations and ongoing ownership can change the work considerably. ARK II starts with those requirements rather than forcing every business into the same package.</p>
+          </div>
+        </section>
+
         <section className="services-page__closing">
           <div>
-            <p className="section-kicker"><span>08</span> A focused engagement</p>
+            <p className="section-kicker"><span>09</span> A focused engagement</p>
             <h2>Have a project<br /><em>in mind?</em></h2>
           </div>
           <a href="#contact">Start a conversation <ArrowUpRight size={17} /></a>
