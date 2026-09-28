@@ -71,6 +71,11 @@ const serviceData = {
     ],
     deliverables: ["Product discovery", "UX flows", "Dashboard & portal UI", "Frontend development", "API integration", "Database workflows"],
     projects: "Internal tools, operational dashboards, customer portals, booking systems, inventory systems and business platforms.",
+    faqs: [
+      ["What kind of web applications can ARK II build?", "Projects can include internal tools, dashboards, customer portals, booking systems, inventory systems and other workflow-driven business software."],
+      ["Can a web application have different user roles?", "Yes. Interfaces and permissions can be structured around admins, staff, customers and other user types where the workflow requires it."],
+      ["Does ARK II build the backend as well as the frontend?", "The scope can cover frontend development, APIs, database workflows and integrations so the application works as a complete product."]
+    ],
     when: "Choose this when the business needs software around workflows, users, data or operational tasks that a standard marketing website cannot handle.",
     relatedWork: [
       ["DispatchArc", "Operations & dispatch platform", "/work/dispatcharc"],
