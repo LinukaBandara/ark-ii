@@ -36,6 +36,15 @@ function StudioPage() {
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "ProfilePage",
+          "@id": "https://ark-ii.studio/studio#profile",
+          url: "https://ark-ii.studio/studio",
+          name: "ARK II | Independent Digital Studio",
+          description: "Meet ARK II, an independent digital studio designing and developing premium websites and digital products from Sri Lanka for businesses worldwide.",
+          mainEntity: { "@id": "https://ark-ii.studio/#organization" },
+          inLanguage: "en"
+        },
+        {
           "@type": "WebPage",
           "@id": "https://ark-ii.studio/studio#webpage",
           url: "https://ark-ii.studio/studio",
@@ -88,9 +97,20 @@ function StudioPage() {
           <StudioSection />
         </div>
 
+        <section className="studio-page__founder" aria-label="ARK II founder">
+          <div>
+            <p className="section-kicker"><span>05</span> The person behind ARK II</p>
+            <h2>Built by <em>Linuka Bandara.</em></h2>
+          </div>
+          <div className="studio-page__founder-copy">
+            <p>ARK II is led by Linuka Bandara, an independent developer focused on turning business ideas into polished websites, web applications and digital products.</p>
+            <a href="https://linukabandara.me/" target="_blank" rel="noreferrer">View developer portfolio <ArrowUpRight size={16} /></a>
+          </div>
+        </section>
+
         <section className="studio-page__principles">
           <div className="studio-page__principles-head">
-            <p className="section-kicker"><span>05</span> How we think</p>
+            <p className="section-kicker"><span>06</span> How we think</p>
             <h2>Less noise.<br /><em>More intent.</em></h2>
           </div>
           <div className="studio-page__principles-list">
@@ -105,7 +125,7 @@ function StudioPage() {
 
         <section className="studio-page__closing">
           <div>
-            <p className="section-kicker section-kicker--light"><span>06</span> Work together</p>
+            <p className="section-kicker section-kicker--light"><span>07</span> Work together</p>
             <h2>Build something<br /><em>worth remembering.</em></h2>
           </div>
           <a href="#contact">Start a conversation <ArrowUpRight size={17} /></a>
