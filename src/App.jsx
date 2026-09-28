@@ -19,6 +19,7 @@ import StudioPage from "./pages/StudioPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import CaseStudyPage from "./pages/CaseStudyPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ResourcePage from "./pages/ResourcePage";
 
 function getInitialSiteReady() {
   if (typeof window === "undefined") return false;
@@ -73,6 +74,7 @@ function App() {
   if (path === "/lab") return <ArchivePage section="lab" />;
   if (path === "/services") return <ServicesPage />;
   if (path === "/studio") return <StudioPage />;
+  if (path === "/resources/business-website-cost") return <ResourcePage />;
   if (path.startsWith("/services/")) {
     const slug = path.split("/")[2];
     const validServices = ["web-design", "web-development", "web-app-development", "website-redesign"];
