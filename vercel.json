@@ -36,6 +36,10 @@
     {
       "source": "/work/:path*",
       "destination": "/"
+    },
+    {
+      "source": "/resources/:path*",
+      "destination": "/"
     }
   ]
 }
