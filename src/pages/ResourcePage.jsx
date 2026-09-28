@@ -18,7 +18,39 @@ function ResourcePage() {
     if (description) description.setAttribute("content", "A practical guide to business website costs, what affects the budget, and what to consider when hiring a web design or development studio.");
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/resources/business-website-cost");
+    let schema = document.getElementById("resource-schema");
+    if (!schema) {
+      schema = document.createElement("script");
+      schema.id = "resource-schema";
+      schema.type = "application/ld+json";
+      document.head.appendChild(schema);
+    }
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://ark-ii.studio/resources/business-website-cost#article",
+          headline: "How Much Does a Business Website Cost?",
+          description: "A practical guide to business website costs, what affects the budget, and what to consider when hiring a web design or development studio.",
+          url: "https://ark-ii.studio/resources/business-website-cost",
+          author: { "@type": "Organization", "name": "ARK II", "url": "https://ark-ii.studio/" },
+          publisher: { "@type": "Organization", "name": "ARK II", "url": "https://ark-ii.studio/" },
+          inLanguage: "en"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://ark-ii.studio/resources/business-website-cost#breadcrumb",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://ark-ii.studio/" },
+            { "@type": "ListItem", position: 2, name: "Resources", item: "https://ark-ii.studio/resources/business-website-cost" },
+            { "@type": "ListItem", position: 3, name: "Business Website Cost", item: "https://ark-ii.studio/resources/business-website-cost" }
+          ]
+        }
+      ]
+    });
     window.scrollTo(0, 0);
+    return () => document.getElementById("resource-schema")?.remove();
   }, []);
 
   return (
@@ -57,7 +89,11 @@ function ResourcePage() {
           <div className="resource-page__copy">
             <p>Start with the business outcome. Is the site primarily there to establish credibility, generate enquiries, explain a service, support bookings, sell products or connect customers to a larger system?</p>
             <p>Then define the pages, content, integrations and responsibilities. A clear brief makes proposals easier to compare and reduces the chance of paying for features that do not solve the actual problem.</p>
-            <a className="resource-page__link" href="/services">Explore ARK II services <ArrowUpRight size={16} /></a>
+            <div className="resource-page__links">
+              <a href="/services">Explore ARK II services <ArrowUpRight size={16} /></a>
+              <a href="/services/web-design">Web design services <ArrowUpRight size={16} /></a>
+              <a href="/services/website-redesign">Website redesign services <ArrowUpRight size={16} /></a>
+            </div>
           </div>
         </section>
         <section className="resource-page__closing">
