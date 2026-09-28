@@ -16,7 +16,7 @@
 .services-page__closing h2 em { color:var(--orange); font-family:var(--font-serif); font-style:italic; font-weight:400; }
 .services-page__closing a { display:inline-flex; align-items:center; gap:.55rem; border-bottom:1px solid rgba(241,238,231,.35); padding-bottom:.3rem; font-size:12px; font-weight:700; }
 @media (max-width:759px) {
-  .services-page__hero { padding-top:7.2rem; }
+  .services-page__hero { padding-top:9.4rem; }
   .services-page__hero-top { margin-bottom:4rem; }
   .services-page__hero-grid { display:block; }
   .services-page__hero-copy { margin-top:2.2rem; }
