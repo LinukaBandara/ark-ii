@@ -16,6 +16,14 @@ function ResourcePage() {
     document.title = "ARK II | How Much Does a Business Website Cost?";
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", "A practical guide to business website costs, what affects the budget, and what to consider when hiring a web design or development studio.");
+    const socialTitle = document.querySelector('meta[property="og:title"]');
+    const socialDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (socialTitle) socialTitle.setAttribute("content", document.title);
+    if (socialDescription) socialDescription.setAttribute("content", "A practical guide to business website costs, what affects the budget, and what to consider when hiring a web design or development studio.");
+    if (twitterTitle) twitterTitle.setAttribute("content", document.title);
+    if (twitterDescription) twitterDescription.setAttribute("content", "A practical guide to business website costs, what affects the budget, and what to consider when hiring a web design or development studio.");
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/resources/business-website-cost");
     let schema = document.getElementById("resource-schema");
