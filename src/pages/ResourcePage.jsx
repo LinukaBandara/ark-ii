@@ -127,7 +127,7 @@ function ResourcePage() {
           </div>
         </section>
         <section className="resource-page__closing">
-          <div><p className="section-kicker section-kicker--light"><span>04</span> Need a project estimate?</p><h2>Start with the <em>problem.</em></h2></div>
+          <div><p className="section-kicker section-kicker--light"><span>05</span> Need a project estimate?</p><h2>Start with the <em>problem.</em></h2></div>
           <a href="#contact">Discuss a project <ArrowUpRight size={17} /></a>
         </section>
         <ContactSection />
