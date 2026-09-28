@@ -126,6 +126,8 @@ function ServiceDetailPage({ slug }) {
     if (twitterDescription) twitterDescription.setAttribute("content", service.description);
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", `https://ark-ii.studio/services/${slug}`);
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute("content", `https://ark-ii.studio/services/${slug}`);
 
     let schema = document.getElementById("service-schema");
     if (!schema) {
