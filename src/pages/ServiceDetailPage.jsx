@@ -20,7 +20,12 @@ const serviceData = {
       ["Responsive delivery", "Build a consistent experience across mobile, tablet and desktop without compromising the visual system."]
     ],
     deliverables: ["Website strategy", "Information architecture", "UI/UX design", "Responsive development", "CMS/content integration", "Launch support"],
-    projects: "Brand websites, service businesses, hospitality, studios, professional services and ambitious small businesses."
+    projects: "Brand websites, service businesses, hospitality, studios, professional services and ambitious small businesses.",
+    when: "Choose this when the website needs to establish trust quickly, explain a clear offer and give visitors a confident path to enquiry.",
+    relatedWork: [
+      ["Ceylon Gem Atelier", "Premium gemstone digital experience", "/work/ceylon-gem-atelier"],
+      ["Suranga Gems", "Luxury brand website", "/work/suranga-gems"]
+    ]
   },
   "web-development": {
     number: "02",
@@ -35,7 +40,12 @@ const serviceData = {
       ["Maintainable delivery", "Use a clear project structure so the product can be improved instead of rebuilt every time."]
     ],
     deliverables: ["Frontend development", "API integration", "Database integration", "Forms & workflows", "Responsive implementation", "Deployment support"],
-    projects: "Marketing websites, business platforms, client portals, dashboards and custom digital experiences."
+    projects: "Marketing websites, business platforms, client portals, dashboards and custom digital experiences.",
+    when: "Choose this when an existing design or product direction needs a reliable technical implementation, integrations and a maintainable frontend.",
+    relatedWork: [
+      ["DispatchArc", "Operations & dispatch platform", "/work/dispatcharc"],
+      ["BGS AgriStock", "Inventory management system", "/work/bgs-agristock"]
+    ]
   },
   "web-app-development": {
     number: "03",
@@ -50,7 +60,12 @@ const serviceData = {
       ["Scalable foundations", "Structure the application so features can evolve as the business learns what it needs."]
     ],
     deliverables: ["Product discovery", "UX flows", "Dashboard & portal UI", "Frontend development", "API integration", "Database workflows"],
-    projects: "Internal tools, operational dashboards, customer portals, booking systems, inventory systems and business platforms."
+    projects: "Internal tools, operational dashboards, customer portals, booking systems, inventory systems and business platforms.",
+    when: "Choose this when the business needs software around workflows, users, data or operational tasks that a standard marketing website cannot handle.",
+    relatedWork: [
+      ["DispatchArc", "Operations & dispatch platform", "/work/dispatcharc"],
+      ["BGS AgriStock", "Inventory management system", "/work/bgs-agristock"]
+    ]
   },
   "website-redesign": {
     number: "04",
@@ -65,7 +80,12 @@ const serviceData = {
       ["Rebuild & refine", "Implement the new experience with responsive behaviour, performance and a cleaner component structure."]
     ],
     deliverables: ["UX audit", "Content hierarchy", "Visual redesign", "Responsive rebuild", "Technical cleanup", "Launch support"],
-    projects: "Established businesses, service companies, studios and brands whose current website no longer matches their ambition."
+    projects: "Established businesses, service companies, studios and brands whose current website no longer matches their ambition.",
+    when: "Choose this when the current website is dated, difficult to navigate, weak on mobile or no longer reflects the quality of the business.",
+    relatedWork: [
+      ["Suranga Gems", "Luxury brand website", "/work/suranga-gems"],
+      ["Ceylon Gem Atelier", "Premium gemstone digital experience", "/work/ceylon-gem-atelier"]
+    ]
   }
 };
 
@@ -203,6 +223,44 @@ function ServiceDetailPage({ slug }) {
                 <ArrowUpRight size={16} />
               </a>
             ))}
+          </div>
+        </section>
+
+        <section className="service-detail__fit service-detail__fit--light">
+          <div className="service-detail__fit-grid">
+            <div>
+              <p className="section-kicker"><span>→</span> Is this the right fit?</p>
+              <h2>Start with the <em>job to be done.</em></h2>
+            </div>
+            <p>{service.when}</p>
+          </div>
+        </section>
+
+        <section className="service-detail__work">
+          <div className="service-detail__work-head">
+            <div>
+              <p className="section-kicker"><span>→</span> Related work</p>
+              <h2>See the approach<br /><em>in practice.</em></h2>
+            </div>
+            <a href="/work">View all work <ArrowUpRight size={16} /></a>
+          </div>
+          <div className="service-detail__work-grid">
+            {service.relatedWork.map(([title, category, href]) => (
+              <a key={href} href={href}>
+                <span>{category}</span>
+                <strong>{title}</strong>
+                <ArrowUpRight size={17} />
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="service-detail__planning">
+          <p className="section-kicker"><span>→</span> Planning a website</p>
+          <div>
+            <h2>Understand the scope before comparing <em>quotes.</em></h2>
+            <p>Project cost depends on pages, content, design depth, functionality, integrations and ongoing ownership. Use the ARK II guide to understand the variables before choosing a web design or development partner.</p>
+            <a href="/resources/business-website-cost">Read the business website cost guide <ArrowUpRight size={16} /></a>
           </div>
         </section>
 
