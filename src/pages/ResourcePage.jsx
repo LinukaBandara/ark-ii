@@ -36,6 +36,17 @@ function ResourcePage() {
           url: "https://ark-ii.studio/resources/business-website-cost",
           author: { "@type": "Organization", "name": "ARK II", "url": "https://ark-ii.studio/" },
           publisher: { "@type": "Organization", "name": "ARK II", "url": "https://ark-ii.studio/" },
+          inLanguage: "en",
+          mainEntityOfPage: { "@id": "https://ark-ii.studio/resources/business-website-cost#webpage" },
+          isPartOf: { "@id": "https://ark-ii.studio/#website" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://ark-ii.studio/resources/business-website-cost#webpage",
+          url: "https://ark-ii.studio/resources/business-website-cost",
+          name: "ARK II | How Much Does a Business Website Cost?",
+          description: "A practical guide to business website costs, what affects the budget, and what to consider when hiring a web design or development studio.",
+          isPartOf: { "@id": "https://ark-ii.studio/#website" },
           inLanguage: "en"
         },
         {
@@ -43,8 +54,7 @@ function ResourcePage() {
           "@id": "https://ark-ii.studio/resources/business-website-cost#breadcrumb",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: "https://ark-ii.studio/" },
-            { "@type": "ListItem", position: 2, name: "Resources", item: "https://ark-ii.studio/resources/business-website-cost" },
-            { "@type": "ListItem", position: 3, name: "Business Website Cost", item: "https://ark-ii.studio/resources/business-website-cost" }
+            { "@type": "ListItem", position: 2, name: "Business Website Cost", item: "https://ark-ii.studio/resources/business-website-cost" }
           ]
         }
       ]
