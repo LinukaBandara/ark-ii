@@ -11,8 +11,6 @@ function NotFoundPage() {
     if (description) description.setAttribute("content", "The ARK II page you requested could not be found.");
     const robots = document.querySelector('meta[name="robots"]');
     if (robots) robots.setAttribute("content", "noindex, follow");
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", window.location.href.split("#")[0]);
     return () => {
       if (robots) robots.setAttribute("content", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
     };
