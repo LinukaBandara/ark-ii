@@ -15,8 +15,8 @@ function ServicesPage() {
     const description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", "Explore ARK II web design, web development, web app development and website redesign services for ambitious businesses in the US, UK, Australia and worldwide.");
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/services");
-  }, []);
+    if (canonical) canonical.setAttribute("href", "https://ark-ii.studio/services");\n\n    let schema = document.getElementById("services-schema");\n    if (!schema) {\n      schema = document.createElement("script");\n      schema.id = "services-schema";\n      schema.type = "application/ld+json";\n      document.head.appendChild(schema);\n    }\n    schema.textContent = JSON.stringify({\n      "@context": "https://schema.org",\n      "@graph": [\n        {\n          "@type": "CollectionPage",\n          "@id": "https://ark-ii.studio/services#webpage",\n          url: "https://ark-ii.studio/services",\n          name: "ARK II | Web Design & Development Services",\n          description: "Explore ARK II web design, web development, web app development and website redesign services for ambitious businesses in the US, UK, Australia and worldwide.",\n          isPartOf: { "@id": "https://ark-ii.studio/#website" },\n          inLanguage: "en"\n        },\n        {\n          "@type": "BreadcrumbList",\n          "@id": "https://ark-ii.studio/services#breadcrumb",\n          itemListElement: [\n            { "@type": "ListItem", position: 1, name: "Home", item: "https://ark-ii.studio/" },\n            { "@type": "ListItem", position: 2, name: "Services", item: "https://ark-ii.studio/services" }\n          ]\n        }\n      ]\n    });
+    return () => document.getElementById("services-schema")?.remove();\n  }, []);
 
   return (
     <div className="services-page">
