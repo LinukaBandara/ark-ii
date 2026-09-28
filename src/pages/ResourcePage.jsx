@@ -106,6 +106,18 @@ function ResourcePage() {
             </div>
           </div>
         </section>
+        <section className="resource-page__body">
+          <div className="resource-page__lead"><p className="section-kicker"><span>04</span> Choosing a web design partner</p><h2>Compare the <em>whole project.</em></h2></div>
+          <div className="resource-page__copy">
+            <p>When comparing web design agencies, review more than the visual portfolio. Look at whether the team understands the business problem, explains its process, handles responsive design and development, and provides a clear path from strategy to launch.</p>
+            <p>Ask what is included in the scope, who owns the website and source code, how content and integrations are handled, and what support is available after launch. Relevant case studies are often more useful than a long list of technologies.</p>
+            <div className="resource-page__links">
+              <a href="/services">Compare ARK II services <ArrowUpRight size={16} /></a>
+              <a href="/work">Review selected work <ArrowUpRight size={16} /></a>
+              <a href="/studio">Meet the studio <ArrowUpRight size={16} /></a>
+            </div>
+          </div>
+        </section>
         <section className="resource-page__closing">
           <div><p className="section-kicker section-kicker--light"><span>04</span> Need a project estimate?</p><h2>Start with the <em>problem.</em></h2></div>
           <a href="#contact">Discuss a project <ArrowUpRight size={17} /></a>
