@@ -13,6 +13,7 @@ const links = [
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const lightPage = window.location.pathname !== "/" && window.location.pathname !== "/studio";
 
   useEffect(() => {
     const updateNavbar = () => setScrolled(window.scrollY > 34);
@@ -35,7 +36,7 @@ function Navbar() {
 
   return (
     <>
-      <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
+      <header className={`navbar ${lightPage ? "navbar--light-page" : ""} ${scrolled ? "navbar--scrolled" : ""}`}>
         <a className="navbar__brand" href="/" aria-label="ARK II home"><span>ARK</span><span className="navbar__brand-mark">II</span></a>
         <nav className="navbar__desktop" aria-label="Primary navigation">
           <div className="navbar__links">{links.map((link) => <a key={link.label} href={link.href}>{link.label}</a>)}</div>
