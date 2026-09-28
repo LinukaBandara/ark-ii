@@ -111,6 +111,16 @@ function ServiceDetailPage({ slug }) {
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "WebPage",
+          "@id": `https://ark-ii.studio/services/${slug}#webpage`,
+          url: `https://ark-ii.studio/services/${slug}`,
+          name: `ARK II | ${service.label} Services | Premium Digital Studio`,
+          description: service.description,
+          isPartOf: { "@id": "https://ark-ii.studio/#website" },
+          about: { "@id": `https://ark-ii.studio/services/${slug}#service` },
+          inLanguage: "en"
+        },
+        {
           "@type": "Service",
           "@id": `https://ark-ii.studio/services/${slug}#service`,
           name: service.label,
