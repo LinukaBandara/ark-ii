@@ -34,7 +34,7 @@ function HomePage() {
     const failsafe = window.setTimeout(() => {
       document.body.classList.remove("is-loading");
       setSiteReady(true);
-    }, 7000);
+    }, 4000);
     return () => window.clearTimeout(failsafe);
   }, []);
 
