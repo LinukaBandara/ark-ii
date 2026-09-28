@@ -30,15 +30,43 @@
       "destination": "/"
     },
     {
-      "source": "/services/:path*",
+      "source": "/resources/business-website-cost",
       "destination": "/"
     },
     {
-      "source": "/work/:path*",
+      "source": "/work/ceylon-gem-atelier",
       "destination": "/"
     },
     {
-      "source": "/resources/:path*",
+      "source": "/work/dispatcharc",
+      "destination": "/"
+    },
+    {
+      "source": "/work/suranga-gems",
+      "destination": "/"
+    },
+    {
+      "source": "/work/bgs-agristock",
+      "destination": "/"
+    },
+    {
+      "source": "/work/linuka-bandara",
+      "destination": "/"
+    },
+    {
+      "source": "/services/web-design",
+      "destination": "/"
+    },
+    {
+      "source": "/services/web-development",
+      "destination": "/"
+    },
+    {
+      "source": "/services/web-app-development",
+      "destination": "/"
+    },
+    {
+      "source": "/services/website-redesign",
       "destination": "/"
     }
   ]
