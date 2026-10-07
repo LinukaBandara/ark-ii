@@ -12,8 +12,26 @@ function Footer() {
 
   return (
     <footer className="footer">
-      <div className="footer__top">
-        <div className="footer__statement">
+      <div className="footer__cta">
+        <div className="footer__cta-copy">
+          <span className="footer__eyebrow">Have a project in mind?</span>
+          <h2>
+            Let&apos;s build
+            <span>something that matters.</span>
+          </h2>
+        </div>
+
+        <div className="footer__action">
+          <p>Let&apos;s turn the idea into something real.</p>
+          <a href="/#contact">
+            Start a project
+            <ArrowUpRight size={18} strokeWidth={1.8} />
+          </a>
+        </div>
+      </div>
+
+      <div className="footer__middle">
+        <div className="footer__brand-block">
           <a
             className="footer__brand"
             href="#top"
@@ -23,32 +41,13 @@ function Footer() {
             <strong>II</strong>
           </a>
 
-          <h2>
-            Independent thinking.
-            <span> Intentional digital work.</span>
-          </h2>
+          <p className="footer__tagline">Design • Develop • Elevate</p>
+          <p className="footer__description">{site.description}</p>
         </div>
-
-        <div className="footer__action">
-          <p>
-            Ready to give your business a stronger digital identity?
-          </p>
-
-          <a href="/#contact">
-            Start a project
-            <ArrowUpRight size={18} strokeWidth={1.8} />
-          </a>
-        </div>
-      </div>
-
-      <div className="footer__middle">
-        <p className="footer__description">
-          {site.description}
-        </p>
 
         <div className="footer__links">
           <div>
-            <span>Navigate</span>
+            <span>Navigation</span>
             <a href="/work">Work</a>
             <a href="/lab">Lab</a>
             <a href="/services">Services</a>
@@ -58,23 +57,7 @@ function Footer() {
           </div>
 
           <div>
-            <span>Connect</span>
-            <a
-              href={`https://wa.me/${site.whatsappNumber}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              WhatsApp
-              <ArrowUpRight size={14} strokeWidth={1.7} />
-            </a>
-
-            {site.email && (
-              <a href={`mailto:${site.email}`}>
-                Email
-                <ArrowUpRight size={14} strokeWidth={1.7} />
-              </a>
-            )}
-
+            <span>Social</span>
             <div className="footer__socials" aria-label="ARK II social media">
               <a href={site.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.8"/><circle cx="17.4" cy="6.7" r="1" fill="currentColor"/></svg>
@@ -100,8 +83,8 @@ function Footer() {
       </div>
 
       <div className="footer__bottom">
+        <p>Colombo, Sri Lanka</p>
         <p>© 2026 ARK II</p>
-        <p>All projects designed and developed by ARK II</p>
         <p>All rights reserved</p>
 
         <button
