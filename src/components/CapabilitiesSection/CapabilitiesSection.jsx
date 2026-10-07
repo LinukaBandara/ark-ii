@@ -99,8 +99,8 @@ function CapabilitiesSection() {
           </div>
 
           <h2>
-            What we
-            <span> build with.</span>
+            How we
+            <span> build it.</span>
           </h2>
 
           <p>
