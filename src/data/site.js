@@ -5,8 +5,8 @@ export const site = {
   whatsappNumber: "94729755464",
   whatsappDisplay: "+94 72 975 5464",
 
-  // Add a real email before deployment, for example:
-  // email: "hello@yourdomain.com",
+  // Placeholder: add the ARK II public email before enabling email contact.
+  // email: "hello@ark-ii.studio",
   email: "",
 
   // Social profiles
