@@ -34,24 +34,17 @@ function ContactSection() {
       `Business: ${form.business || "Not provided"}`,
       `Project: ${form.project}`,
       `Budget: ${form.budget}`,
-      `Details: ${
-        form.message || "I would like to know more."
-      }`,
+      `Details: ${form.message || "I would like to know more."}`,
     ].join("\n");
 
-    const url = `https://wa.me/${
-      site.whatsappNumber
-    }?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`;
 
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
     <section className="contact-section" id="contact">
-      <div
-        className="contact-section__glow"
-        aria-hidden="true"
-      />
+      <div className="contact-section__glow" aria-hidden="true" />
       <ErrorBoundary>
         <NetworkCanvas variant="contact" />
       </ErrorBoundary>
@@ -111,7 +104,7 @@ function ContactSection() {
               rel="noreferrer"
             >
               <MessageCircle size={18} strokeWidth={1.7} />
-              {site.whatsappDisplay}
+              Start a conversation
               <ArrowUpRight size={17} strokeWidth={1.7} />
             </a>
 
@@ -219,9 +212,7 @@ function ContactSection() {
           </button>
 
           <p className="project-form__note">
-            Submitting this form opens WhatsApp with your project
-            information prepared as a message. Nothing is stored on the
-            website.
+            Submitting this form opens WhatsApp with your project information prepared as a message. Nothing is stored on the website.
           </p>
         </motion.form>
       </div>
