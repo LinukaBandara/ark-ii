@@ -2,6 +2,13 @@ html {
   background: var(--black);
 }
 
+/* Shared section label alignment */
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
 body {
   overflow-x: hidden;
   background: var(--black);
