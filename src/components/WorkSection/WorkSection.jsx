@@ -49,13 +49,14 @@ function ProjectShowcase({ project, position, onOpen }) {
 function WorkSection() {
   const [selectedProject, setSelectedProject] = useState(null);
   const closeProject = useCallback(() => setSelectedProject(null), []);
+  const homepageProjects = workProjects.filter((project) => project.id !== "ceylon-gem-atelier");
 
   return (
     <>
       <section className="work-section" id="work">
         <div className="work-section__intro">
           <motion.div className="section-kicker" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.8 }} transition={{ duration: 0.6 }}>
-            <span>01</span> Selected work / 05
+            <span>01</span> Selected work / 04
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 34 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             Real work.<span> Built to be remembered.</span>
@@ -66,10 +67,10 @@ function WorkSection() {
           </motion.div>
         </div>
 
-        <div className="work-list">{workProjects.map((project, index) => <ProjectShowcase key={project.id} project={project} position={index} onOpen={setSelectedProject} />)}</div>
+        <div className="work-list">{homepageProjects.map((project, index) => <ProjectShowcase key={project.id} project={project} position={index} onOpen={setSelectedProject} />)}</div>
 
         <motion.div className="work-section__footer" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.8 }} transition={{ duration: 0.7 }}>
-          <p>Five projects selected for the homepage. Explore the full archive for the complete ARK II body of work.</p>
+          <p>Four projects selected for the homepage. Explore the full archive for the complete ARK II body of work.</p>
           <a href="/work">View all work <ArrowUpRight size={17} strokeWidth={1.8} /></a>
         </motion.div>
       </section>
