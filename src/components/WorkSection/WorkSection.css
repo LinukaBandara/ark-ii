@@ -11,8 +11,8 @@
 .work-section__intro { display: grid; gap: 1.35rem; margin: 0 auto 4.5rem; max-width: 96rem; }
 .work-section .section-kicker { display: flex; align-items: center; gap: 0.85rem; color: rgba(9, 9, 9, 0.56); font-size: max(0.66rem, 11px); font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase; }
 .work-section .section-kicker span { color: var(--orange); }
-.work-section__intro h2 { max-width: 12ch; font-size: clamp(3.3rem, 13vw, 7rem); font-weight: 600; letter-spacing: -0.075em; line-height: 0.9; }
-.work-section__intro h2 span { color: var(--orange); font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+.work-section__intro h2 { max-width: 12ch; font-size: clamp(3.3rem, 13vw, 7rem); font-weight: 600; letter-spacing: -0.05em; line-height: 0.9; }
+.work-section__intro h2 span { color: var(--orange); font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.02em; word-spacing: 0.14em; }
 .work-section__intro-copy { display: grid; gap: 0.85rem; max-width: 34rem; }
 .work-section__intro-copy p { color: rgba(9, 9, 9, 0.62); font-size: max(0.88rem, 14px); line-height: 1.72; }
 .work-section__intro-copy span { color: rgba(9, 9, 9, 0.4); font-size: max(0.66rem, 11px); letter-spacing: 0.04em; }
