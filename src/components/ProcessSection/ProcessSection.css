@@ -5,7 +5,7 @@
     radial-gradient(circle at 75% 20%, rgba(255, 90, 31, 0.13), transparent 30%),
     var(--black);
   color: var(--ivory);
-  padding: 6rem var(--page-padding);
+  padding: 6rem var(--page-padding) 3rem;
 }
 
 .process-section__heading {
@@ -18,11 +18,13 @@
   max-width: 10ch;
   font-size: clamp(3.3rem, 14vw, 7.2rem);
   font-weight: 600;
-  letter-spacing: -0.075em;
+  letter-spacing: -0.05em;
   line-height: 0.88;
 }
 
 .process-section__heading h2 span {
+  letter-spacing: -0.02em;
+  word-spacing: 0.14em;
   display: block;
   color: var(--orange);
   font-family: var(--font-serif);
@@ -101,7 +103,7 @@
 @media (min-width: 760px) {
   .process-section {
     padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
   }
 
   .process-section__steps {
@@ -111,6 +113,7 @@
   .process-step {
     min-height: 20rem;
     padding: 1.8rem;
+    border-left: 1px solid rgba(241, 238, 231, 0.14);
     border-right: 1px solid rgba(241, 238, 231, 0.14);
   }
 
@@ -128,7 +131,7 @@
 @media (min-width: 1100px) {
   .process-section {
     padding-top: 9.5rem;
-    padding-bottom: 9rem;
+    padding-bottom: 4.5rem;
   }
 
   .process-section__heading h2 {
@@ -146,6 +149,7 @@
   }
 
   .process-step:nth-child(even) {
+    border-left: 1px solid rgba(241, 238, 231, 0.14);
     border-right: 1px solid rgba(241, 238, 231, 0.14);
   }
 
