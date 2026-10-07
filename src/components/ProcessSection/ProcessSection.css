@@ -113,7 +113,7 @@
   .process-step {
     min-height: 20rem;
     padding: 1.8rem;
-    border-left: 1px solid rgba(241, 238, 231, 0.14);
+    border-left: 0;
     border-right: 0;
   }
 
