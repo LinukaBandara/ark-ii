@@ -116,11 +116,14 @@ function ContactSection() {
             </a>
 
             {site.email && (
-              <a href={`mailto:${site.email}`}>
-                <Mail size={18} strokeWidth={1.7} />
-                {site.email}
-                <ArrowUpRight size={17} strokeWidth={1.7} />
-              </a>
+              <>
+                <p className="contact-section__email-label">or email us</p>
+                <a href={`mailto:${site.email}`}>
+                  <Mail size={18} strokeWidth={1.7} />
+                  {site.email}
+                  <ArrowUpRight size={17} strokeWidth={1.7} />
+                </a>
+              </>
             )}
           </div>
 
