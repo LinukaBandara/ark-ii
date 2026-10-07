@@ -181,6 +181,8 @@ npm run lint
 
 ## Deployment
 
+Active production host: Vercel, using `vercel.json`. The repository also retains `netlify.toml` for configuration history/fallback.
+
 The project includes a `netlify.toml` configuration for static deployment through Netlify. The custom domain `ark-ii.studio` is the intended canonical production URL, while the Netlify subdomain is redirected to it.
 
 ## Portfolio value
