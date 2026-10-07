@@ -16,10 +16,12 @@
     background-color 260ms ease,
     border-color 260ms ease,
     box-shadow 260ms ease,
-    padding 260ms ease;
+    color 260ms ease;
 }
 
-.navbar--light-page { color: var(--black); }
+.navbar--light-page {
+  color: var(--black);
+}
 
 .navbar--light-page:not(.navbar--scrolled) {
   border-color: rgba(9, 9, 9, 0.1);
@@ -39,7 +41,7 @@
   color: var(--ivory);
 }
 
-/* Explicit override: light pages must switch to the same dark treatment on scroll. */
+/* Scrolling changes the treatment only — never the navbar dimensions. */
 .navbar.navbar--light-page.navbar--scrolled {
   color: var(--ivory);
   border-color: rgba(241, 238, 231, 0.13);
@@ -47,6 +49,8 @@
   box-shadow:
     0 12px 40px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .navbar.navbar--light-page.navbar--scrolled .navbar__menu-button,
@@ -201,11 +205,6 @@ body.menu-open {
 @media (min-width: 880px) {
   .navbar {
     padding: 0.82rem 1.1rem;
-  }
-
-  .navbar:not(.navbar--scrolled) {
-    width: calc(100% - (var(--page-padding) * 2));
-    max-width: none;
   }
 
   .navbar__brand {
