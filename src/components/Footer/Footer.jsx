@@ -75,16 +75,20 @@ function Footer() {
               </a>
             )}
 
-            {site.instagramUrl && (
-              <a
-                href={site.instagramUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Instagram
-                <ArrowUpRight size={14} strokeWidth={1.7} />
+            <div className="footer__socials" aria-label="ARK II social media">
+              <a href={site.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.8"/><circle cx="17.4" cy="6.7" r="1" fill="currentColor"/></svg>
               </a>
-            )}
+              <a href={site.facebookUrl} target="_blank" rel="noreferrer" aria-label="Facebook" title="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.5V13h2.8v8h3.4Z" fill="currentColor"/></svg>
+              </a>
+              <a href={site.tiktokUrl} target="_blank" rel="noreferrer" aria-label="TikTok" title="TikTok">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.7 3c.3 2.2 1.5 3.5 3.7 3.7v3.1c-1.9.1-3.2-.5-3.7-1v6.1a5.1 5.1 0 1 1-4.4-5.1v3.2a2 2 0 1 0 1.3 1.9V3h3.1Z" fill="currentColor"/></svg>
+              </a>
+              <a href={site.linkedinUrl || "#"} target={site.linkedinUrl ? "_blank" : undefined} rel={site.linkedinUrl ? "noreferrer" : undefined} aria-label="LinkedIn" title={site.linkedinUrl ? "LinkedIn" : "LinkedIn — link coming soon"} className={!site.linkedinUrl ? "is-disabled" : ""} onClick={!site.linkedinUrl ? (event) => event.preventDefault() : undefined}>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.1 8.2H2.2V21h2.9V8.2ZM3.7 3a1.8 1.8 0 1 0 0 3.6A1.8 1.8 0 0 0 3.7 3ZM8.4 8.2V21h2.9v-6.3c0-1.7.3-3.4 2.5-3.4s2.2 2 2.2 3.5V21h2.9v-6.8c0-3.3-.7-5.8-4.4-5.8-1.8 0-3 .9-3.5 1.8h-.1V8.2H8.4Z" fill="currentColor"/></svg>
+              </a>
+            </div>
           </div>
 
           <div>
