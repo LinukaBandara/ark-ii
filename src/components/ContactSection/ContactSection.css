@@ -102,6 +102,12 @@
   color: var(--orange);
 }
 
+.contact-section__email-label {
+  color: rgba(241, 238, 231, 0.7);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
 .contact-section__location {
   display: grid;
   gap: 0.45rem;
