@@ -29,11 +29,13 @@
   max-width: 12ch;
   font-size: clamp(3.25rem, 13.5vw, 7rem);
   font-weight: 600;
-  letter-spacing: -0.075em;
+  letter-spacing: -0.05em;
   line-height: 0.88;
 }
 
 .contact-section__heading h2 span {
+  letter-spacing: -0.02em;
+  word-spacing: 0.14em;
   display: block;
   color: var(--orange);
   font-family: var(--font-serif);
@@ -106,7 +108,7 @@
 }
 
 .contact-section__location span {
-  color: rgba(241, 238, 231, 0.38);
+  color: rgba(241, 238, 231, 0.7);
   font-size: 0.61rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -142,7 +144,7 @@
 }
 
 .project-form label > span {
-  color: rgba(241, 238, 231, 0.5);
+  color: rgba(241, 238, 231, 0.7);
   font-size: 0.63rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -181,7 +183,7 @@
 
 .project-form input::placeholder,
 .project-form textarea::placeholder {
-  color: rgba(241, 238, 231, 0.29);
+  color: rgba(241, 238, 231, 0.55);
 }
 
 .project-form input:focus,
@@ -213,7 +215,7 @@
 }
 
 .project-form__note {
-  color: rgba(241, 238, 231, 0.36);
+  color: rgba(241, 238, 231, 0.7);
   font-size: 0.62rem;
   line-height: 1.55;
 }
