@@ -10,7 +10,7 @@
   border: 1px solid transparent;
   border-radius: 999px;
   color: var(--ivory);
-  padding: 0.76rem clamp(0.9rem, 2vw, 1.3rem);
+  padding: 0.82rem clamp(0.9rem, 2vw, 1.3rem);
   transform: translateX(-50%);
   transition:
     background-color 260ms ease,
@@ -206,8 +206,6 @@ body.menu-open {
   .navbar:not(.navbar--scrolled) {
     width: calc(100% - (var(--page-padding) * 2));
     max-width: none;
-    padding-right: 0;
-    padding-left: 0;
   }
 
   .navbar__brand {
