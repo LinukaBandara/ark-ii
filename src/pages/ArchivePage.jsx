@@ -61,7 +61,13 @@ function ArchivePage({ section }) {
     return () => document.getElementById("archive-schema")?.remove();
   }, [isWork]);
   const items = isWork ? workProjects : labProjects;
-  const [featured, ...rest] = items;
+  const orderedItems = isWork
+    ? [
+        ...items.filter((project) => project.id !== "ceylon-gem-atelier"),
+        ...items.filter((project) => project.id === "ceylon-gem-atelier")
+      ]
+    : items;
+  const [featured, ...rest] = orderedItems;
   const title = isWork ? <>Built for the real world.<span> Built to last.</span></> : <>A place to <span>experiment.</span></>;
   const intro = isWork
     ? "The complete ARK II work archive — client websites, business products and software platforms built around real problems."
@@ -80,7 +86,7 @@ function ArchivePage({ section }) {
             </motion.div>
             <motion.p className="archive-hero__intro" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .08, duration: .7 }}>{intro}</motion.p>
           </div>
-          <div className="archive-hero__stats"><span>{String(items.length).padStart(2, "0")} projects</span><span>2026 archive</span><span>{isWork ? "Client / Product" : "Concept / Live demo"}</span></div>
+          <div className="archive-hero__stats"><span>{String(orderedItems.length).padStart(2, "0")} projects</span><span>2026 archive</span><span>{isWork ? "Client / Product" : "Concept / Live demo"}</span></div>
         </section>
         <section className="archive-list">
           <ArchiveCard project={featured} featured isLab={!isWork} />
