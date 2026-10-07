@@ -9,8 +9,11 @@ export const site = {
   // email: "hello@yourdomain.com",
   email: "",
 
-  // Add the complete public profile URL before deployment.
-  instagramUrl: "",
+  // Social profiles
+  instagramUrl: "https://www.instagram.com/arkii.studio/",
+  facebookUrl: "https://www.facebook.com/share/19VqtdhJbm/?mibextid=wwXIfr",
+  tiktokUrl: "https://www.tiktok.com/@arkii.studio",
+  linkedinUrl: "",
 
   location: "Sri Lanka",
   serviceArea: "Working worldwide",
