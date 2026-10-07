@@ -89,8 +89,8 @@ function ArchivePage({ section }) {
           <div className="archive-hero__stats"><span>{String(orderedItems.length).padStart(2, "0")} projects</span><span>2026 archive</span><span>{isWork ? "Client / Product" : "Concept / Live demo"}</span></div>
         </section>
         <section className="archive-list">
-          <ArchiveCard project={featured} featured isLab={!isWork} />
-          {rest.map((project) => <ArchiveCard key={project.id} project={project} isLab={!isWork} />)}
+          <ArchiveCard project={featured} featured isLab={!isWork} orderedIndex={0} />
+          {rest.map((project, index) => <ArchiveCard key={project.id} project={project} isLab={!isWork} orderedIndex={index + 1} />)}
         </section>
       </main>
       <Footer />
@@ -98,7 +98,7 @@ function ArchivePage({ section }) {
   );
 }
 
-function ArchiveCard({ project, featured = false, isLab = false }) {
+function ArchiveCard({ project, featured = false, isLab = false, orderedIndex = 0 }) {
   if (isLab) return <LabArchiveCard project={project} />;
 
   const imageClass = project.imageFit === "contain" ? "archive-card__image--contain" : "";
@@ -112,7 +112,7 @@ function ArchiveCard({ project, featured = false, isLab = false }) {
         <div className="archive-card__launch"><ArrowUpRight size={22} /></div>
       </a>
       <div className="archive-card__info">
-        <div className="archive-card__index">{project.index}</div>
+        <div className="archive-card__index">{String(orderedIndex + 1).padStart(2, "0")}</div>
         <div className="archive-card__body">
           <div className="archive-card__heading"><div><p>{project.type}</p><h2>{project.title}</h2></div><span>{project.year}</span></div>
           <p className="archive-card__category">{project.category}</p>
