@@ -33,7 +33,7 @@ function ProjectShowcase({ project, position, onOpen }) {
       </div>
 
       <div className="work-project__info">
-        <div className="work-project__meta"><span>{project.index} / 05</span><span>{project.type}</span><span>{project.year}</span></div>
+        <div className="work-project__meta"><span>{String(position + 1).padStart(2, "0")} / 04</span><span>{project.type}</span><span>{project.year}</span></div>
         <div><h3>{project.title}</h3><p className="work-project__category">{project.category}</p></div>
         <p className="work-project__description">{project.description}</p>
         <div className="work-project__tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
