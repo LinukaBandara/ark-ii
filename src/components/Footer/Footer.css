@@ -126,6 +126,54 @@
   gap: 0.72rem;
 }
 
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+}
+
+.footer__socials a {
+  display: grid;
+  width: 2.45rem;
+  height: 2.45rem;
+  place-items: center;
+  border: 1px solid rgba(9, 9, 9, 0.22);
+  border-radius: 50%;
+  color: var(--black);
+  transition: transform 220ms ease, background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+
+.footer__socials svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.footer__socials a:hover {
+  border-color: var(--black);
+  background: var(--black);
+  color: var(--ivory);
+  transform: translateY(-3px);
+}
+
+.footer__socials a.is-disabled {
+  cursor: default;
+  opacity: 0.42;
+}
+
+.footer__socials a.is-disabled:hover {
+  border-color: rgba(9, 9, 9, 0.22);
+  background: transparent;
+  color: var(--black);
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__socials a {
+    transition: none;
+  }
+}
+
 .footer__links > div > span {
   margin-bottom: 0.25rem;
   color: rgba(9, 9, 9, 0.5);
