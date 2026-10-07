@@ -1,4 +1,4 @@
-.contact-section {
+ .contact-section {
   position: relative;
   overflow: hidden;
   background: var(--black);
@@ -179,12 +179,38 @@
 
 .project-form select {
   appearance: none;
+  -webkit-appearance: none;
+  color-scheme: dark;
   cursor: pointer;
+  padding-right: 2rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(241, 238, 231, 0.72) 50%),
+    linear-gradient(135deg, rgba(241, 238, 231, 0.72) 50%, transparent 50%);
+  background-position:
+    calc(100% - 0.78rem) 46%,
+    calc(100% - 0.5rem) 46%;
+  background-repeat: no-repeat;
+  background-size: 0.3rem 0.3rem, 0.3rem 0.3rem;
+}
+
+.project-form select:hover {
+  border-bottom-color: rgba(241, 238, 231, 0.34);
+}
+
+.project-form select:focus-visible {
+  border-bottom-color: var(--orange);
+  box-shadow: 0 1px 0 var(--orange);
 }
 
 .project-form select option {
   background: var(--black);
   color: var(--ivory);
+  font-size: 0.86rem;
+}
+
+.project-form select option:checked {
+  background: var(--orange);
+  color: var(--black);
 }
 
 .project-form input::placeholder,
@@ -193,7 +219,6 @@
 }
 
 .project-form input:focus,
-.project-form select:focus,
 .project-form textarea:focus {
   border-bottom-color: var(--orange);
 }
@@ -283,7 +308,6 @@
   }
 }
 
-
 .contact-section__pending {
   display: grid;
   grid-template-columns: 1.5rem minmax(0, 1fr);
@@ -295,7 +319,6 @@
   font-size: 0.78rem;
 }
 
-
 .contact-section__glow {
   z-index: 0;
 }
@@ -303,19 +326,6 @@
 .contact-section__heading,
 .contact-section__layout {
   z-index: 2;
-}
-
-
-.project-form select {
-  padding-right: 2rem;
-  background-image:
-    linear-gradient(45deg, transparent 50%, rgba(241, 238, 231, 0.62) 50%),
-    linear-gradient(135deg, rgba(241, 238, 231, 0.62) 50%, transparent 50%);
-  background-position:
-    calc(100% - 0.75rem) 46%,
-    calc(100% - 0.48rem) 46%;
-  background-repeat: no-repeat;
-  background-size: 0.3rem 0.3rem, 0.3rem 0.3rem;
 }
 
 .project-form input,
