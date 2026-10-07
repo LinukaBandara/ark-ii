@@ -114,11 +114,11 @@
     min-height: 20rem;
     padding: 1.8rem;
     border-left: 1px solid rgba(241, 238, 231, 0.14);
-    border-right: 1px solid rgba(241, 238, 231, 0.14);
+    border-right: 0;
   }
 
-  .process-step:nth-child(even) {
-    border-right: 0;
+  .process-step + .process-step {
+    border-left: 1px solid rgba(241, 238, 231, 0.14);
   }
 
   .process-section__closing {
@@ -145,16 +145,11 @@
   .process-step {
     min-height: 29rem;
     padding: 1.6rem;
-    border-right: 1px solid rgba(241, 238, 231, 0.14);
-  }
-
-  .process-step:nth-child(even) {
-    border-left: 1px solid rgba(241, 238, 231, 0.14);
-    border-right: 1px solid rgba(241, 238, 231, 0.14);
-  }
-
-  .process-step:last-child {
     border-right: 0;
+  }
+
+  .process-step + .process-step {
+    border-left: 1px solid rgba(241, 238, 231, 0.14);
   }
 
   .process-step h3 {
