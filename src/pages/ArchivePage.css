@@ -32,8 +32,13 @@
 .archive-card__description { max-width:42rem; color:rgba(9,9,9,.6); font-size:14px; line-height:1.75; }
 .archive-card__tags { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:1.4rem; }
 .archive-card__tags span { padding:.5rem .72rem; border:1px solid rgba(9,9,9,.14); border-radius:999px; color:rgba(9,9,9,.6); font-size:10px; }
-.archive-card__actions { margin-top:1.6rem; }
-.archive-card__actions a { display:inline-flex; align-items:center; gap:.5rem; border-bottom:1px solid rgba(9,9,9,.35); padding-bottom:.25rem; font-size:12px; font-weight:700; }
+.archive-card__actions { display:flex; flex-wrap:wrap; align-items:center; gap:.65rem; margin-top:1.8rem; }
+.archive-card__actions a { display:inline-flex; align-items:center; justify-content:center; gap:.55rem; min-height:2.75rem; border:1px solid rgba(9,9,9,.16); border-radius:999px; padding:.7rem 1rem; color:var(--black); background:transparent; font-size:11px; font-weight:700; letter-spacing:.01em; transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease; }
+.archive-card__actions a:first-child { border-color:var(--black); background:var(--black); color:var(--ivory); }
+.archive-card__actions a:last-child { background:rgba(9,9,9,.025); }
+.archive-card__actions a:hover { transform:translateY(-2px); border-color:var(--black); }
+.archive-card__actions a:first-child:hover { background:var(--orange); border-color:var(--orange); color:var(--black); }
+.archive-card__actions a:last-child:hover { background:var(--black); color:var(--ivory); }
 
 /* LAB ARCHIVE — intentionally isolated from Work archive. */
 .archive-page--lab { background:#03080c; color:#f1eee7; }
@@ -73,6 +78,8 @@
   .archive-card__info { grid-template-columns:2rem minmax(0,1fr); gap:1rem; }
   .archive-card__heading { align-items:start; }
   .archive-card__heading > span { display:none; }
+  .archive-card__actions { gap:.55rem; }
+  .archive-card__actions a { flex:1 1 auto; min-width:9.5rem; }
   .archive-page--lab .archive-hero { padding-bottom:2.5rem; }
   .archive-page--lab .archive-hero__top { margin-bottom:3rem; }
   .archive-page--lab .archive-hero h1 { max-width:9ch; font-size:clamp(3.7rem,17vw,6rem); }
