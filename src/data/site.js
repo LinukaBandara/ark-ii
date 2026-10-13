@@ -5,9 +5,7 @@ export const site = {
   whatsappNumber: "94729755464",
   whatsappDisplay: "+94 72 975 5464",
 
-  // Placeholder: add the ARK II public email before enabling email contact.
-  // email: "hello@ark-ii.studio",
-  email: "",
+  email: "hello@ark-ii.studio",
 
   // Social profiles
   instagramUrl: "https://www.instagram.com/arkii.studio/",
