@@ -54,6 +54,10 @@
       "destination": "/"
     },
     {
+      "source": "/work/stackpick",
+      "destination": "/"
+    },
+    {
       "source": "/services/web-design",
       "destination": "/"
     },
