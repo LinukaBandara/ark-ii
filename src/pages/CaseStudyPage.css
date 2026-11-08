@@ -54,3 +54,8 @@
   font-size: 0.72rem;
   line-height: 1.7;
 }
+
+.case-study__visual--swipe{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--orange) rgba(9,9,9,.15)}
+.case-study__visual--swipe img{flex:0 0 100%;min-width:100%;scroll-snap-align:start;object-fit:cover}
+.case-study__visual--swipe::-webkit-scrollbar{height:5px}
+.case-study__visual--swipe::-webkit-scrollbar-thumb{background:var(--orange)}

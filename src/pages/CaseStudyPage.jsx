@@ -120,8 +120,10 @@ function CaseStudyPage({ slug }) {
             </div>
           </div>
 
-          <div className="case-study__visual">
-            <img src={project.image} alt={project.imageAlt} />
+          <div className={`case-study__visual ${project.gallery?.length > 1 ? "case-study__visual--swipe" : ""}`} aria-label={project.gallery?.length > 1 ? "Swipe to view project screenshots" : undefined}>
+            {(project.gallery?.length > 1 ? project.gallery : [project.image]).map((image, index) => (
+              <img key={image} src={image} alt={`${project.imageAlt}${project.gallery?.length > 1 ? ` — screenshot ${index + 1}` : ""}`} loading={index === 0 ? "eager" : "lazy"} />
+            ))}
           </div>
         </section>
 
