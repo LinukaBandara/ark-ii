@@ -102,7 +102,7 @@ function CaseStudyPage({ slug }) {
         <section className="case-study__hero">
           <div className="case-study__top">
             <a href="/work"><ArrowLeft size={15} /> All work</a>
-            <span>{project.index} / 05 CASE STUDY</span>
+            <span>{project.index} / {String(workProjects.length).padStart(2, "0")} CASE STUDY</span>
           </div>
 
           <div className="case-study__grid">
@@ -113,7 +113,7 @@ function CaseStudyPage({ slug }) {
             </div>
             <div className="case-study__intro">
               <p>{project.description}</p>
-              <p className="case-study__service-context">ARK II {project.category.toLowerCase()} — relevant to businesses looking for premium web design, web development or custom digital products.</p>
+              <p className="case-study__service-context">{project.id === "stackpick" ? "An independent digital product owned by ARK II Studio, with its own brand and domain." : `ARK II ${project.category.toLowerCase()} — relevant to businesses looking for premium web design, web development or custom digital products.`}</p>
               <a href={project.liveUrl} target="_blank" rel="noreferrer">
                 View live project <ExternalLink size={15} />
               </a>

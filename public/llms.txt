@@ -10,6 +10,10 @@
 
 ARK II is a Sri Lanka-based digital studio serving ambitious businesses in Sri Lanka and worldwide. The studio combines web development, responsive interface design, interaction design, motion and visual storytelling to create polished digital experiences.
 
+## Digital products
+
+- StackPick: https://stackpick.tech/ — an independent ARK II digital product and software discovery publication helping freelancers and small teams compare software through pricing, feature breakdowns, verified limits and practical guides.
+
 ## Creator
 
 - Linuka Bandara: https://linukabandara.me/

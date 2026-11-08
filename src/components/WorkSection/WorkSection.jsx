@@ -14,7 +14,7 @@ function getProjectHost(url) {
   return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 }
 
-function ProjectShowcase({ project, position, onOpen }) {
+function ProjectShowcase({ project, position, total, onOpen }) {
   const reverse = position % 2 === 1;
   const isContain = project.imageFit === "contain";
 
@@ -33,7 +33,7 @@ function ProjectShowcase({ project, position, onOpen }) {
       </div>
 
       <div className="work-project__info">
-        <div className="work-project__meta"><span>{String(position + 1).padStart(2, "0")} / 04</span><span>{project.type}</span><span>{project.year}</span></div>
+        <div className="work-project__meta"><span>{String(position + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span><span>{project.type}</span><span>{project.year}</span></div>
         <div><h3>{project.title}</h3><p className="work-project__category">{project.category}</p></div>
         <p className="work-project__description">{project.description}</p>
         <div className="work-project__tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
@@ -56,7 +56,7 @@ function WorkSection() {
       <section className="work-section" id="work">
         <div className="work-section__intro">
           <motion.div className="section-kicker" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.8 }} transition={{ duration: 0.6 }}>
-            <span>01</span> Selected work / 04
+            <span>01</span> Selected work / {String(homepageProjects.length).padStart(2, "0")}
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 34 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             Real work.<span> Built to be remembered.</span>
@@ -67,10 +67,10 @@ function WorkSection() {
           </motion.div>
         </div>
 
-        <div className="work-list">{homepageProjects.map((project, index) => <ProjectShowcase key={project.id} project={project} position={index} onOpen={setSelectedProject} />)}</div>
+        <div className="work-list">{homepageProjects.map((project, index) => <ProjectShowcase key={project.id} project={project} position={index} total={homepageProjects.length} onOpen={setSelectedProject} />)}</div>
 
         <motion.div className="work-section__footer" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.8 }} transition={{ duration: 0.7 }}>
-          <p>Four projects selected for the homepage. Explore the full archive for the complete ARK II body of work.</p>
+          <p>{homepageProjects.length} projects selected for the homepage. Explore the full archive for the complete ARK II body of work.</p>
           <a href="/work">View all work <ArrowUpRight size={17} strokeWidth={1.8} /></a>
         </motion.div>
       </section>
