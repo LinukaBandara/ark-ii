@@ -69,7 +69,7 @@ function App() {
   if (path === "/work") return <ArchivePage section="work" />;
   if (path.startsWith("/work/")) {
     const slug = path.split("/")[2];
-    const validWork = ["ceylon-gem-atelier", "dispatcharc", "suranga-gems", "bgs-agristock", "linuka-bandara"];
+    const validWork = ["ceylon-gem-atelier", "dispatcharc", "suranga-gems", "bgs-agristock", "linuka-bandara", "stackpick"];
     return validWork.includes(slug) ? <CaseStudyPage slug={slug} /> : <NotFoundPage />;
   }
   if (path === "/lab") return <ArchivePage section="lab" />;
