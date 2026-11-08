@@ -9,7 +9,9 @@ const reveal = {
 };
 
 function LabSection() {
-  const previewProjects = labProjects.slice(0, 4);
+  const previewProjects = labProjects
+    .filter((project) => project.id !== "flickglass")
+    .slice(0, 4);
 
   return (
     <section className="lab-section" id="lab">
@@ -31,10 +33,7 @@ function LabSection() {
           <motion.article className={`lab-card ${index === 0 ? "lab-card--featured" : ""}`} key={project.id} variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.16 }}>
             <a className="lab-card__visual" href={project.liveUrl} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} live concept`}>
               <img className={project.imageFit === "contain" ? "lab-card__image--contain" : ""} src={project.image} alt={`${project.title} website preview`} loading="lazy" referrerPolicy="no-referrer" />
-              <div className="lab-card__shade" />
-              <div className="lab-card__top"><span>ARK II LAB / {String(index + 1).padStart(2, "0")}</span><span>2026</span></div>
               <div className="lab-card__launch"><ArrowUpRight size={20} strokeWidth={1.7} /></div>
-              <div className="lab-card__overlay-title"><span>{project.category}</span><strong>{project.title}</strong></div>
             </a>
             <div className="lab-card__caption">
               <div><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{project.title}</h3><p>{project.category}</p></div></div>
