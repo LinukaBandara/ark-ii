@@ -187,6 +187,7 @@ function ContactSection() {
                 value={form.budget}
                 onChange={handleChange}
               >
+                <option>Under LKR 25,000</option>
                 <option>LKR 25,000 – 50,000</option>
                 <option>LKR 50,000 – 100,000</option>
                 <option>LKR 100,000+</option>
